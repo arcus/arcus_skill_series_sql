@@ -15,6 +15,11 @@ After completion of this module, learners will be able to:
 - Explain what "relational" means in the phrase "relational database"
 - Give an example of what kinds of tasks SQL is ideal for
 
+**Session Materials** 
+
+- Review the [workshop slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/demystifying_sql/demystifying_sql.md#1)
+- Work through this content as an [interactive tutorial](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/demystifying_sql/demystifying_sql.md#1)
+
 ## Session 2 - Database Normalization 
 
 ## Session 3 - SQL Basics
