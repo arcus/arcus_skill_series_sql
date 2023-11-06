@@ -17,6 +17,8 @@ No previous versions.
 
 **Welcome to the Arcus Education Skill Series!**
 
+<br>
+
 <div style = "align-items: center; display: flex;">
 <div style = "margin: 1rem; max-width: 30%; float:left; padding-right:4em;">![""](../media/SQL-Logo.png)
 </div>
@@ -29,6 +31,8 @@ No previous versions.
 
 @todays_talk
 <h3>@title</h3>
+
+After this session, learners will be able to:
 
 @learning_objectives
 @end
