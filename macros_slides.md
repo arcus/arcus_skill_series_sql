@@ -37,6 +37,17 @@ After this session, learners will be able to:
 @learning_objectives
 @end
 
+@about_these_slides
+
+Today's presentation will include interactive content!
+
+To participate, open our [classroom link](@classroom_link).
+Don't edit the room name, just click "connect". 
+
+You'll be able to step through the slides yourself to follow along, and when we get to **Your Turn** sections, you can enter your response on your screen to anonymously share with the group.
+
+@end
+
 -->
 # Macros for slides
 
