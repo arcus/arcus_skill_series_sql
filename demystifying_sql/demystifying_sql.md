@@ -226,11 +226,11 @@ SQL, which can be pronounced "sequel" or S-Q-L, stands for Structured Query Lang
 
 Which of these correctly describe relational databases?  Choose all the correct options.
 
-[[ ]] Relational databases are an alternative to SQL
-[[X]] Relational databases organize data into tables
-[[ ]] Tables in relational databases are organized into ranks and files
-[[X]] Relational databases permit the extraction of highly specific data
-[[X]] The "relational" in "relational database" refers to data that occurs in multiple places and allows for linking, or "relating" data
+[[ ]] A. Relational databases are an alternative to SQL
+[[X]] B. Relational databases organize data into tables
+[[ ]] C. Tables in relational databases are organized into ranks and files
+[[X]] D. Relational databases permit the extraction of highly specific data
+[[X]] E. The "relational" in "relational database" refers to data that occurs in multiple places and allows for linking, or "relating" data
 
 --{{1}}--
 Relational databases are a data storage solution and they store data in tables, which are in turn organized into rows and columns.  
@@ -461,11 +461,11 @@ WHERE sex = "F" AND date_of_birth >= '2019-01-01';
 
 Which of these correctly describe the strengths of SQL?
 
-[[X]] SQL is particularly well suited to finding data that meets your requirements
-[[ ]] SQL is often used for data visualization purposes
-[[X]] SQL can pick just the columns you want as well as only the rows that meet some conditions
-[[ ]] SQL is a good solution for complex language processing
-[[X]] SQL is a good choice for storing data that can be organized in tables with rows and columns.
+[[X]] A. SQL is particularly well suited to finding data that meets your requirements
+[[ ]] B. SQL is often used for data visualization purposes
+[[X]] C. SQL can pick just the columns you want as well as only the rows that meet some conditions
+[[ ]] D. SQL is a good solution for complex language processing
+[[X]] E. SQL is a good choice for storing data that can be organized in tables with rows and columns.
 [[?]] There are multiple correct answers!
 
 --{{1}}--
