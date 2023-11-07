@@ -45,14 +45,14 @@ sequence_name: sql
 No previous versions.
 @end
 
-classroom_link: http://localhost:8000/liascript/index.html?eyJiYWNrZW5kIjoiR1VOfGZ8aHR0cHM6Ly9wZWVyLndhbGxpZS5pby9ndW4iLCJjb3Vyc2UiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZGVteXN0aWZ5aW5nX3NxbC9kZW15c3RpZnlpbmdfc3FsLm1kIiwicm9vbSI6IlwiQXJjdXNfc3FsX3RhbGtzXzIwMjMxMTA4XCIifQ==#1
-slides_link: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/demystifying_sql/demystifying_sql.md#1
-module_link: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/demystifying_sql/demystifying_sql.md#1
+repo_link: https://github.com/arcus/arcus_skill_series_sql
+module_link: https://bit.ly/DART_demystifying_sql 
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
 
 big: <b style="font-size: 1.5em;">@0</b>
 center: <div style="text-align: center;">@0</div>
+colorhighlight: <b style="font-size: 1.15em; color: rgba(var(--color-highlight));">@0</b>
 
 @sql_series_slide
 
@@ -71,7 +71,7 @@ center: <div style="text-align: center;">@0</div>
 @end
 
 @todays_talk
-<h3>@title</h3>
+@big(@title)
 
 After this session, learners will be able to:
 
@@ -80,12 +80,33 @@ After this session, learners will be able to:
 
 @about_these_slides
 
+These slides were created with [LiaScript](https://liascript.github.io/), an open source markdown parser for writing educational content.
+
+All of the speaker notes from today's talk are saved in the slides themselves -- try changing the view to Textbook and it will integrate the text from the notes into the slides themselves, or turn on the sound at the bottom to hear the notes read out loud as you go through. 
+
+<div style = "align-items: center; display: flex;">
+<div style = "margin-left: 10%; max-width: 25%; float:left; border-style: solid; border-color: rgba(var(--color-highlight));">
+![Screenshot showing the upper right menus on a liascript page with the mode menu open and Textbook highlighted.](../media/liascript_mode.png)
+</div>
+<div style = "margin-right: 10%; max-width: 25%; float:right; border-style: solid; border-color: rgba(var(--color-highlight));">
+![Screenshot showing the sound buttons at the bottom of a liascript page with the speaker button highlighted.](../media/liascript_sound.png)
+</div>
+</div>
+
+The content from this talk is also available as [a self-paced online tutorial](@module_link).
+
+For all of the files and information from this talk, go to our [GitHub repository for these materials](@repo_link).
+
+@end
+
+@teams_polls 
+
 @big(Today's presentation will include interactive content!)
 
-To participate, open our [classroom link](@classroom_link).
-Don't edit the room name, just click "connect". 
+The best way to learn is to practice!
 
-You'll be able to step through the slides yourself to follow along, and when we get to 💫 **Your Turn** sections, you can enter your response on your screen to anonymously share with the group.
+When we reach 💫 **Your Turn** sections, test your knowledge and respond in the Teams poll. 
+Then we'll discuss the answer together.
 
 @end
 -->
@@ -103,10 +124,6 @@ We'll be recording today, so please leave your cameras and mics turned off until
 If you have questions that come up during the talk, feel free to put them in the chat. 
 Okay, let's get started!
 
-## About these slides
-
-@about_these_slides
-
 ## Today's talk 
 
 @todays_talk
@@ -114,6 +131,14 @@ Okay, let's get started!
 --{{1}}--
 Today will be about providing a high level overview of SQL -- what it is, what it's good for, why you might want to learn it. 
 We won't be doing any hands-on coding with SQL today, although we will during some of the future sessions in this series.
+
+## Learn by doing
+
+@teams_polls
+
+--{{1}}--
+We're firm believers that the best way to learn is to practice!
+We won't have any hands-on coding practice today, but we will have short quizzes that come up to help you check your understanding and consolidate learning. 
 Okay, let's dive in.
 
 ## What is SQL?
@@ -187,7 +212,9 @@ For example, when we look in the `encounters` table and in the `medication_order
 
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
+
 Relational databases work by using data fields like IDs to allow us to find out data about a patient, or customer, or purchase order, or other thing we're interested in, by following the matching ID into other, **related** tables.
+
 </div>
 
 --{{0}}--
@@ -256,9 +283,11 @@ This is because, especially for large datasets, SQL is a much more efficient too
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
+
 SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages. 
 
 Use SQL to get close to the final data you'll want to analyze, then export it. 
+
 </div>
 *****
 
@@ -271,9 +300,11 @@ In this analogy, SQL is the heavy duty tool that gets your data close to its fin
 
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
+
 It's a good idea to document your SQL queries and save them, because this allows you to show your steps and give data provenance.  
 
 This helps with reproducibility and standardization of your work, and might help provide a place to start for future projects.
+
 </div>
 
 ### When SQL Isn't the Right Tool
@@ -299,8 +330,10 @@ For all of these "downstream analytics" use cases, you will want to use an actua
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
+
 Don't use SQL for actual analysis work. 
 Switch to a tool like R, Python, or Stata.
+
 </div>
 *****
 
@@ -421,6 +454,22 @@ SELECT last_name, first_name, date_of_birth, sex
 FROM patient;
 ```
 
+### 💫 Your turn! SELECT
+
+Which of the following queries will work to get all of the columns from the `medication_order` table?
+
+[[ ]] A. `SELECT all FROM medication_order;`
+[[ ]] B. `SELECT FROM medication_order;`
+[[X]] C. `select * from medication_order;`
+[[X]] D. `SELECT * FROM medication_order;`
+[[ ]] E. `FROM medication_order SELECT *;`
+
+--{{0}}--
+Either C or D will work! 
+The `*` wildcard means "all columns", and it's fine to use upper or lower case for the SQL commands -- we recommend upper case since it helps the commands to stand out, but it's just a style choice.
+A and B won't work because they don't specify any columns (there is no `all` column, and B omits the column specification altogether). 
+E won't work because you have to have `SELECT` first and then `FROM`, even though that might be backwards to how you would more naturally think about it. 
+
 ### WHERE
 
 --{{0}}--
@@ -430,7 +479,9 @@ The **where clause**, using the `WHERE` keyword, is the section of your query us
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
+
 Use `SELECT` and `FROM` together to specify the columns you want, and `WHERE` to specify the rows you want.
+
 </div>
 *****
 
@@ -457,7 +508,7 @@ FROM patient
 WHERE sex = "F" AND date_of_birth >= '2019-01-01';
 ```
 
-### 💫 Your turn! SQL Tasks
+## 💫 Your turn! SQL Tasks
 
 Which of these correctly describe the strengths of SQL?
 
@@ -492,6 +543,34 @@ Finally, you learned about the structure of relational databases: data stored in
 
 * If you are interested in the history of technology, [Early History of SQL](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6359709) is a comprehensive look into how SQL has evolved.  It's very jargon-dense!
 
-## Feedback
+## About these slides
 
-@feedback
+@about_these_slides
+
+## Upcoming sessions
+
+(all sessions are held 12:00pm – 1:00pm) 
+
+@colorhighlight(December 2023 - Database Normalization)
+
+Learn about the concept of normalization and why it's important for organizing complicated data in relational databases.
+
+Tuesday December 5, 2023 and Wednesday December 13, 2023 
+
+@colorhighlight(January 2024 - SQL Basics)
+
+Learn basic SQL queries (with the SELECT, FROM, WHERE, DISTINCT keywords). We'll work single tables, using code, hands-on.
+
+Wednesday January 17, 2024 and Tuesday January 23, 2024   
+
+@colorhighlight(February 2024 - SQL Intermediate Level)
+
+Learn about intermediate SQL queries with keywords like CASE, LIKE, and GROUP BY. We'll work on single tables, using code, hands-on.
+
+Tuesday February 6, 2024 and Wednesday February 21, 2024  
+
+@colorhighlight(March 2024 - SQL Joins)
+
+Work with multiple tables and learn about SQL joins: learn what they accomplish and how to write them.
+
+Tuesday March 12, 2024 and Wednesday March 20, 2024
