@@ -8,10 +8,13 @@ module_type: slides
 language: en
 narrator: US English Male
 mode: Presentation
+classroom: enable
+@onload: window.LIA.settings.sound = false
+
 title: Demystifying SQL
 comment:  SQL is a relational database solution that has been around for decades.  Learn more about this technology at a high level, without having to write code.
 long_description: Do you have colleagues who use SQL or refer to "databases" or "the data warehouse" and you're not sure what it all means?  This module will give you some very high level explanations to help you understand what SQL is and some basic concepts for working with it.  There is no code or hands-on application in this module, so it's appropriate for people who have zero experience and want an overview of SQL.
-estimated_time_in_minutes: 40
+estimated_time_in_minutes: 45
 @pre_reqs
 
 Experience working with rectangular data (data in rows and columns) will be helpful.  For example, experience working in Excel, Google Sheets, or other software that helps organize data into rows and columns is sufficient expertise to take this module.
@@ -19,14 +22,10 @@ Experience working with rectangular data (data in rows and columns) will be help
 @end
 
 @learning_objectives  
-
-After completion of this module, learners will be able to:
-
 - Define the acronym "SQL"
 - Explain the basic organization of data in relational databases
 - Explain what "relational" means in the phrase "relational database"
 - Give an example of what kinds of tasks SQL is ideal for
-
 @end
 
 good_first_module: true
@@ -46,40 +45,113 @@ sequence_name: sql
 No previous versions.
 @end
 
+classroom_link: http://localhost:8000/liascript/index.html?eyJiYWNrZW5kIjoiR1VOfGZ8aHR0cHM6Ly9wZWVyLndhbGxpZS5pby9ndW4iLCJjb3Vyc2UiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZGVteXN0aWZ5aW5nX3NxbC9kZW15c3RpZnlpbmdfc3FsLm1kIiwicm9vbSI6IlwiQXJjdXNfc3FsX3RhbGtzXzIwMjMxMTA4XCIifQ==#1
+slides_link: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/demystifying_sql/demystifying_sql.md#1
+module_link: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/demystifying_sql/demystifying_sql.md#1
+
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
+
+big: <b style="font-size: 1.5em;">@0</b>
+center: <div style="text-align: center;">@0</div>
+
+@sql_series_slide
+
+<div style = "text-align: center; font-weight: bold;font-size: 1.5em; color: white; background-color: rgba(var(--color-highlight));">Welcome to the Arcus Education Skill Series!</div>
+
+<br>
+
+<div style = "align-items: center; display: flex;">
+<div style = "margin: 1rem; max-width: 30%; float:left; padding-right:4em;">![""](../media/SQL-Logo.png)
+</div>
+<div style = "margin: 1rem auto; max-width: 65%; float:left;">
+<h3>Beyond the Spreadsheet: Understanding SQL and Relational Databases</h3> 
+
+</div>
+</div>
+@end
+
+@todays_talk
+<h3>@title</h3>
+
+After this session, learners will be able to:
+
+@learning_objectives
+@end
+
+@about_these_slides
+
+@big(Today's presentation will include interactive content!)
+
+To participate, open our [classroom link](@classroom_link).
+Don't edit the room name, just click "connect". 
+
+You'll be able to step through the slides yourself to follow along, and when we get to 💫 **Your Turn** sections, you can enter your response on your screen to anonymously share with the group.
+
+@end
 -->
 
 # Demystifying SQL
 
-@overview
+@sql_series_slide
+
+--{{0}}--
+Welcome! 
+I'm Rose Hartman, and I use she/her pronouns. 
+I'm a data science educator with the Arcus project in DBHi. 
+Today's talk is the first in a series of talks about SQL we'll be offering over the next several months. 
+We'll be recording today, so please leave your cameras and mics turned off until the question time at the end.
+If you have questions that come up during the talk, feel free to put them in the chat. 
+Okay, let's get started!
+
+## About these slides
+
+@about_these_slides
+
+## Today's talk 
+
+@todays_talk
+
+--{{1}}--
+Today will be about providing a high level overview of SQL -- what it is, what it's good for, why you might want to learn it. 
+We won't be doing any hands-on coding with SQL today, although we will during some of the future sessions in this series.
+Okay, let's dive in.
 
 ## What is SQL?
 
---{{0}}--
-To put it simply, **SQL** (**S**tructured **Q**uery **L**anguage) is a programming language used to interact with "**Relational Databases**".  
-You can pronounce it as "sequel" or just say the letters S-Q-L.
+**S**tructured **Q**uery **L**anguage
 
 {{1}}
-So, what is a **relational database**?
+**SQL** is a programming language used to interact with "**Relational Databases**".  
 
 --{{1}}--
-That definition above itself introduces a new term.
-Let's start with the word "**database**".  A database is a data storage solution that stores data in objects called tables.  Tables are objects comprised of columns (sometimes called 'fields') and rows (similar to data in an Excel spreadsheet or .csv file).
+You can pronounce it as "sequel" or just say the letters S-Q-L.
+
+{{2}}
+So, what is a **relational database**?
 
 --{{2}}--
-When we add "**relational**" as a modifier, we mean that tables within the database are **related** to one another by columns they have in common (like a customer or patient id column that appears in several different tables). Usually, with a relational database, you will use several tables to answer a question, and use information from one table to look up information in the next, like a series of clues.
+Let's start with the word "**database**".  A database is a data storage solution that stores data in objects called tables.  Tables are objects comprised of columns (sometimes called 'fields') and rows (similar to data in an Excel spreadsheet or .csv file).
+When we add "**relational**" as a modifier, we mean that tables within the database are **related** to one another by columns they have in common (like a patient id column that appears in several different tables). Usually, with a relational database, you will use several tables to answer a question, and use information from one table to look up information in the next, like a series of clues.
+Let's dig into this idea a little further by looking at a made-up example.
 
 ### Relational Database Example
 
 --{{0}}--
-Consider, for example, these three sample tables.  
+Consider, for example, these three sample tables: `demographics`, `encounters`, and `medication_order`.  
 They are rectangular (or tabular) in shape and organize data in rows and columns.  
 Can you identify the column they have in common?  
 
 --{{1}}--
-How could you figure out how many times Prairie Dawn had an encounter with `ed_ind` equal to 1?
+How could you figure out how many times Prairie Dawn had an encounter in the Emergency Department (`ed_ind` equal to 1)?
 
-<h4>A Sample `demographics` table</h4>
+--{{2}}--
+If the idea of relational databases with tables that refer to one another feels confusing, you're not alone.  
+Let's walk through it together. 
+First, we discover the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
+We can then use this patient ID to find **related** data in other tables.  
+For example, when we look in the `encounters` table and in the `medication_order` table, we never see the patient name "Prairie Dawn," but we **do** find her ID, SMLE321.  
+
+<h4>A `demographics` table</h4>
 
 <!-- data-type="none" -->
 | patient_id | date\_of\_birth | sex | last_name | first_name |
@@ -88,7 +160,7 @@ How could you figure out how many times Prairie Dawn had an encounter with `ed_i
 | TRSH789    | 1985-08-20    | M   | the Grouch | Oscar |
 | SMLE321    | 1990-12-12    | F   | Dawn      | Prairie |
 
-<h4>A Sample `encounters` table</h4>
+<h4>A `encounters` table</h4>
 
 <!-- data-type="none" -->
 | patient_id | encounter_id | encounter_date | ed_ind |
@@ -102,7 +174,7 @@ How could you figure out how many times Prairie Dawn had an encounter with `ed_i
 | ABC123     | 8954998113   |  2022-03-19    | 1      |
 
 
-<h4>A Sample `medication_order` table</h4>
+<h4>A `medication_order` table</h4>
 
 <!-- data-type="none" -->
 | patient_id | provider_id | med_id | order_date |
@@ -110,14 +182,6 @@ How could you figure out how many times Prairie Dawn had an encounter with `ed_i
 | ABC123     | 491272    | 8000412   | 2021-05-15 |  
 | ABC123     | 491272  | 7960004   | 2022-02-01 |
 | SMLE321    | 223618    | 8000412 | 2020-08-19 |
-
-
---{{2}}--
-If the idea of relational databases with tables that refer to one another feels confusing, you're not alone.  
-Let's walk through it together. 
-First, we discover the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
-We can then use this patient ID to find **related** data in other tables.  
-For example, in the `encounters` table and in the `medication_order` table, we never see the patient name "Prairie Dawn," but we **do** find her ID, SMLE321.  
 
 ### Relational Databases
 
@@ -192,7 +256,7 @@ This is because, especially for large datasets, SQL is a much more efficient too
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
-SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages.
+SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages. 
 
 Use SQL to get close to the final data you'll want to analyze, then export it. 
 </div>
@@ -203,9 +267,14 @@ If you think about carving a sculpture out of stone or wood, you can imagine tha
 Then, when an artist gets close to the shape of the final product, they might switch to smaller tools to give the sculpture its final form.  
 In this analogy, SQL is the heavy duty tool that gets your data close to its final form.
 
---{{5}}--
+### Save your queries
+
+<div class = "important">
+<b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
 It's a good idea to document your SQL queries and save them, because this allows you to show your steps and give data provenance.  
+
 This helps with reproducibility and standardization of your work, and might help provide a place to start for future projects.
+</div>
 
 ### When SQL Isn't the Right Tool
 
@@ -287,8 +356,9 @@ The goal is to help **build your intuition about what SQL is good at** (picking 
 At a high level, we generally provide three pieces of information when constructing SQL "**queries**":
 
  1. The name of the **table(s)** where the data is stored.
- 2. The **column name(s)** you want to look at from the table(s) you specified.  Want all the columns?  You can use an asterisk!
- 3. Any **filtering condition(s)** you want to apply to your data pull.  This part is optional but is often used.
+ 2. The **column name(s)** you want to look at from the table(s) you specified.
+ 3. Any **filtering condition(s)** you want to apply. 
+
 
 {{1}}
 *****
@@ -344,7 +414,7 @@ FROM patient;
 ### Select Specific Columns
 
 --{{0}}--
-If you would only like to return a specific set of columns in your select statement you will need to explicitly list out each of those columns after the `SELECT` keyword, with each separate column name separated by a comma:
+If you would only like to return a specific set of columns in your select statement you will need to explicitly list out each of those columns after the `SELECT` keyword, with each column name separated by a comma:
 
 ```sql
 SELECT last_name, first_name, date_of_birth, sex
