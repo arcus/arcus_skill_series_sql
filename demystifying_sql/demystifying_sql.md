@@ -521,15 +521,16 @@ WHERE sex = "F" AND date_of_birth >= '2019-01-01';
 
 Which of these correctly describe the strengths of SQL?
 
-[[X]] **A.** SQL is particularly well suited to finding data that meets your requirements
+[[X]] **A.** SQL is the most common tool for exporting data from relational databases
 [[ ]] **B.** SQL is often used for data visualization purposes
 [[X]] **C.** SQL can pick just the columns you want as well as only the rows that meet some conditions
 [[ ]] **D.** SQL is a good solution for complex language processing
-[[X]] **E.** SQL is a good choice for storing data that can be organized in tables with rows and columns.
+[[X]] **E.** SQL is a good choice for accessing data that can be organized in tables with rows and columns
 [[?]] There are multiple correct answers!
 
 --{{1}}--
-SQL is great at working with rectangular data, data that is stored in tables with rows and columns.  
+SQL is great at working with rectangular data, data that is stored in tables with rows and columns.
+If the data you want to use are stored in a relational database, then you'll likely need to use SQL to access the data you need. 
 Its powerful SELECT / FROM / WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions.  
 However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  
 
