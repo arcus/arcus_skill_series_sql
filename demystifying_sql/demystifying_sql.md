@@ -132,6 +132,19 @@ Okay, let's get started!
 Today will be about providing a high level overview of SQL -- what it is, what it's good for, why you might want to learn it. 
 We won't be doing any hands-on coding with SQL today, although we will during some of the future sessions in this series.
 
+## Thank you!
+
+<div class = "gratitude">
+<b style="color: rgb(var(--color-highlight));">Thank you!</b><br>
+
+Material for this talk is based closely on the DART module [Demystifying SQL](https://bit.ly/DART_demystifying_sql), written by Peter Camacho and Joy Payton.
+
+</div>
+
+--{{0}}--
+Many thanks to Peter and Joy for their work developing this excellent content!
+And, of course, any errors or awkwardness in this version are mine.
+
 ## Learn by doing
 
 @teams_polls
