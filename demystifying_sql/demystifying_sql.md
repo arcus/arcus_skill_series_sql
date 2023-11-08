@@ -1,7 +1,7 @@
 <!--
-author:   Peter Camacho; Joy Payton
-email:    camachop@chop.edu
-version: 0.0.0
+author:   Rose Hartman
+email:    hartmanr1@chop.edu
+version: 1.0.0
 current_version_description: Initial version
 docs_version: 3.0.0
 module_type: slides
@@ -14,7 +14,7 @@ classroom: enable
 title: Demystifying SQL
 comment:  SQL is a relational database solution that has been around for decades.  Learn more about this technology at a high level, without having to write code.
 long_description: Do you have colleagues who use SQL or refer to "databases" or "the data warehouse" and you're not sure what it all means?  This module will give you some very high level explanations to help you understand what SQL is and some basic concepts for working with it.  There is no code or hands-on application in this module, so it's appropriate for people who have zero experience and want an overview of SQL.
-estimated_time_in_minutes: 45
+estimated_time_in_minutes: 40
 @pre_reqs
 
 Experience working with rectangular data (data in rows and columns) will be helpful.  For example, experience working in Excel, Google Sheets, or other software that helps organize data into rows and columns is sufficient expertise to take this module.
@@ -45,12 +45,12 @@ sequence_name: sql
 No previous versions.
 @end
 
-repo_link: https://github.com/arcus/arcus_skill_series_sql
-module_link: https://bit.ly/DART_demystifying_sql 
+repo_link: [GitHub repository for these materials](https://github.com/arcus/arcus_skill_series_sql)
+module_link: [an online self-paced tutorial](https://bit.ly/DART_demystifying_sql)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
 
-big: <b style="font-size: 1.5em;">@0</b>
+big: <b style="font-size: 1.25em;">@0</b>
 center: <div style="text-align: center;">@0</div>
 colorhighlight: <b style="font-size: 1.15em; color: rgba(var(--color-highlight));">@0</b>
 
@@ -93,9 +93,9 @@ All of the speaker notes from today's talk are saved in the slides themselves --
 </div>
 </div>
 
-The content from this talk is also available as [a self-paced online tutorial](@module_link).
+The content from this talk is also available as @module_link 
 
-For all of the files and information from this talk, go to our [GitHub repository for these materials](@repo_link).
+For all of the files and information from this talk, go to our @repo_link 
 
 @end
 
@@ -128,7 +128,7 @@ Okay, let's get started!
 
 @todays_talk
 
---{{1}}--
+--{{0}}--
 Today will be about providing a high level overview of SQL -- what it is, what it's good for, why you might want to learn it. 
 We won't be doing any hands-on coding with SQL today, although we will during some of the future sessions in this series.
 
@@ -136,7 +136,7 @@ We won't be doing any hands-on coding with SQL today, although we will during so
 
 @teams_polls
 
---{{1}}--
+--{{0}}--
 We're firm believers that the best way to learn is to practice!
 We won't have any hands-on coding practice today, but we will have short quizzes that come up to help you check your understanding and consolidate learning. 
 Okay, let's dive in.
@@ -145,35 +145,42 @@ Okay, let's dive in.
 
 **S**tructured **Q**uery **L**anguage
 
-{{1}}
-**SQL** is a programming language used to interact with "**Relational Databases**".  
-
 --{{1}}--
 You can pronounce it as "sequel" or just say the letters S-Q-L.
+
+{{1}}
+**SQL** is a programming language used to interact with "**Relational Databases**".  
 
 {{2}}
 So, what is a **relational database**?
 
 --{{2}}--
+*********
 Let's start with the word "**database**".  A database is a data storage solution that stores data in objects called tables.  Tables are objects comprised of columns (sometimes called 'fields') and rows (similar to data in an Excel spreadsheet or .csv file).
-When we add "**relational**" as a modifier, we mean that tables within the database are **related** to one another by columns they have in common (like a patient id column that appears in several different tables). Usually, with a relational database, you will use several tables to answer a question, and use information from one table to look up information in the next, like a series of clues.
-Let's dig into this idea a little further by looking at a made-up example.
+
+When we add the word "**relational**" as a modifier, we mean that tables within the database are **related** to one another by columns they have in common (like a patient id column that appears in several different tables). 
+
+Usually, with a relational database, you will use several tables to answer a single question, and use information from one table to look up information in the next, like a series of clues.
+
+Let's dig into this idea a little further by looking at an example.
+*********
 
 ### Relational Database Example
 
 --{{0}}--
-Consider, for example, these three sample tables: `demographics`, `encounters`, and `medication_order`.  
-They are rectangular (or tabular) in shape and organize data in rows and columns.  
+Consider, for example, this small relational database with three tables: `demographics`, `encounters`, and `medication_order`.  
+The tables are rectangular (or tabular) in shape and organize data in rows and columns.  
 Can you identify the column they have in common?  
 
 --{{1}}--
+*********
 How could you figure out how many times Prairie Dawn had an encounter in the Emergency Department (`ed_ind` equal to 1)?
 
---{{2}}-- 
 Let's walk through it together. 
 First, we discover the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
 We can then use this patient ID to find **related** data in other tables.  
 For example, when we look in the `encounters` table and in the `medication_order` table, we never see the patient name "Prairie Dawn," but we **do** find her ID, SMLE321.  
+*********
 
 <h4>A `demographics` table</h4>
 
@@ -212,15 +219,17 @@ For example, when we look in the `encounters` table and in the `medication_order
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
 
-Relational databases work by using data fields like IDs to allow us to find out data about a patient, or customer, or purchase order, or other thing we're interested in, by following the matching ID into other, **related** tables.
+Relational databases work by using data fields like IDs to allow us to find out data about a patient, or encounter, or purchase order, or other thing we're interested in, by following the matching ID into other, **related** tables.
 
 </div>
 
 --{{0}}--
-The primary benefit of the **relational database** model is the ability to use columns containing the same data (things like patient IDs) to create complex reports combining information from multiple tables.  This enables users of the data to derive specific information from the data in highly customizable ways.
+*********
+The primary benefit of the **relational database** model is the ability to use columns containing the same data (things like patient IDs) to create complex reports combining information from multiple tables.  
+This enables users of the data to derive specific information from the data in highly customizable ways.
 
---{{1}}--
-Now that you have that background, you can think of SQL as the computer code (the "Language" in Structured Query Language) that you can use to ask explicit questions (the "Query" in SQL) about the information in your Relational Database.
+Now that you have that background, you can think of SQL as the computer code (the "Language" in Structured Query Language) that you can use to ask explicit questions (called "queries") about the information in your relational database.
+*********
 
 ### A Little Background
 
@@ -234,6 +243,9 @@ By 1979 Relational Software, Inc. (now Oracle Corporation) released the first co
 Today SQL is the most common programming language for extracting and organizing data in relational database systems.
 
 </div>
+
+--{{0}}--
+So SQL is not only very commonly used, it's also very well-established. SQL has been around much longer than other programming languages you may have worked with. 
 
 ### 💫 Your turn! SQL
 
@@ -261,24 +273,25 @@ Which of these correctly describe relational databases?  Choose all the correct 
 --{{1}}--
 Relational databases are a data storage solution and they store data in tables, which are in turn organized into rows and columns.  
 Relational databases use SQL as a way to access data, search for data meeting particular conditions, and connect related data, using columns that tables have in common.  
-This allows for extracting data in a very specific and customized way.
+This allows for extracting data in very specific and customized ways.
 
 ### When to Use SQL
 
 SQL should be used any time you need to access data stored within a relational database and select data that meets your requirements.
 
 --{{1}}--
+*********
 Usually, SQL is used for getting custom datasets for export and downstream analysis.  
 For example, you might use SQL to export data for doing statistical analysis and visualization in other languages like R, Python, or Stata.
 
---{{2}}--
 If your source data comes from a relational database (like a data warehouse), your major data transformations (like selecting just the columns you care about or selecting only certain rows) should be done using SQL. 
 This ensures that the dataset you export from the relational database is pretty close to the final data you will analyze or visualize.
+*********
 
---{{3}}--
+--{{2}}--
 This is because, especially for large datasets, SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages.
 
-{{3}}
+{{2}}
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
@@ -290,7 +303,7 @@ Use SQL to get close to the final data you'll want to analyze, then export it.
 </div>
 *****
 
---{{4}}--
+--{{3}}--
 If you think about carving a sculpture out of stone or wood, you can imagine that the rough work of getting rid of big slabs of material that aren't needed can be done with powerful instruments like chainsaws or jackhammers.  
 Then, when an artist gets close to the shape of the final product, they might switch to smaller tools to give the sculpture its final form.  
 In this analogy, SQL is the heavy duty tool that gets your data close to its final form.
@@ -318,14 +331,15 @@ SQL is the wrong choice for:
 - data visualization
 
 --{{1}}--
+*********
 Despite having many functions for simple text parsing, SQL is not the tool/language you want to use for advanced NLP (Natural Language Processing) work.  
 Similarly, SQL has some basic statistical functions, but isn't intended to provide statistical analysis at the level of a statistical programming language like R.
 SQL also doesn't have any capabilities to directly support data visualization work.
 
---{{2}}--
 For all of these "downstream analytics" use cases, you will want to use an actual analytical programming language or tool like R or Python.
+*********
 
-{{3}}
+{{2}}
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
@@ -356,10 +370,14 @@ Some popular "flavors" of SQL:
 *****
 
 --{{2}}--
+*********
+A given database will be set up for one particular "flavor" of SQL, so you generally don't get to choose what SQL implementation to work in (unless you're the one designing the database). Instead, you'll use whatever the SQL "flavor" is for the database you want to access. 
+
 The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues.
 
---{{3}}--
 That said, knowing the specific "flavor" of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors.
+When you're trying to troubleshoot a SQL query, being able to add the name of the implementation to your search terms will help you get more relevant results.
+*********
 
 ## SQL Queries
 
@@ -368,7 +386,7 @@ A SQL **query** is essentially a question or request for data, written in a spec
 --{{1}}--
 Let's take a closer look at how to compose a SQL query!
 But first, a word of encouragement. 
-If you feel anxious when you see code, you have a great opportunity today.
+If you are one of the many people who feel anxious when they see code, you have a great opportunity today.
 
 {{1}}
 *****
@@ -376,12 +394,16 @@ If you feel anxious when you see code, you have a great opportunity today.
 <b style="color: rgb(var(--color-highlight));">A little encouragement...</b><br>
 
 We're going to give some simple examples of SQL code to help build your intuition about SQL.  
-You **won't** have to run any code and we're only going to barely scratch the surface of SQL **syntax** (supported commands and how to write them -- the grammar and vocabulary of SQL).  
+You **won't** have to write or run any code, and we're only going to barely scratch the surface of SQL **syntax** (supported commands and how to write them -- the grammar and vocabulary of SQL).  
 
 The goal is to help **build your intuition about what SQL is good at** (picking out just the right data).
 
 </div>
 *****
+
+--{{2}}--
+So this is a no pressure situation. 
+With that frame in mind, let's take a look at what SQL queries actually look like!
 
 ### What does a SQL query look like?
 
@@ -408,13 +430,11 @@ For example, here are some sample queries, each of which take place on just a si
 ```sql
 SELECT price FROM products WHERE product_type = "FRUIT";
 
-SELECT mpg, transmission_type FROM cars;
+SELECT med_id, order_date FROM medication_order;
 
 SELECT * FROM patients WHERE age < 20;
 ```
 *****
-
-<br>
 
 ### SELECT and FROM
 
@@ -465,7 +485,7 @@ The **where clause**, using the `WHERE` keyword, is the section of your query us
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
 
-Use `SELECT` and `FROM` together to specify the columns you want, and `WHERE` to specify the rows you want.
+Use `SELECT` to specify the columns you want, and `WHERE` to specify the rows you want.
 
 </div>
 *****
@@ -473,7 +493,7 @@ Use `SELECT` and `FROM` together to specify the columns you want, and `WHERE` to
 ### Filtering with WHERE
 
 --{{0}}--
-The below example uses the where clause to filter output on only those records that represent female patients.
+This example uses the where clause to filter output on only those records that represent female patients.
 
 ```sql
 SELECT *
@@ -505,11 +525,13 @@ Which of these correctly describe the strengths of SQL?
 [[?]] There are multiple correct answers!
 
 --{{1}}--
-SQL is great at working with rectangular data, data that is stored in tables with rows and columns.  Its powerful SELECT / FROM / WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions.  However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  
+SQL is great at working with rectangular data, data that is stored in tables with rows and columns.  
+Its powerful SELECT / FROM / WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions.  
+However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  
 
 ## Recap
 
-In this module, you learned about the language SQL, which is an acronym for "Structured Query Language".  It's a powerful tool for requesting specific subsets of data from a relational database, and has been around since the 1970's because of its efficiency and utility.  
+Today, you learned about the language SQL, which is an acronym for "Structured Query Language".  It's a powerful tool for requesting specific subsets of data from a relational database, and has been around since the 1970's because of its efficiency and utility.  
 
 We also introduced you to two important elements of the language:
 
@@ -527,10 +549,6 @@ Finally, you learned about the structure of relational databases: data stored in
 * [What is SQL?](https://education.arcus.chop.edu/sql-intro/) is a brief introduction to SQL similar to the material in this module.
 
 * If you are interested in the history of technology, [Early History of SQL](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6359709) is a comprehensive look into how SQL has evolved.  It's very jargon-dense!
-
-## About these slides
-
-@about_these_slides
 
 ## Upcoming sessions
 
@@ -559,3 +577,7 @@ Tuesday February 6, 2024 and Wednesday February 21, 2024
 Work with multiple tables and learn about SQL joins: learn what they accomplish and how to write them.
 
 Tuesday March 12, 2024 and Wednesday March 20, 2024
+
+## About these slides
+
+@about_these_slides
