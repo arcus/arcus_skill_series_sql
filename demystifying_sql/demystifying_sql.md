@@ -169,8 +169,7 @@ Can you identify the column they have in common?
 --{{1}}--
 How could you figure out how many times Prairie Dawn had an encounter in the Emergency Department (`ed_ind` equal to 1)?
 
---{{2}}--
-If the idea of relational databases with tables that refer to one another feels confusing, you're not alone.  
+--{{2}}-- 
 Let's walk through it together. 
 First, we discover the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
 We can then use this patient ID to find **related** data in other tables.  
@@ -253,16 +252,16 @@ SQL, which can be pronounced "sequel" or S-Q-L, stands for Structured Query Lang
 
 Which of these correctly describe relational databases?  Choose all the correct options.
 
-[[ ]] A. Relational databases are an alternative to SQL
-[[X]] B. Relational databases organize data into tables
-[[ ]] C. Tables in relational databases are organized into ranks and files
-[[X]] D. Relational databases permit the extraction of highly specific data
-[[X]] E. The "relational" in "relational database" refers to data that occurs in multiple places and allows for linking, or "relating" data
+[[ ]] **A.** Relational databases are an alternative to SQL
+[[X]] **B.** Relational databases organize data into tables
+[[ ]] **C.** Tables in relational databases are organized into ranks and files
+[[X]] **D.** Relational databases permit the extraction of highly specific data
+[[X]] **E.** The "relational" in "relational database" refers to data that occurs in multiple places and allows for linking, or "relating" data
 
 --{{1}}--
 Relational databases are a data storage solution and they store data in tables, which are in turn organized into rows and columns.  
 Relational databases use SQL as a way to access data, search for data meeting particular conditions, and connect related data, using columns that tables have in common.  
-This allows for extracting data in very specific and customized way.
+This allows for extracting data in a very specific and customized way.
 
 ### When to Use SQL
 
@@ -415,6 +414,8 @@ SELECT * FROM patients WHERE age < 20;
 ```
 *****
 
+<br>
+
 ### SELECT and FROM
 
 A **select statement** is used to specify which columns you would like to have returned as output from your SQL query.
@@ -453,22 +454,6 @@ If you would only like to return a specific set of columns in your select statem
 SELECT last_name, first_name, date_of_birth, sex
 FROM patient;
 ```
-
-### 💫 Your turn! SELECT
-
-Which of the following queries will work to get all of the columns from the `medication_order` table?
-
-[[ ]] A. `SELECT all FROM medication_order;`
-[[ ]] B. `SELECT FROM medication_order;`
-[[X]] C. `select * from medication_order;`
-[[X]] D. `SELECT * FROM medication_order;`
-[[ ]] E. `FROM medication_order SELECT *;`
-
---{{0}}--
-Either C or D will work! 
-The `*` wildcard means "all columns", and it's fine to use upper or lower case for the SQL commands -- we recommend upper case since it helps the commands to stand out, but it's just a style choice.
-A and B won't work because they don't specify any columns (there is no `all` column, and B omits the column specification altogether). 
-E won't work because you have to have `SELECT` first and then `FROM`, even though that might be backwards to how you would more naturally think about it. 
 
 ### WHERE
 
@@ -512,11 +497,11 @@ WHERE sex = "F" AND date_of_birth >= '2019-01-01';
 
 Which of these correctly describe the strengths of SQL?
 
-[[X]] A. SQL is particularly well suited to finding data that meets your requirements
-[[ ]] B. SQL is often used for data visualization purposes
-[[X]] C. SQL can pick just the columns you want as well as only the rows that meet some conditions
-[[ ]] D. SQL is a good solution for complex language processing
-[[X]] E. SQL is a good choice for storing data that can be organized in tables with rows and columns.
+[[X]] **A.** SQL is particularly well suited to finding data that meets your requirements
+[[ ]] **B.** SQL is often used for data visualization purposes
+[[X]] **C.** SQL can pick just the columns you want as well as only the rows that meet some conditions
+[[ ]] **D.** SQL is a good solution for complex language processing
+[[X]] **E.** SQL is a good choice for storing data that can be organized in tables with rows and columns.
 [[?]] There are multiple correct answers!
 
 --{{1}}--
