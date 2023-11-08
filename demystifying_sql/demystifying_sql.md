@@ -168,15 +168,10 @@ You can pronounce it as "sequel" or just say the letters S-Q-L.
 So, what is a **relational database**?
 
 --{{2}}--
-*********
 Let's start with the word "**database**".  A database is a data storage solution that stores data in objects called tables.  Tables are objects comprised of columns (sometimes called 'fields') and rows (similar to data in an Excel spreadsheet or .csv file).
-
 When we add the word "**relational**" as a modifier, we mean that tables within the database are **related** to one another by columns they have in common (like a patient id column that appears in several different tables). 
-
 Usually, with a relational database, you will use several tables to answer a single question, and use information from one table to look up information in the next, like a series of clues.
-
 Let's dig into this idea a little further by looking at an example.
-*********
 
 ### Relational Database Example
 
@@ -186,14 +181,13 @@ The tables are rectangular (or tabular) in shape and organize data in rows and c
 Can you identify the column they have in common?  
 
 --{{1}}--
-*********
 How could you figure out how many times Prairie Dawn had an encounter in the Emergency Department (`ed_ind` equal to 1)?
 
+--{{1}}--
 Let's walk through it together. 
 First, we discover the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
 We can then use this patient ID to find **related** data in other tables.  
 For example, when we look in the `encounters` table and in the `medication_order` table, we never see the patient name "Prairie Dawn," but we **do** find her ID, SMLE321.  
-*********
 
 <h4>A `demographics` table</h4>
 
@@ -237,12 +231,11 @@ Relational databases work by using data fields like IDs to allow us to find out 
 </div>
 
 --{{0}}--
-*********
 The primary benefit of the **relational database** model is the ability to use columns containing the same data (things like patient IDs) to create complex reports combining information from multiple tables.  
 This enables users of the data to derive specific information from the data in highly customizable ways.
 
+--{{0}}--
 Now that you have that background, you can think of SQL as the computer code (the "Language" in Structured Query Language) that you can use to ask explicit questions (called "queries") about the information in your relational database.
-*********
 
 ### A Little Background
 
@@ -293,13 +286,12 @@ This allows for extracting data in very specific and customized ways.
 SQL should be used any time you need to access data stored within a relational database and select data that meets your requirements.
 
 --{{1}}--
-*********
 Usually, SQL is used for getting custom datasets for export and downstream analysis.  
 For example, you might use SQL to export data for doing statistical analysis and visualization in other languages like R, Python, or Stata.
 
+--{{1}}--
 If your source data comes from a relational database (like a data warehouse), your major data transformations (like selecting just the columns you care about or selecting only certain rows) should be done using SQL. 
 This ensures that the dataset you export from the relational database is pretty close to the final data you will analyze or visualize.
-*********
 
 --{{2}}--
 This is because, especially for large datasets, SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages.
@@ -344,13 +336,12 @@ SQL is the wrong choice for:
 - data visualization
 
 --{{1}}--
-*********
 Despite having many functions for simple text parsing, SQL is not the tool/language you want to use for advanced NLP (Natural Language Processing) work.  
 Similarly, SQL has some basic statistical functions, but isn't intended to provide statistical analysis at the level of a statistical programming language like R.
 SQL also doesn't have any capabilities to directly support data visualization work.
 
+--{{1}}--
 For all of these "downstream analytics" use cases, you will want to use an actual analytical programming language or tool like R or Python.
-*********
 
 {{2}}
 *****
@@ -383,14 +374,14 @@ Some popular "flavors" of SQL:
 *****
 
 --{{2}}--
-*********
 A given database will be set up for one particular "flavor" of SQL, so you generally don't get to choose what SQL implementation to work in (unless you're the one designing the database). Instead, you'll use whatever the SQL "flavor" is for the database you want to access. 
 
+--{{2}}--
 The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues.
 
+--{{2}}--
 That said, knowing the specific "flavor" of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors.
 When you're trying to troubleshoot a SQL query, being able to add the name of the implementation to your search terms will help you get more relevant results.
-*********
 
 ## SQL Queries
 
