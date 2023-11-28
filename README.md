@@ -6,6 +6,8 @@ Join Arcus Education for a series of lunch-and-learn workshops to learn about re
 
 ## Session 1 - Demystifying SQL
 
+[**Nov 28** sign up link](https://events.teams.microsoft.com/event/a283d737-c606-40c3-85f4-74790a28b9a0@a6112416-07b0-41a5-9bb1-d146b575c975)
+
 What is a database? What is Structured Query Language? 
 
 After completion of this module, learners will be able to:
@@ -22,8 +24,24 @@ After completion of this module, learners will be able to:
 
 ## Session 2 - Database Normalization 
 
+[**Dec 5** sign up link](https://events.teams.microsoft.com/event/3a45c503-b0c0-4a3f-ba83-f8fd5e45bbd7@a6112416-07b0-41a5-9bb1-d146b575c975)
+
+[**Dec 13** sign up link](https://events.teams.microsoft.com/event/96f78e2d-2855-4937-b3f1-394af8acf73b@a6112416-07b0-41a5-9bb1-d146b575c975)
+
 ## Session 3 - SQL Basics
+
+[**Jan 17** sign up link](https://events.teams.microsoft.com/event/9635606e-0765-4725-9413-a294cfad7f81@a6112416-07b0-41a5-9bb1-d146b575c975)
+
+[**Jan 23** sign up link](https://events.teams.microsoft.com/event/65c10e68-f74b-4664-9de1-8520eb068bd2@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 ## Session 4 - SQL Intermediate Level
 
+[**Feb 6** sign up link](https://events.teams.microsoft.com/event/c3fc728e-9809-4910-9b31-8ca3859e2ad1@a6112416-07b0-41a5-9bb1-d146b575c975)
+
+[**Feb 21** sign up link](https://events.teams.microsoft.com/event/dac5952f-1e4c-4226-8b48-9c2c1e77e254@a6112416-07b0-41a5-9bb1-d146b575c975)
+
 ## Session 5 - SQL Joins
+
+[**Mar 12** sign up link](https://events.teams.microsoft.com/event/3b0842a5-d7ba-4292-a5e5-7bb47c9e6f13@a6112416-07b0-41a5-9bb1-d146b575c975)
+
+[**Mar 20** sign up link](https://events.teams.microsoft.com/event/5323d936-a3b7-4e70-81ed-ae428c93df09@a6112416-07b0-41a5-9bb1-d146b575c975)
