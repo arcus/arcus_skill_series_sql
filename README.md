@@ -4,6 +4,8 @@ This repo contains slides, code, and other materials for the **Arcus Education S
 
 Join Arcus Education for a series of lunch-and-learn workshops to learn about relational databases and how to use SQL to query databases effectively.  SQL is a relational database solution that has been around for decades. In the first two workshops, learn more about this technology at a high level, without having to write code. In the last three workshops, practice writing simple code to build your skills. If you work with raw data that is stored in multiple tables and you want to go beyond the capabilities of a spreadsheet, you’ll want to attend these workshops. You’ll leave these webinars with access to training modules that will help you practice these skills and develop confidence. 
 
+All sessions are 12:00-1:00pm ET.
+
 ## Session 1 - Demystifying SQL
 
 [**Nov 28** sign up link](https://events.teams.microsoft.com/event/a283d737-c606-40c3-85f4-74790a28b9a0@a6112416-07b0-41a5-9bb1-d146b575c975)
