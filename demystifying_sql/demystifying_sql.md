@@ -192,7 +192,7 @@ For example, when we look in the `encounters` table and in the `medication_order
 <h4>A `demographics` table</h4>
 
 <!-- data-type="none" -->
-| patient_id | date\_of\_birth | sex | last_name | first_name |
+| patient\_id | date\_of\_birth | sex | last\_name | first\_name |
 | -------    | -----------   | -   | ------    | ----- |
 | ABC123     | 1970-03-15    | M   | Bird      | Big |
 | TRSH789    | 1985-08-20    | M   | the Grouch | Oscar |
@@ -201,7 +201,7 @@ For example, when we look in the `encounters` table and in the `medication_order
 <h4>A `encounters` table</h4>
 
 <!-- data-type="none" -->
-| patient_id | encounter_id | encounter_date | ed_ind |
+| patient\_id | encounter\_id | encounter\_date | ed\_ind |
 | ---------- | ------------ | -------------- | ------ |
 | SMLE321    | 8827371048   |  2020-03-10    | 1      |
 | SMLE321    | 8829502289   |  2020-09-05    | 0      |
@@ -215,7 +215,7 @@ For example, when we look in the `encounters` table and in the `medication_order
 <h4>A `medication_order` table</h4>
 
 <!-- data-type="none" -->
-| patient_id | provider_id | med_id | order_date |
+| patient\_id | provider\_id | med\_id | order\_date |
 | -------    | -----------   | --- | ------    | ----- |
 | ABC123     | 491272    | 8000412   | 2021-05-15 |  
 | ABC123     | 491272  | 7960004   | 2022-02-01 |
