@@ -21,6 +21,7 @@ After completion of this module, learners will be able to:
 
 **Session Materials** 
 
+- Watch a [recording of the workshop](https://www.youtube.com/watch?v=PajXC0D-6qM)
 - Review the [workshop slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/demystifying_sql/demystifying_sql.md#1)
 - Work through this content as an [interactive tutorial](https://bit.ly/DART_demystifying_sql)
 
