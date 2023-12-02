@@ -49,7 +49,7 @@ No previous versions.
 
 
 repo_link: [GitHub repository for these materials](https://github.com/arcus/arcus_skill_series_sql)
-module_link: [an online self-paced tutorial](https://bit.ly/DART_demystifying_sql)
+module_link: [an online self-paced tutorial](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/database_normalization/database_normalization.md)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
 
@@ -83,7 +83,7 @@ colorhighlight: <b style="font-size: 1.15em; color: rgba(var(--color-highlight))
 
 These slides were created with [LiaScript](https://liascript.github.io/), an open source markdown parser for writing educational content.
 
-All of the speaker notes from today's talk are saved in the slides themselves -- try changing the view to Textbook and it will integrate the text from the notes into the slides themselves, or turn on the sound at the bottom to hear the notes read out loud as you go through. 
+All of the speaker notes from today's talk are saved in [the slides themselves](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/database_normalization/database_normalization.md#1) -- try changing the view to Textbook and it will integrate the text from the notes into the slides themselves, or turn on the sound at the bottom to hear the notes read out loud as you go through. 
 
 <div style = "align-items: center; display: flex;">
 <div style = "margin-left: 10%; max-width: 25%; float:left; border-style: solid; border-color: rgba(var(--color-highlight));">
@@ -574,7 +574,7 @@ I'm now going to invite your participation.  In chat, tell me what you think: is
 The same patient might get have more than one medication order, and we need to allow for the patient id to repeat, so the pat\_id is **not** a primary key in this table.  Now, in the patient table, where each patient appears once and only once, the pat\_id **will** be a primary key.  Again, I'm going to ask you to tell me in chat. Is med\_id a primary key?
 [Respond appropriately, e.g.: Oh, we have some difference of opinion on this one!]
 While in this case, in the rows we see, there's no duplication, the fact is that ibuprofen gets ordered many times a day, and so does klonopin, and prozac, and cipro, and any number of medications.  Medications need to be able to repeat in the medication order table, so med\_id won't be a primary key in this table.  Now, back in the medication table, where each medication is listed once and only once, med\_id **will** in fact be a primary key.
-Similarly, if we consider a provider, Dr. Smith, she'll be prescribing multiple medications in any given day during her work as a hospitalist. The provider id needs to repeat, so it's also not a primary keys. Instead, these IDs are references to other tables, and they are called foreign keys.  Foreign here means "originating in a different place than here."  The pat\_id is a foreign key in the medication\_order table, and it originated in the patient table.  The med\_id is a foreign key in the medication\_order table
+Similarly, if we consider a provider, Dr. Smith, she'll be prescribing multiple medications in any given day during her work as a hospitalist. The provider id needs to repeat, so it's also not a primary keys. Instead, these IDs are references to other tables, and they are called foreign keys.  Foreign here means "originating in a different place than here."  The pat\_id is a foreign key in the medication\_order table, and it originated in the patient table.  The med\_id is a foreign key in the medication\_order table, and it originated in the medications table.
 
 ## Entity Relationships
 
@@ -792,6 +792,12 @@ Because this table is about procedures, and there's an identifier that looks lik
 
 </div>
 
+--{{0}}--
+OK, so here's another quiz question.  I'll bring up the poll in Teams, and when you're ready, let me know what you think the correct answer or answers are.
+[Respond appropriately, e.g. "great job"]
+Which of the fields in this table is likely to be a primary key?  That's right, it's procedure\_id!
+Because this table is about procedures, and there's an identifier that looks like it uniquely identifies each of these interactions, we can guess that "procedure\_id" is probably a primary key.  On the other hand, we know for sure that "date" and "provider\_id" can't be primary keys, because they have repeating values.  That makes sense -- the same provider can conduct many different procedure, and on any given **date**, there are likely to be many procedures.  By that same logic, we also know that "patient\_id" can't be a primary key... it needs to be possible for a patient to have more than one procedure!
+
 ## Quiz: Keys
 
 <div style="width: 50%; float:left;">
@@ -827,6 +833,12 @@ A foreign key is an identifier that originates in another table.  It certainly s
 ***********
 
 </div>
+
+--{{0}}--
+OK, so here's a second quiz question about the same data.  I'll bring up the poll in Teams, and when you're ready, let me know what you think the correct answer or answers are.
+[Respond appropriately, e.g. "great job"]
+The correct answers here are patient\_id and provider\_id.  A foreign key is an identifier that originates in another table.  It certainly seems likely that there is a "patient" table and a "provider" table that the "patient\_id" and "provider\_id", respectively, originated in.  These are the two foreign keys.  The "procedure\_id" seems to originate here, in the "procedure" table, so it's not a foreign key, and the "date" just seems like, well, a date, not an identifier at all!
+
 
 ## Review
 
@@ -888,6 +900,18 @@ Work with multiple tables and learn about SQL joins: learn what they accomplish 
 
 Tuesday March 12, 2024 and Wednesday March 20, 2024
 
+--{{0}}--
+If you liked these talks, we have more coming!  I'll add the link to where you can sign up for all of these talks to the chat now.
+
+
 ## About these slides
 
 @about_these_slides
+
+--{{0}}--
+These slides were created with LiaScript, an open source markdown parser for writing educational content.
+All of the speaker notes from today's talk are saved in the slides themselves -- try changing the view to Textbook and it will integrate the text from the notes into the slides themselves, or turn on the sound at the bottom to hear the notes read out loud as you go through.
+The content from this talk is also available as an online self-paced tutorial.
+For all of the files and information from this talk, go to our GitHub repository for these materials.
+I'll add the link to these slides in the chat!
+I'll also now turn off recording and we can start a Q&A Session.  Thanks everyone!
