@@ -247,7 +247,7 @@ Why can't you get "everything all on one row" in a **single table** in the origi
 **What you want to get to:**
 
 <!-- data-type="none" class="tight-table" -->
-| subj_id  |  dep_total | zip |
+| subj\_id  |  dep\_total | zip |
 | :--------- | :--------- | :--------- | 
 | 123 | 3 | 19000 |
 | 456 | 15 | 18000 |
