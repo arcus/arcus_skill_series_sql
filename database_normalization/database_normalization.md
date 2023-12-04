@@ -1,7 +1,7 @@
 <!--
 author:   Joy Payton
 email:    paytonk@chop.edu
-version: 1.0.1
+version: 1.0.2
 current_version_description: Initial version
 docs_version: 3.0.0
 module_type: slides
@@ -190,7 +190,7 @@ Often, you have to combine data from two (or more!) tables to get the informatio
 **Table 1: demographic**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  |  dob | sex | race |
+| subj\_id  |  dob | sex | race |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 |11234| 2007-01-13 | F | Refused/Unknown |
 |32660| 2012-07-22 | M | White   |
@@ -205,7 +205,7 @@ Often, you have to combine data from two (or more!) tables to get the informatio
 **Table 2: depression\_scale**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  | date  | dep_q1  | dep_q2   | dep_q3  | dep_q4  | dep_total   |
+| subj\_id  | date  | dep\_q1  | dep\_q2   | dep\_q3  | dep\_q4  | dep\_total   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 11234   | 2021-05-15   | 3    | 3  | 2    | 4    | 12    |
 | 86234   | 2021-06-01   | 4    | 4  | 3    | 4    | 15    |
@@ -218,7 +218,7 @@ Often, you have to combine data from two (or more!) tables to get the informatio
 **Table 3: subject\_address**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  | street_address  | city  | state   | zip  | date_start  | date_end   |
+| subj\_id  | street\_address  | city  | state   | zip  | date\_start  | date\_end   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 11234   | 123 Main Street   | Smithtown    | PA  | 19000    | 2022-01-01   | `NULL`    |
 | 11234   | 123 Oak Lane   | Old Towne    | PA  | 18000   | 2000-01-01    | 2021-12-31    |
@@ -333,7 +333,7 @@ And finally, this is a little silly, but we would argue that a baseball team sho
 **Table 1: demographic**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  |  dob | sex | race |
+| subj\_id  |  dob | sex | race |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 |11234| 2007-01-13 | F | Refused/Unknown |
 |32660| 2012-07-22 | M | White   |
@@ -348,7 +348,7 @@ And finally, this is a little silly, but we would argue that a baseball team sho
 **Table 2: depression\_scale**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  | date  | dep_q1  | dep_q2   | dep_q3  | dep_q4  | dep_total   |
+| subj\_id  | date  | dep\_q1  | dep\_q2   | dep\_q3  | dep\_q4  | dep\_total   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 11234   | 2021-05-15   | 3    | 3  | 2    | 4    | 12    |
 | 86234   | 2021-06-01   | 4    | 4  | 3    | 4    | 15    |
@@ -361,7 +361,7 @@ And finally, this is a little silly, but we would argue that a baseball team sho
 **Table 3: subject\_address**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  | street_address  | city  | state   | zip  | date_start  | date_end   |
+| subj\_id  | street\_address  | city  | state   | zip  | date\_start  | date\_end   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 11234   | 123 Main Street   | Smithtown    | PA  | 19000    | 2022-01-01   | `NULL`    |
 | 11234   | 123 Oak Lane   | Old Towne    | PA  | 18000   | 2000-01-01    | 2021-12-31    |
@@ -385,7 +385,7 @@ What would combining these two tables look like, potentially?
 **Table 1: demographic**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  |  dob | sex | race |
+| subj\_id  |  dob | sex | race |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 |11234| 2007-01-13 | F | Refused/Unknown |
 |32660| 2012-07-22 | M | White   |
@@ -400,7 +400,7 @@ What would combining these two tables look like, potentially?
 **Table 2: depression\_scale**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  | date  | dep_q1  | dep_q2   | dep_q3  | dep_q4  | dep_total   |
+| subj\_id  | date  | dep\_q1  | dep\_q2   | dep\_q3  | dep\_q4  | dep\_total   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 11234   | 2021-05-15   | 3    | 3  | 2    | 4    | 12    |
 | 86234   | 2021-06-01   | 4    | 4  | 3    | 4    | 15    |
@@ -422,7 +422,7 @@ What would combining these two tables look like, potentially?
 **Combined Data**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.7em"-->
-| subj_id  |  dob | sex | race | date  | dep_q1  | dep_q2   | dep_q3  | dep_q4  | dep_total   |
+| subj\_id  |  dob | sex | race | date  | dep\_q1  | dep\_q2   | dep\_q3  | dep\_q4  | dep\_total   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |  :--------- | :--------- | :--------- |
 | 11234   | 2007-01-13 | F | Refused/Unknown | 2021-05-15   | 3    | 3  | 2    | 4    | 12    |
 | 86234   | 2009-10-30 | F | White   | 2021-06-01   | 4    | 4  | 3    | 4    | 15    |
@@ -446,7 +446,7 @@ We also have rows with partial data.  We have a subject here, 93452, for whom we
 **Table 1: demographic**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  |  dob | sex | race |
+| subj\_id  |  dob | sex | race |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 |11234| 2007-01-13 | F | Refused/Unknown |
 |32660| 2012-07-22 | M | White   |
@@ -461,7 +461,7 @@ We also have rows with partial data.  We have a subject here, 93452, for whom we
 **Table 2: depression\_scale**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  | date  | dep_q1  | dep_q2   | dep_q3  | dep_q4  | dep_total   |
+| subj\_id  | date  | dep\_q1  | dep\_q2   | dep\_q3  | dep\_q4  | dep\_total   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 11234   | 2021-05-15   | 3    | 3  | 2    | 4    | 12    |
 | 86234   | 2021-06-01   | 4    | 4  | 3    | 4    | 15    |
@@ -474,7 +474,7 @@ We also have rows with partial data.  We have a subject here, 93452, for whom we
 **Table 3: subject\_address**
 
 <!-- data-type="none" class="tight-table" style="font-size:0.6em"-->
-| subj_id  | street_address  | city  | state   | zip  | date_start  | date_end   |
+| subj\_id  | street\_address  | city  | state   | zip  | date\_start  | date\_end   |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 11234   | 123 Main Street   | Smithtown    | PA  | 19000    | 2022-01-01   | `NULL`    |
 | 11234   | 123 Oak Lane   | Old Towne    | PA  | 18000   | 2000-01-01    | 2021-12-31    |
@@ -534,7 +534,7 @@ In these entity tables, whether it’s a device table or a patient table or a pr
 **medication**
 
 <!-- data-type="none" class="tight-table" style=""-->
-| med_id (PK) |  brand_name | generic_name | class |
+| med\_id (PK) |  brand\_name | generic\_name | class |
 | :--------- | :--------- | :--------- | :--------- |
 | 123 | Motrin | ibuprofen | NSAID |
 | 249 | Prozac | fluoxetine | SSRI |
@@ -558,7 +558,7 @@ One kind of interaction between a provider, a patient, and a medication :  `medi
 
 
 <!-- data-type="none" class="tight-table" style=""-->
-| med\_order\_id (PK) |  pat_id | med_id | provider_id | order_date | .... | notes |
+| med\_order\_id (PK) |  pat\_id | med\_id | provider\_id | order\_date | .... | notes |
 | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 322513 | 861201243 | 123 | 491212292 | 2023-05-01 | ... | PRN, advised parents |
 | 322987 | 151242990 | 345 | 491212292 | 2023-07-10 | ... ||
@@ -633,7 +633,7 @@ All of this may seem very complicated, so I want to go back to another example t
 <div style="width: 50%; float:left;">
 
 <!-- data-type="none" class="tight-table" style = "font-size: 0.7em; color = darkblue"-->
-| order_num   | item_1   | item_2  | ...  | item_50  |
+| order\_num   | item\_1   | item\_2  | ...  | item\_50  |
 | :--------- | :--------- | :--------- | :--------- | :--------- |
 | 23125    | orane juice  | pistachios     | ...    | `NULL`    |
 | 41320    | peanut butter    | plain bagels     | ...    | orane juice    |
@@ -668,7 +668,7 @@ Normalization helps reduce needless repetition, it simplifies data, and it impro
 **`items`**
 
 <!-- data-type="none" class="tight-table" style = "font-size: 0.7em"-->
-| item_id (PK)  | item_name  |
+| item\_id (PK)  | item\_name  |
 | :--------- | :--------- |
 | 15 | distilled water |
 | 178 | napkins |
@@ -684,7 +684,7 @@ Normalization helps reduce needless repetition, it simplifies data, and it impro
 **`order_items`**
 
 <!-- data-type="none" class="tight-table"  style = "font-size: 0.7em"-->
-| order_id | item_id |
+| order\_id | item\_id |
 | :--------- | :--------- |
 | 23125 | 210 |
 | 23125 | 108 |
