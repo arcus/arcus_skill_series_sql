@@ -1,7 +1,7 @@
 <!--
 author:   Joy Payton
 email:    paytonk@chop.edu
-version: 1.0.0
+version: 1.0.1
 current_version_description: Initial version
 docs_version: 3.0.0
 module_type: slides
