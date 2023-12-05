@@ -29,6 +29,11 @@ After completion of this module, learners will be able to:
 
 [**Dec 13** sign up link](https://events.teams.microsoft.com/event/96f78e2d-2855-4937-b3f1-394af8acf73b@a6112416-07b0-41a5-9bb1-d146b575c975)
 
+**Session Materials**
+
+- Review the [workshop slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/database_normalization/database_normalization.md#1)
+- Work through this content as an [interactive tutorial](https://bit.ly/DART_database_normalization)
+
 ## Session 3 - SQL Basics
 
 [**Jan 17** sign up link](https://events.teams.microsoft.com/event/9635606e-0765-4725-9413-a294cfad7f81@a6112416-07b0-41a5-9bb1-d146b575c975)
