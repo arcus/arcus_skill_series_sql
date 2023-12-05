@@ -51,7 +51,7 @@ repo_link: [GitHub repository for these materials](https://github.com/arcus/arcu
 module_link: [an online self-paced tutorial](https://bit.ly/DART_demystifying_sql)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
-
+import: https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/macros_slides.md
 -->
 
 # Demystifying SQL
