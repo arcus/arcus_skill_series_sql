@@ -1,5 +1,3 @@
-This repo contains slides, code, and other materials for the **Arcus Education Skill Series** workshops on SQL. 
-
 # Beyond the Spreadsheet: Understanding SQL and Relational Databases
 
 Join Arcus Education for a series of lunch-and-learn workshops to learn about relational databases and how to use SQL to query databases effectively.  SQL is a relational database solution that has been around for decades. In the first two workshops, learn more about this technology at a high level, without having to write code. In the last three workshops, practice writing simple code to build your skills. If you work with raw data that is stored in multiple tables and you want to go beyond the capabilities of a spreadsheet, you’ll want to attend these workshops. You’ll leave these webinars with access to training modules that will help you practice these skills and develop confidence. 
