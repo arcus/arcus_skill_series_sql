@@ -40,14 +40,29 @@ After completion of this module, learners will be able to:
 
 [**Jan 23** sign up link](https://events.teams.microsoft.com/event/65c10e68-f74b-4664-9de1-8520eb068bd2@a6112416-07b0-41a5-9bb1-d146b575c975)
 
+**Session Materials**
+
+- Review the workshop slides (link available after the first session)
+- Work through this content as an [interactive tutorial](https://bit.ly/DART_sql_basics)
+
 ## Session 4 - SQL Intermediate Level
 
 [**Feb 6** sign up link](https://events.teams.microsoft.com/event/c3fc728e-9809-4910-9b31-8ca3859e2ad1@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 [**Feb 21** sign up link](https://events.teams.microsoft.com/event/dac5952f-1e4c-4226-8b48-9c2c1e77e254@a6112416-07b0-41a5-9bb1-d146b575c975)
 
+**Session Materials**
+
+- Review the workshop slides (link available after the first session)
+- Work through this content as an [interactive tutorial](https://bit.ly/DART_sql_intermediate)
+
 ## Session 5 - SQL Joins
 
 [**Mar 12** sign up link](https://events.teams.microsoft.com/event/3b0842a5-d7ba-4292-a5e5-7bb47c9e6f13@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 [**Mar 20** sign up link](https://events.teams.microsoft.com/event/5323d936-a3b7-4e70-81ed-ae428c93df09@a6112416-07b0-41a5-9bb1-d146b575c975)
+
+**Session Materials**
+
+- Review the workshop slides (link available after the first session)
+- Work through this content as an [interactive tutorial](https://bit.ly/DART_sql_joins)
