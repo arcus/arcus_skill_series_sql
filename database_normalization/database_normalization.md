@@ -49,7 +49,7 @@ No previous versions.
 
 
 repo_link: [GitHub repository for these materials](https://github.com/arcus/arcus_skill_series_sql)
-module_link: [an online self-paced tutorial](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/database_normalization/database_normalization.md)
+module_link: [an online self-paced tutorial](https://bit.ly/DART_database_normalization)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
 
