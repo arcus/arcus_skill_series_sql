@@ -31,6 +31,7 @@ After completion of this module, learners will be able to:
 
 **Session Materials**
 
+- Watch a [recording of the workshop](https://youtu.be/ZakRuThdZJE)
 - Review the [workshop slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/database_normalization/database_normalization.md#1)
 - Work through this content as an [interactive tutorial](https://bit.ly/DART_database_normalization)
 
