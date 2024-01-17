@@ -28,7 +28,7 @@ And, of course, any errors or awkwardness in this version are mine. While our we
 <h2> **CLICK** </h2> 
 
 ## Learn by doing
-We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient dataset. There will also be some short quizzes to help solidify your understanding as we go.
+We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient database. There will also be some short quizzes to help solidify your understanding as we go.
 
 
 With that being said, lets hop in
@@ -261,7 +261,7 @@ Just as we would hope, this time we haven't received the entire patients table, 
 (The next keyword we're going to discuss is `DISTINCT`.) The `DISTINCT` clause in **SQL** can be placed directly after the `SELECT` key word, and can be used to limit your result set to only the unique row values.  
 
 
-This can be especially useful when exploring a dataset for the first time and trying to become familiar with the data in each column of a given table.  
+This can be especially useful when exploring a a table for the first time and trying to become familiar with the data in each column.  
 
 <h3> CLICK </h3>
 
@@ -345,7 +345,7 @@ As an example, here's how you'd filter the output to only include records for a 
 
 _read through the example on the screen, provide interpretation_
 
-Although this example shows only one constraint for the dataset, the WHERE clause can contain any number of filtering arguments needed.
+Although this example shows only one constraint, the WHERE clause can contain any number of filtering arguments needed.
 
 <h3> CLICK </h3>
 
@@ -424,13 +424,17 @@ Let's imagine we want to see rows from the `allergies` table where the `stop` va
 
 As you can see in our example, you achieve this by using the keywords `IS NOT NULL`. Take careful note that we are _not_ filtering null values by using the inequality operator. In fact, you _can't_ filter null values using equality or inequality operators. That's why the `IS` and `IS NOT` key words exist. That's because, in a more esoteric sense, null values are inherently unknowable, and therefore we can't assess whether it is equal to anything. Similarly, you can't do math with a null value. 
 
-Let's think about this in the context of the `stop` column in the `allergies` table. 
 
-<h3> CLICK </h3>
+
+<h2> CLICK </h2>
+
+## NULL and Comparisons
+
+Let's think about this in the context of the `stop` column in the `allergies` table. 
 
 Here, we're asking SQL to give us all of the columns in the allergies table where the stop date is less than March 1, 2020. 
 
---{{3}}--
+
 When this code is run, each row's `stop` value will be assessed against our `where` statement. Let's think through all of the possible categories that these values could fall into. 
 
 The `stop` value could be a date less than (or earlier to) March 1, 2020. 
@@ -442,11 +446,11 @@ Or, the value could be blank, with no date listed at all -- in other words, it c
 Given what you've learned so far about WHERE statements, filtering, and `NULL` values, which category or categories do you think the returned data will fall into? Take a moment and respond in the Teams poll.  
 
 
-_as necessary, make sure the teams poll is highly visible_
+> <h3> Go into "Polls" in Teams and deploy the draft poll</h3>
 
 _wait for a bit as responses come in_
 
---{{4}}--
+
 
 Riff here as responses come in looks like a lot of people think its x, and others think its also y.... etc
 
@@ -474,7 +478,7 @@ By combining a date comparison along with the `IS NULL` operator using the `OR` 
 
 ## ORDER BY Statement
 
-Another useful piece of SQL syntax for exploring datasets is the `ORDER BY` statement, which (as its name suggests) is used to order your result set by a given set of one or more columns.
+Another useful piece of SQL syntax for exploring data is the `ORDER BY` statement, which (as its name suggests) is used to order your result set by a given set of one or more columns.
 
 When listing columns in the `ORDER BY` statement you can specify that they be sorted in either ascending (`ASC`) or descending (`DESC`) order. By default, all items in the `ORDER BY` clause will be sorted in `ASC` (ascending) order if no explicit ordering direction is provided.
 
@@ -596,4 +600,4 @@ Finally, for even more learning, we suggest coming to the final sessions in our 
 
 In February, we will practice more with single tables, learning keywords like CASE, LIKE, and GROUP BY.
 
-Then, in March, we'll cover working with multiple tables, and how to join data from different tables into one dataset to work with!
+Then, in March, we'll cover working with multiple tables, and how to join data from different tables into a single tabular format to analyze.

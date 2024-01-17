@@ -136,8 +136,10 @@ So with that, let's get started!
 
 --{{0}}--
 Today, we'll be learning how to do basic SQL queries on single tables. This is a hands-on webinar -- we'll be writing some real SQL code! If that sounds daunting -- don't worry. I'll provide plenty of scaffolding, and we'll work through things together. 
+
 --{{0}}--
 You'll learn how to compose simple queries using keywords such as SELECT, WHERE, FROM, DISTINCT, AS, and ORDER BY. We'll also introduce you to the value of the LIMIT keyword, as well as cover working with null (or empty) values using IS NULL and IS NOT NULL. 
+
 --{{0}}--
 In order to code along with me, you'll need to open the following link in your browser: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_basics/sql_basics.md 
 
@@ -159,7 +161,8 @@ And, of course, any errors or awkwardness in this version are mine. While our we
 @teams_polls
 
 --{{0}}--
-We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient dataset. There will also be some short quizzes to help solidify your understanding as we go.
+We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient database. There will also be some short quizzes to help solidify your understanding as we go.
+
 --{{0}}--
 With that being said, lets hop in!
 
@@ -172,17 +175,17 @@ A relational database is a data storage solution that stores data tables, which 
 --{{0}}--
 First, let's quickly review some key concepts from our November and December sessions. 
 "Sequel", or S-Q-L (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
+
 --{{0}}--
 Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. When data has been fragmented to reduce inefficiency and repetition, it is considered to be **normalized**. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
 
 {{1}}
 *****
 <h4> What SQL is for: </h4>
-
 isolating and combining just the data you're interested in, such as:
 
- * isolating columns you're interested in
-  * filtering to just the data that meets specific criteria
+ * extracting columns you're interested in
+ * filtering to just the data that meets specific criteria
 *****
 --{{1}}--
 SQL is great at working with rectangular data, data that is stored in tables with rows and columns / fields.  Its powerful SELECT - FROM - WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions. 
@@ -208,10 +211,13 @@ Some popular "flavors" of SQL:
 * [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary)
 --{{0}}--
 Believe it or not, SQL is technically not just one thing -- there are a variety of different implementations. Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
+
 --{{0}}--
 Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
+
 --{{0}}--
 The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues.
+
 --{{0}}--
 Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
 
@@ -245,6 +251,7 @@ At a high level, we generally provide three pieces of information when construct
 SELECT _2_ FROM _1_ WHERE _3_;
 ```
 *****
+
 --{{2}}--
 You put these basic pieces of information together using the syntax show here to create a SQL query. 
 
@@ -262,8 +269,6 @@ SELECT mpg, transmission_type FROM cars;
 SELECT * FROM patients WHERE age < 20;
 ```
 *****
---{{3}}--
-In the chat, let me know what you think the name of the table is in the first example query. (Insert ad libs here as answers come in as appropriate). 
 
 --{{3}}--
 To be extra clear, we end each query with a semicolon. This tells SQL you're done with a query.  If you're working interactively with SQL, one query at a time, you can sometimes get away with not ending your query with a semicolon.  Still, one of the things we're interested in doing in this webinar is instilling good practices from the start, so we encourage you to always end your queries with proper punctuation.
@@ -304,10 +309,13 @@ WHERE product_type = "FRUIT";
 
 --{{1}}--
 All of the queries are on screen valid and would work perfectly fine.  What distinguishes them is __style__.  
+
 --{{1}}--
 There is no SQL-level enforcement of line breaks or indentation -- you could write a long query on a single line, even if its so long that it runs off the side of the screen.  You are free to write SQL as you see fit, but we encourage you to adopt specific conventions and hold yourself to them, as doing so may make it easier to understand and troubleshoot your own code. 
+
 --{{1}}--
 You may be working with a group that has an established SQL style guide, either in written form or as oral tradition.  If so,  ignore the style suggestions we offer and do what they suggest.  Since style is intended to help humans read and write code more easily, it's a good idea to go along with what is already understood within your team.  Everyone agreeing on conventions like when to start a new line and how and where to comment means it's easier for other people to help you with your code or for you to copy / paste from existing examples your peers share with you.
+
 --{{1}}--
 It might seem silly to start talking about style now with very short queries, but this is all about developing good habits from the start. That way, when you do start writing more complex queries, it's one fewer thing to worry about. We are going to advocate for some style conventions that not everyone will share. If you depart from our suggestions, that's fine -- just be sure to eventually develop your own standards for style! We promise, this will help you immensely once your SQL queries get to be 5, 10, or 100 lines long.
 
@@ -367,8 +375,10 @@ What this means is to that, in a list of length n, instead of putting the comma 
 
 --{{6}}--
 (1) the commas all line up -- this makes it much easier to identify at a quick glance if you've forgotten a comma -- a common source of errors when running code that involves lists!
+
 --{{6}}--
 (2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. Typically, the first item in your list is something of central importance, and will stay in first place. In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the columns we don't need.  Usually, the first item in a list of columns is something of central importance, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. Because you rarely touch the first item in a list but more frequently change the last item, it's less likely that you'll introduce a missing (or extra) comma using a comma-first paradigm as compared to the comma-last style. This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error! 
+
 --{{6}}--
 Now that we've got you thinking about style, let's move on to the substance of SQL and work with SELECT and FROM.
 
@@ -423,10 +433,10 @@ Taking a look at the `FROM` line of this query, you may notice that the table na
 In our sample query here, the first word in dot notation after the FROM keyword is alasql, which is the name of the **schema**, **catalog**, or **dataset** that the data is stored in. (terms vary according to which flavor of SQL you're using). The second word, "patients" is the name of the specific table within that dataset that we're hoping to query. 
 
 --{{3}}--
-Alright, lets run our first SQL query of the day? I'm going to hit the execute button, which is the right-facing triangle in the small circle below the SQL code.  
+Alright, lets run our first SQL query of the day! Hit the execute button, which is the right-facing triangle in the small circle below the SQL code.  
 
 --{{3}}--
-So let's take a look at our output. We have a variety of columns, such as id, birthdate, deathdate, first and last name, and more. If we couldn't already tell before from just the name "patients", its clear now that this is a table that contains important demographic information for patients in this fake Electronic Health Record. 
+In our output, we have a variety of columns, such as id, birthdate, deathdate, first and last name, and more. If we couldn't already tell before from just the name "patients", its clear now that this is a table that contains important demographic information for patients in this fake Electronic Health Record. 
 
 --{{3}}--
 Let's move on now to our first exercise!
@@ -464,12 +474,6 @@ FROM  ;
 
 
 --{{0}}--
-Once you've had a chance to try this exercise, like my message in the chat, so I can have a good sense for  when we should regroup to move on. (remove from slides)
-
---{{0}}--
-(Copy the following into chat: "Like this message when you're done with "Your Turn 1"." )
-
---{{0}}--
 To get this data, we're going to want to write out SELECT * FROM alasql.allergies; When you run the query, you should see a table with five columns: start, stop, patient, encounter, and description. Note that while you would also get these same results if you just wrote FROM allergies instead of alasql.allergies, for the reasons we discussed before, we suggest writing the table name out using dot notation, so as to also include the dataset/schema name. 
 
 --{{0}}-- 
@@ -479,7 +483,7 @@ So we've practiced requesting all of the columns of a table, but what if we only
 
 
 --{{0}}--
-In order to return only a specific few of the columns, you need to write a comma-separated list of the columns you want after the `SELECT` keyword. CLICK
+In order to return only a specific few of the columns, you need to write a comma-separated list of the columns you want after the `SELECT` keyword. 
 
 ```sql
 SELECT
@@ -513,6 +517,7 @@ Note that this time, we're also using dot notation for our columns, in the form 
 
 --{{0}}--
 Now, it might seem a bit redundant in this example to list our columns this way. After all, we already list that the data is coming from the `patients` table in the `FROM` statement, and we're only querying one table.
+
 --{{0}}--
 This is another example of forming good habits early. While right now, we're only querying from one table, eventually (though not in today's workshop) you will need to do queries that involve multiple tables. Sometimes, these tables may have identical column names. In that case, you are **required** to specify which table you're referring to in order to disambiguate. 
 
@@ -520,14 +525,14 @@ This is another example of forming good habits early. While right now, we're onl
 SQL won't automatically know if you're asking for `date` in `encounters` table, or `date` in `medication_administration` table?  Rather than learn dot notation later, we want to introduce you to it now, even if it feels unnecessary. That way, when you do get to the point of querying multiple tables, it will already feel natural to you, and you can focus all your brain power on learning the other, trickier aspects of mastering queries of multiple tables at once.
 
 --{{0}}--
-It's also a good idea to get into the habit of doing it now so that it's easier to change your code down the line. You may write an initial query on just one table from a dataset you're not super familiar with, only to discover that in order to answer your question, you actually need to get data from more than one table. Rather than having to go back through and update all of your code to ensure it references the table so you can add references to the other table, you will already be set up for successfully querying more than one table. 
+It's also a good idea to get into the habit of doing it now so that it's easier to change your code down the line. You may write an initial query on just one table from a database you're not super familiar with, only to discover that in order to answer your question, you actually need to get data from more than one table. Rather than having to go back through and update all of your code to ensure it references the table so you can add references to the other table, you will already be set up for successfully querying more than one table. 
 
 
 --{{0}}--
 Go ahead and run this code by clicking the execute button.  How are your results different from the `SELECT *` query you ran previously? 
 
 --{{0}}--
-As you can see, just as we would hope, this time we haven't received the entire patients table, like we saw on the page before, but instead can only see the five columns we requested. 
+Just as we would hope, this time we haven't received the entire patients table, like we saw on the page before, but instead can only see the five columns we requested. 
 
 ### DISTINCT
 {{0}}
@@ -541,7 +546,7 @@ As you can see, just as we would hope, this time we haven't received the entire 
 The `DISTINCT` clause in **SQL** can be placed directly after the `SELECT` key word, and can be used to limit your result set to only the unique row values.  
 
 --{{0}}--
-This can be especially useful when exploring a dataset for the first time and trying to become familiar with the data in each column of a given table.  
+This can be especially useful when exploring a table for the first time and trying to become familiar with the data in each column.  
 
 --{{1}}--
 For example, perhaps you want to see all the possible values for `sex` or `race` in the `patients` table, to understand a bit more about the data collection options.  If you were to use `SELECT` by itself to get just the `race` field from the `patients` table, you'd get the race of every patient, with lots of repeats.  Using `SELECT DISTINCT` instead, you get a much shorter list of every possible value for `race`, each listed just once.
@@ -572,6 +577,12 @@ FROM alasql.patients;
 
 </details><br/><br/>
 
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
 *****
 
 ### 💫 **Your Turn 2** 
@@ -589,28 +600,17 @@ SELECT ...
 
 <table id="dataTable9a" border="1"></table>
 
+</details><br/><br/>
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
 --{{0}}--
 Use what we've just learned to write a query that returns all of the unique combinations of `county` and `state` from the `patients` table. How many different combinations do you find? 
 
-
---{{0}}--
-```sql
-SELECT DISTINCT
-	patients.county
-	,patients.state
-FROM alasql.patients;
-```
-@AlaSQL.eval("#dataTable9b")
-
-<details open>
-
-<summary>**Results of Query (click to collapse or expand this section)**</summary>
-
-<table id="dataTable9b" border="1"></table>
-
-</details><br/><br/>
-
-</div>
 
 
 ### Adding Comments
@@ -700,10 +700,17 @@ WHERE
 <table id="dataTable11a" border="1"></table>
 
 </details><br/><br/>
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
 *****
 
 --{{1}}--
-Although this example shows only one constraint for the dataset, the WHERE clause can contain any number of filtering arguments needed.
+Although this example shows only one constraint, the WHERE clause can contain any number of filtering arguments needed.
 
 {{2}}
 *****
@@ -730,6 +737,12 @@ WHERE
 <table id="dataTable11b" border="1"></table>
 
 </details><br/><br/>
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
 
 *****
 
@@ -765,11 +778,6 @@ Ready to try your luck at a complex WHERE statement? Let's move on to our third 
 --{{0}}--
 Get every field from `patients` for all male patients who were born on or after January 1, 2001. Remember, you can write the query iteratively. So if you're not  sure about the field name that holds sex, or whether male is coded "Male" (with a capital M), "male" (with a lowercase m), "M", or some other way?  Look at the results of other queries to get this information! 
 
---{{0}}--
-Whenever you've had a chance to finish working through the example, be sure to like my message in the chat! 
-
---{{0}}--
-(Copy the following into chat: "Like this message when you're done with "Your Turn 3"." )
 
 {{0}}
 *****
@@ -797,15 +805,7 @@ WHERE
 *****
 
 
---{{0}}--
-Answer:
-```sql
-SELECT *
-FROM alasql.patients
-WHERE 
-	patients.birthdate >= "2001-01-01" AND
-	patients.sex = "M";
-```
+
 
 
 ### Null Values
@@ -843,16 +843,25 @@ WHERE
 <table id="dataTable12a" border="1"></table>
 
 </details><br/><br/>
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_allergies
+
+</div>
 *****
 
 --{{2}}--
-As you can see in our example, you achieve this by using the keywords `IS NOT NULL`. Take careful note that we are _not_ filtering null values by using the inequality operator. In fact, you _can't_ filter null values using equality or inequality operators. That's why the `IS` and `IS NOT` key words exist. That's because, in a more esoteric sense, null values are inherently unknowable, and therefore we can't assess whether it is equal to anything. Similarly, you can't do math with a null value. 
-
+As you can see in our example, you achieve this by using the keywords `IS NOT NULL`. Take careful note that we are _not_ filtering null values by using the inequality operator. 
 
 --{{2}}--
+In fact, you _can't_ filter null values using equality or inequality operators. That's why the `IS` and `IS NOT` key words exist. That's because, in a more esoteric sense, null values are inherently unknowable, and therefore we can't assess whether it is equal to anything. Similarly, you can't do math with a null value. 
+
+### NULL and Comparisons
+--{{0}}--
 Let's think about this in the context of the `stop` column in the `allergies` table. 
 
-{{3}}
+{{0}}
 *****
 ```sql
 SELECT *
@@ -876,51 +885,46 @@ WHERE
 
 <div style = "display:none;">
 
-@AlaSQL.buildTable_patients
+@AlaSQL.buildTable_allergies
 
 </div>
 *****
 
---{{3}}--
+--{{0}}--
 Here, we're asking SQL to give us all of the columns in the allergies table where the stop date is less than March 1, 2020. 
 
---{{3}}--
+--{{0}}--
 When this code is run, each row's `stop` value will be assessed against our `where` statement. Let's think through all of the possible categories that these values could fall into. 
 
-{{4}}
-1. A date less than (earlier than) March 1, 2020,
+{{1}}
+1. A date less than (before) March 1, 2020,
 2. A date equal to March 1, 2020,
 3. A date greater than (after) March 1, 2020,
 4. No date at all (null)
 
---{{4}}--
+--{{1}}--
 The `stop` value could be a date less than (or earlier to) March 1, 2020. 
 It could be a date that is equal to March 1, 2020. 
 It could be a date greater than (or after) March 1, 2020. 
 Or, the value could be blank, with no date listed at all -- in other words, it could be `null`. 
 
---{{4}}--
-Given what you've learned so far about WHERE statements, filtering, and `NULL` values, which category or categories do you think the returned data will fall into? Take a moment and respond in the Teams poll.  
---{{4}}--
-**TEAMS POLL GOES HERE -- SELECT ALL THAT APPLY** 
-
---{{4}}--
-(Riff here as responses come in (this only goes in script version, ))
+--{{1}}--
+Given what you've learned so far about WHERE statements, filtering, and `NULL` values, which category or categories do you think the returned data will fall into? 
 
 
---{{4}}--
-Let's run the code now and see what the results are! (It seems like we were mostly on the right mark / riff here based upon what the most popular answer was). The only rows returned are those with a date earlier than March 1, 2020. Dates equal to or later than that date are not included, of course, because they are in obvious violation of the WHERE clause filter. Rows that do not have a date (ie, NULL values) are not returned, because they cannot be evaluated with the comparison operator. 
+--{{1}}--
+Let's run the code now and see what the results are! The only rows returned are those with a date earlier than March 1, 2020. Dates equal to or later than that date are not included, of course, because they are in obvious violation of the WHERE clause filter. Rows that do not have a date (ie, NULL values) are not returned, because they cannot be evaluated with the comparison operator. 
 
---{{4}}-- 
+--{{1}}-- 
 The fact that nulls aren't included in comparisons is a very subtle distinction that can drastically alter the output of your SQL statements.  This can be very important when writing inclusion and exclusion logic and thinking about what cases belong in your data set.  Always keep in mind that you might have missing values, and consider what that might mean for your selection of rows.  
 
---{{4}}--
+--{{1}}--
 Now, perhaps we're interested in running an analysis only on allergies that are current, that is, they do not have a `stop` date. And perhaps we're aware that allergies with a date prior to March 1, 2020 have some possible data quality issues, and should be manually checked to see if they are actually current allergies that had a stop date entered by mistake. 
 
---{{4}}--
+--{{1}}--
 In that case, we would want to return a mix of both null and non-null values. In order to achieve this, we'd need to combine what we already know about comparison operators and null values, along with our previously learned lessons about **logical** operators. 
 
-{{5}}
+{{2}}
 *****
 ```sql
 SELECT *
@@ -941,9 +945,15 @@ WHERE
 <table id="dataTable12c" border="1"></table>
 
 </details><br/><br/>
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_allergies
+
+</div>
 *****
 
---{{5}}--
+--{{2}}--
 By combining a date comparison along with the `IS NULL` operator using the `OR` keyword, we create a WHERE statement that returns any rows that either have no stop date, or have a stop date prior to March 1, 2020. 
 
 
@@ -952,7 +962,7 @@ By combining a date comparison along with the `IS NULL` operator using the `OR` 
 * `ORDER BY`: orders the result set by one or more columns. 
 
 --{{0}}--
-Another useful piece of SQL syntax for exploring datasets is the `ORDER BY` statement, which (as its name suggests) is used to order your result set by a given set of one or more columns.
+Another useful piece of SQL syntax for exploring data is the `ORDER BY` statement, which (as its name suggests) is used to order your result set by a given set of one or more columns.
 
 --{{0}}--
 When listing columns in the `ORDER BY` statement you can specify that they be sorted in either ascending (`ASC`) or descending (`DESC`) order. By default, all items in the `ORDER BY` clause will be sorted in `ASC` (ascending) order if no explicit ordering direction is provided.
@@ -981,11 +991,16 @@ ORDER BY
 
 </details><br/><br/>
 
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
 
 *****
 
 --{{1}}--
-For instance, this code sorts first by `county`, and then within each possible value of `county` sorts by `ethnicity`. Let's run it and take a look at the output. ((ad libs here about the result. at first it might look like its not sorting w/in ethnicity, but actualy quite a few counties don't seem to have any hispanic patients in the dataset, ..... ))
+For instance, this code sorts first by `county`, and then within each possible value of `county` sorts by `ethnicity`. Let's run it and take a look at the output. 
 
 ### LIMIT
 
@@ -1087,6 +1102,10 @@ FROM alasql.patients AS p;
 
 </details><br/><br/>
 
+<div style = "display:none;">
+@AlaSQL.buildTable_patients
+</div>
+
 *****
 --{{5}}--
 Aliases are assigned by placing the `AS` key word directly after the item (table/column) you would like to alias, followed by the name you would like to assign as its **alias**.
@@ -1125,19 +1144,8 @@ Write a query that accomplishes the following:
 </div>
 
 --{{0}}--
-For one final exercise, let's combine several of the skills that we've learned so far write a query that accomplishes the following:
--{{0}}--
-* Retrieves the patient identifier, sex, ethnicity, state, and zip
-* Aliases the `patients` table as `pt`
-* Aliases the `sex` field as `sex_assigned_at_birth`
-* Aliases `zip` as `postal_code`
-* Orders the result by zip/postal code
-
---{{0}}--
 If you're feeling unsure of where to start, consider starting with a simple query (something like a `SELECT * ...`) and gradually changing it so that you knock out one bullet point at a time! 
 
---{{0}}--
-Take a few moments to try this out on your own. When you're done, don't forget to let me know by liking the message in the chat. 
 
 
 ## Recap
@@ -1169,6 +1177,7 @@ We covered a variety of important functions, represented in SQL by **keywords**.
 
 --{{9}}--
 We also learned about comparison operators, comments, and style -- how to write code in a specific way that promotes reusability and readability.
+
 --{{9}}--
 You also got to practice hands on, which probably meant you got to see some error messages, too, which is helpful experience.
 
@@ -1176,7 +1185,7 @@ You also got to practice hands on, which probably meant you got to see some erro
 
 * Khan Academy's [Introduction to SQL](https://www.khanacademy.org/computing/computer-programming/sql) is high quality and easy to learn from.
 
-* Tutorials Point has some helpful documentation o read more [about the basic types of **operators** available for use in a SQL query](https://www.tutorialspoint.com/sql/sql-operators.htm).
+* Tutorials Point has some helpful documentation you may want to check out to read more [about the basic types of **operators** available for use in a SQL query](https://www.tutorialspoint.com/sql/sql-operators.htm).
 
 * Give the [SQL Murder Mystery](https://mystery.knightlab.com/) a try. Note that some of the content is more advanced than what we cover here, but there is a walkthrough, and you can always stop once you've reached the limits of what we've learned so far. 
 
@@ -1190,13 +1199,13 @@ You also got to practice hands on, which probably meant you got to see some erro
 
 Learn about intermediate SQL queries with keywords like CASE, LIKE, and GROUP BY. We'll work on single tables, using code, hands-on.
 
-Tuesday February 6, 2024 and Wednesday February 21, 2024
+[Tuesday February 6, 2024](https://events.teams.microsoft.com/event/c3fc728e-9809-4910-9b31-8ca3859e2ad1@a6112416-07b0-41a5-9bb1-d146b575c975) and [Wednesday February 21, 2024](https://events.teams.microsoft.com/event/dac5952f-1e4c-4226-8b48-9c2c1e77e254@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 @colorhighlight(March 2024 - SQL Joins)
 
 Work with multiple tables and learn about SQL joins: learn what they accomplish and how to write them.
 
-Tuesday March 12, 2024 and Wednesday March 20, 2024
+[Tuesday March 12, 2024](https://events.teams.microsoft.com/event/3b0842a5-d7ba-4292-a5e5-7bb47c9e6f13@a6112416-07b0-41a5-9bb1-d146b575c975) and [Wednesday March 20, 2024](https://events.teams.microsoft.com/event/5323d936-a3b7-4e70-81ed-ae428c93df09@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 ## About these slides
 
