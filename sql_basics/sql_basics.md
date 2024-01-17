@@ -52,7 +52,7 @@ No previous versions.
 @end
 
 repo_link: [GitHub repository for these materials](https://github.com/arcus/arcus_skill_series_sql)
-module_link: [an online self-paced tutorial](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/sql_basics/sql_basics.md)
+module_link: [SQL Basics](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/sql_basics/sql_basics.md)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros_sql.md
@@ -100,7 +100,7 @@ All of the speaker notes from today's talk are saved in the slides themselves --
 </div>
 </div>
 
-The content from this talk is also available as @module_link 
+The content from this talk is also available as an online self-paced tutorial: @module_link 
 
 For all of the files and information from this talk, go to our @repo_link 
 
@@ -146,7 +146,7 @@ You'll learn how to compose simple queries using keywords such as SELECT, WHERE,
 <div class = "gratitude">
 <b style="color: rgb(var(--color-highlight));">Thank you!</b><br>
 
-Material for this talk is based closely on the DART module [SQL Basics](@module_link), written by Peter Camacho and Joy Payton.
+Material for this talk is based closely on the DART module @module_link, written by Peter Camacho and Joy Payton.
 
 </div>
 
