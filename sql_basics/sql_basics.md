@@ -140,8 +140,6 @@ Today, we'll be learning how to do basic SQL queries on single tables. This is a
 --{{0}}--
 You'll learn how to compose simple queries using keywords such as SELECT, WHERE, FROM, DISTINCT, AS, and ORDER BY. We'll also introduce you to the value of the LIMIT keyword, as well as cover working with null (or empty) values using IS NULL and IS NOT NULL. 
 
---{{0}}--
-In order to code along with me, you'll need to open the following link in your browser: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_basics/sql_basics.md 
 
 ## Thank you!
 
@@ -154,7 +152,8 @@ Material for this talk is based closely on the DART module [SQL Basics](@module_
 
 --{{0}}--
 Many thanks to Peter and Joy for their work developing this excellent content!
-And, of course, any errors or awkwardness in this version are mine. While our webinar today will cover all of the topics in their module, we won't be doing all of the exercises or quiz questions, so if you're interested in getting just a bit more practice, I suggest you check out the module after our session. 
+
+While our webinar today will cover all of the topics in their module, we won't be doing all of the exercises or quiz questions, so if you're interested in getting just a bit more practice, I suggest you check out the module after our session. 
 
 ## Learn by doing
 
