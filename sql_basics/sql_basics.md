@@ -279,7 +279,6 @@ Similarly, while we write these queries all on a single line to show you a few e
 --{{0}}--
 Style is how we choose to write SQL or other languages, within the confines of syntax. Style can be used to help humans read and write code more easily, closer to how they they read and write their natural languages.
 
-
 {{1}}
 *****
 <!-- data-readOnly="true" -->
@@ -334,11 +333,8 @@ Examples of keywords are SELECT, LIKE, AS, WHERE, JOIN, DISTINCT, MEAN, ORDER BY
 2) **Put members of a list on separate lines.**  
 *****
 
-
 --{{3}}--
 This usually means the list of fields you're requesting.  Putting each item on its own line is easier on the eyes and allows for much easier cut-and-paste to rearrange things.  It also means you have space after each item of the list to add a comment if necessary.
-
-
 
 {{4}}
 *****
@@ -455,7 +451,6 @@ FROM  ;
 ```
 @AlaSQL.eval("#dataTable7b")
 
-
 <details open>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
@@ -470,7 +465,6 @@ FROM  ;
 
 </div>
 *****
-
 
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
@@ -492,7 +486,6 @@ So we've practiced requesting all of the columns of a table, but what if we only
 
 #### Selecting Specific Columns
 
-
 --{{0}}--
 In order to return only a specific few of the columns, you need to write a comma-separated list of the columns you want after the `SELECT` keyword. 
 
@@ -507,7 +500,6 @@ FROM alasql.patients;
 ```
 @AlaSQL.eval("#dataTable7c")
 
-
 <details open>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
@@ -515,7 +507,6 @@ FROM alasql.patients;
 <table id="dataTable7c" border="1"></table>
 
 </details><br/><br/>
-
 
 <div style = "display:none;">
 
@@ -537,7 +528,6 @@ SQL won't automatically know if you're asking for `date` in `encounters` table, 
 
 --{{0}}--
 It's also a good idea to get into the habit of doing it now so that it's easier to change your code down the line. You may write an initial query on just one table from a database you're not super familiar with, only to discover that in order to answer your question, you actually need to get data from more than one table. Rather than having to go back through and update all of your code to ensure it references the table so you can add references to the other table, you will already be set up for successfully querying more than one table. 
-
 
 --{{0}}--
 Go ahead and run this code by clicking the execute button.  How are your results different from the `SELECT *` query you ran previously? 
@@ -562,13 +552,11 @@ This can be especially useful when exploring a table for the first time and tryi
 --{{1}}--
 For example, perhaps you want to see all the possible values for `sex` or `race` in the `patients` table, to understand a bit more about the data collection options.  If you were to use `SELECT` by itself to get just the `race` field from the `patients` table, you'd get the race of every patient, with lots of repeats.  Using `SELECT DISTINCT` instead, you get a much shorter list of every possible value for `race`, each listed just once.
 
-
 --{{1}}--
 As you can see in this example, `SELECT DISTINCT` can also be used on more than one field.  The code block below provides an example of using this syntax to investigate the unique combinations of values from the `sex` and `ethnicity` columns from the `patient` table. Go ahead and execute this code to see the results.  
 
 --{{1}}--
 We can see here that there are four different combinations of sex and ethnicity. Note, though, that `SELECT DISTINCT ` only shows you the combinations that actually exist in the table, rather than all of the combinations that could possibly exist. So, for example, if there were no female nonhispanic patients in this table, our result would have only been three rows long.
-
 
 {{1}}
 *****
@@ -639,7 +627,6 @@ FROM alasql.patients;
 
 __ Can be **single-line**__: using `--` as a delimiter
 
-
 or **multi-line** : using `/*` and `*/`
 
 --{{0}}--
@@ -650,7 +637,6 @@ In **SQL** there are 2 different techniques that can be used for adding comments
 
 --{{0}}--
 Single-line comments are created by typing 2 minus signs in a row. Then, anything that appears to the right that delimiter will be treated as comment text.
-
 
 --{{0}}--
 And there's also multi-line comments. These are started by adding the `/*` characters at the beginning of your comment, and `*/` characters at the very end of your comment.
@@ -691,8 +677,6 @@ FROM alasql.patients;
 --{{1}}--
 Here's an example that uses both! By having the code commented, it's much easier for Future You to remember exactly what this query does without having to do any extra work, or for someone who _isn't you_ to figure out what's going on!  
 
-
-
 ### WHERE
 
 * `WHERE`: Optional keyword for filtering your output. 
@@ -727,7 +711,6 @@ WHERE
 @AlaSQL.buildTable_patients
 
 </div>
-
 *****
 
 --{{1}}--
@@ -764,7 +747,6 @@ WHERE
 @AlaSQL.buildTable_patients
 
 </div>
-
 *****
 
 --{{2}}--
@@ -779,7 +761,6 @@ So, you may have figured out that this query is limiting the data to only patien
 --{{2}}--
 As you can see, we receive just four rows back -- each of which are from either Barnstable or Suffolk county, and are for patients that are either hispanic or non-white.  
 
-
 --{{2}}--
 You may have also noticed that there are some parentheses in this query. There are parentheses surrounding the county-related bits of logic and the race and ethnicity bits of logic. This is because it's easy to make a logical order-of-operations mistake when you mix both `AND` and `OR`. That's why it's crucial to include parentheses to show the scope of your `AND` and `OR` logical operators.
 
@@ -792,13 +773,10 @@ Now, our resulting table is much longer, and includes rows where the patient is 
 --{{2}}--
 Ready to try your luck at a complex WHERE statement? Let's move on to our third exercise!
  
-
 ### 💫 **Your Turn 3** 
-
 
 --{{0}}--
 Get every field from `patients` for all male patients who were born on or after January 1, 2001. Remember, you can write the query iteratively. So if you're not  sure about the field name that holds sex, or whether male is coded "Male" (with a capital M), "male" (with a lowercase m), "M", or some other way?  Look at the results of other queries to get this information! 
-
 
 Return every field from `patients` for all male patients who were born on or after January 1, 2001. 
 
@@ -809,7 +787,6 @@ WHERE
 
 ```
 @AlaSQL.eval("#dataTable11c")
-
 
 <details open>
 
@@ -825,7 +802,6 @@ WHERE
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
 
-
 ```sql
 SELECT *
 FROM alasql.patients
@@ -833,13 +809,9 @@ WHERE
 	patients.birthdate >= "2001-01-01" AND
 	patients.sex = "M";
 ```
-
 </details>
 
-
-
 ### Null Values
-
 
 * **Null:** concept used to represent "blank" values
 
@@ -901,7 +873,6 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable12b")
 
-
 <details open>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
@@ -941,7 +912,6 @@ Or, the value could be blank, with no date listed at all -- in other words, it c
 --{{1}}--
 Given what you've learned so far about WHERE statements, filtering, and `NULL` values, which category or categories do you think the returned data will fall into? 
 
-
 --{{1}}--
 Let's run the code now and see what the results are! The only rows returned are those with a date earlier than March 1, 2020. Dates equal to or later than that date are not included, of course, because they are in obvious violation of the WHERE clause filter. Rows that do not have a date (ie, NULL values) are not returned, because they cannot be evaluated with the comparison operator. 
 
@@ -967,7 +937,6 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable12c")
 
-
 <details open>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
@@ -985,7 +954,6 @@ WHERE
 
 --{{2}}--
 By combining a date comparison along with the `IS NULL` operator using the `OR` keyword, we create a WHERE statement that returns any rows that either have no stop date, or have a stop date prior to March 1, 2020. 
-
 
 ### ORDER BY Statement
 
@@ -1036,7 +1004,6 @@ For instance, this code sorts first by `county`, and then within each possible v
 
 * `LIMIT`: sets a maximum number of rows to be returned. 
 
-
 --{{0}}--
 The `LIMIT` clause can be used to limit the result set of your select statement to a maximum number of rows.
 
@@ -1048,7 +1015,6 @@ LIMIT 3;
 ```
 @AlaSQL.eval("#dataTable15a")
 
-
 <details open>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
@@ -1057,13 +1023,11 @@ LIMIT 3;
 
 </details><br/><br/>
 
-
 <div style = "display:none;">
 
 @AlaSQL.buildTable_patients
 
 </div>
-
 
 --{{1}}--
 This is achieved by adding the word `LIMIT` as the last line of your query, followed by the number of rows you would like your result set truncated at. This really useful when initially exploring tables you are unfamiliar with.  Showing just the first three or five or ten rows of a table can give you a quick intuitive grasp of the contents of the whole table and will come back very quickly.  Without a `LIMIT`, large tables can take a long time to return all their results.
@@ -1110,7 +1074,6 @@ Aliasing **columns** can be helpful by assigning clearer, more comprehensible na
 --{{4}}--
 For example, you might want to see the results from the `stop` column in the `allergies` table returned to you not as `stop`, but rather as `ruled_out_date`.
 
-
 {{5}}
 *****
 ```sql
@@ -1135,8 +1098,8 @@ FROM alasql.patients AS p;
 <div style = "display:none;">
 @AlaSQL.buildTable_patients
 </div>
-
 *****
+
 --{{5}}--
 Aliases are assigned by placing the `AS` key word directly after the item (table/column) you would like to alias, followed by the name you would like to assign as its **alias**.
 
@@ -1144,7 +1107,6 @@ Aliases are assigned by placing the `AS` key word directly after the item (table
 In this example, we can see aliasing being used to rename the `patient` table to `p`, and renaming the `id` column to `unique_patient_id` (because there are other id fields you're working with elsewhere) and the `state` coluumn to `state_name` (because you want to point out that this isn't the state abbreviation).
 
 ### 💫 **Your Turn 4 ** 
-
 
 Write a query that accomplishes the following: 
 
@@ -1168,7 +1130,6 @@ Write a query that accomplishes the following:
 
 </details><br/><br/>
 
-
 <div style = "display:none;">
 @AlaSQL.buildTable_patients
 </div>
@@ -1178,7 +1139,6 @@ If you're feeling unsure of where to start, consider starting with a simple quer
 
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
-
 
 ```sql
 SELECT 
