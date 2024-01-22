@@ -318,7 +318,7 @@ WHERE
 
 *****
 
-## CASE
+## `CASE`
 
 
 Let's look at the observations of Peanut IgE Ab in Serum in the `alasql.observations` table.
@@ -538,7 +538,7 @@ FROM alasql.patients;
 --{{0}}--
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will do complete the query together.
 
-## LIKE
+## `LIKE`
 --{{0}}--
 So far every time we have created a query, we have needed to know the exact form the data in our table takes. To see what I mean, let's take a closer look at the allergies table.
 
@@ -647,9 +647,9 @@ To match both of these constructions, as well as data like "Tree pollen allergy,
 
 ## Aggregate Functions
 
-### GROUP BY
+### `GROUP BY`
 
-### HAVING (if time)
+### `HAVING` (if time)
 
 ### 💫 **Your Turn 3** 
 
