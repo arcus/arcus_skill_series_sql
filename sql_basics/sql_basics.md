@@ -376,7 +376,7 @@ What this means is to that, in a list of length n, instead of putting the comma 
 (1) the commas all line up -- this makes it much easier to identify at a quick glance if you've forgotten a comma -- a common source of errors when running code that involves lists!
 
 --{{6}}--
-(2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. Typically, the first item in your list is something of central importance, and will stay in first place. In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the columns we don't need.  Usually, the first item in a list of columns is something of central importance, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. Because you rarely touch the first item in a list but more frequently change the last item, it's less likely that you'll introduce a missing (or extra) comma using a comma-first paradigm as compared to the comma-last style. This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error! 
+(2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. Typically, the first item in your list is something of central importance, and will stay in first place. In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the columns we don't need.  Usually, the first item in a list of columns is something of central importance, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. Because you rarely touch the first item in a list but more frequently change the last item, it's less likely that you'll introduce a missing (or extra) comma using a comma-first paradigm as compared to the comma-last style. This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error!
 
 --{{6}}--
 Now that we've got you thinking about style, let's move on to the substance of SQL and work with SELECT and FROM.
@@ -471,6 +471,18 @@ FROM  ;
 </div>
 *****
 
+
+<details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
+
+Try:
+
+```sql
+SELECT * 
+FROM alasql.allergies;
+```
+
+</details>
 
 --{{0}}--
 To get this data, we're going to want to write out SELECT * FROM alasql.allergies; When you run the query, you should see a table with five columns: start, stop, patient, encounter, and description. Note that while you would also get these same results if you just wrote FROM allergies instead of alasql.allergies, for the reasons we discussed before, we suggest writing the table name out using dot notation, so as to also include the dataset/schema name. 
@@ -610,7 +622,17 @@ SELECT ...
 --{{0}}--
 Use what we've just learned to write a query that returns all of the unique combinations of `county` and `state` from the `patients` table. How many different combinations do you find? 
 
+<details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
 
+```sql
+SELECT DISTINCT
+	patients.county
+	,patients.state
+FROM alasql.patients;
+```
+
+</details>
 
 ### Adding Comments
 **Comments**: helpful bits of text or documentation added to your code for the benefit of future you or other people who look at your code
@@ -778,8 +800,6 @@ Ready to try your luck at a complex WHERE statement? Let's move on to our third 
 Get every field from `patients` for all male patients who were born on or after January 1, 2001. Remember, you can write the query iteratively. So if you're not  sure about the field name that holds sex, or whether male is coded "Male" (with a capital M), "male" (with a lowercase m), "M", or some other way?  Look at the results of other queries to get this information! 
 
 
-{{0}}
-*****
 Return every field from `patients` for all male patients who were born on or after January 1, 2001. 
 
 ```sql
@@ -801,9 +821,20 @@ WHERE
 <div style = "display:none;">
 @AlaSQL.buildTable_patients
 </div>
-*****
+
+<details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
 
 
+```sql
+SELECT *
+FROM alasql.patients
+WHERE 
+	patients.birthdate >= "2001-01-01" AND
+	patients.sex = "M";
+```
+
+</details>
 
 
 
@@ -1145,7 +1176,30 @@ Write a query that accomplishes the following:
 --{{0}}--
 If you're feeling unsure of where to start, consider starting with a simple query (something like a `SELECT * ...`) and gradually changing it so that you knock out one bullet point at a time! 
 
+<details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
 
+
+```sql
+SELECT 
+	pt.id
+	,pt.sex as sex_assigned_at_birth
+	,pt.ethnicity
+	,pt.state
+	,pt.zip as postal_code
+FROM alasql.patients as pt
+ORDER BY postal_code;
+```
+
+--{{0}}--
+We start off with a SELECT statement, followed by our list of columns, each of which is on a new line. Although the FROM line doesn't come until after this, it's okay to use the table alias when we list our columns, even though it looks like we haven't told SQL about the table name yet! 
+As we go, we alias the sex and zip columns.
+
+--{{0}}--
+Then, we have our FROM statement, where we specify the table that we're querying, and the alias that we want to use for it. 
+Finally, we order our results by the (aliased) postal code field!
+
+</details>
 
 ## Recap
 
