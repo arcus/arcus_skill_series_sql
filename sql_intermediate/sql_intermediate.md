@@ -640,8 +640,54 @@ To match both of these constructions, as well as data like "Tree pollen allergy,
 `%pollen%` matches both, and also "Tree pollen allergy"
 ****
 
+--{{4}}--
+In the same way we needed quotes around the data we wanted to match exactly, the entire string of characters, wildcards included, must be enclosed in quotes.
+
+{{4}}
+*****
+`... LIKE '%pollen'%` or `... LIKE "%pollen%"`
+*****
 
 ### Example
+
+--{{0}}--
+Let's apply this structure to finding the pollen allergies from our `alasql.allergies` table.
+
+```sql
+SELECT *
+FROM alasql.allergies
+WHERE
+    allergies.description LIKE '%pollen';
+```
+@AlaSQL.eval("#dataTable_like_example")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_like_example" border="1"></table><br>
+
+</details><br/><br/>
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_allergies
+
+</div>
+
+--{{0}}--
+If we had a larger collection of possible allergies, this query would return all of the rows in which the character string "pollen" appears in the `allergies.description` field. 
+
+--{{0}}--
+But what if there was an entry where the word "Pollen" was capitalized? The `LIKE` operator cares about capitalization, a lower case `p` and an upper case `P` are not the same characters.
+
+--{{1}}--
+The `LOWER()` (or `UPPER()`) operator can help us out by taking the data in a field and making all of the characters lowercase (or uppercase).
+
+{{1}}
+Wrap both sides of the `LIKE` statement in `LOWER()` to make sure the query returns both capital and lowercase versions of our pattern. 
+
+
 
 ### 💫 **Your Turn 2** 
 
