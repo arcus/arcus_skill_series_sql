@@ -233,15 +233,12 @@ Rather than learn dot notation later, we want to introduce you to it now, even i
 
 It's also a good idea to get into the habit of doing it now so that it's easier to change your code down the line. You may write an initial query on just one table from a dataset you're not super familiar with, only to discover that in order to answer your question, you actually need to get data from more than one table. Rather than having to go back through and update all of your code to ensure it references the table so you can add references to the other table, you will already be set up for successfully querying more than one table. 
 
-
---{{0}}--
 Let's go ahead and run this code by clicking the execute button.  
 
 _click the button and run the code_
 
 _pause and count to 5 before continuing so folks have a moment to process the results_ 
 
---{{0}}--
 Just as we would hope, this time we haven't received the entire patients table, like we saw on the page before, but instead can only see the five columns we requested. 
 
 <h2> CLICK </h2>
