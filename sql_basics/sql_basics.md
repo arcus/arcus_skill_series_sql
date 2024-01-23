@@ -350,15 +350,7 @@ We'll talk more about dot notation in the next section, but for now --  Dot nota
 
 {{6}}
 *****
-
 5) **Use a comma-first style.**  
-e.g.,
-```
-SELECT
-  'patient'
-  , 'medication'
-  , 'diagnosis'
-```
 *****
 
 --{{6}}--
