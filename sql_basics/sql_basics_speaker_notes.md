@@ -65,7 +65,7 @@ Knowing the specific flavor or dialect of SQL your database uses is especially u
 
 <h3> **CLICK** </h3> 
 
-In the hands-on portion of this webinar, we'll be using a form of SQL that actually runs in your web browser as you look at these pages.  This lightweight SQL engine is called "AlaSQL".  We pre-populated some tables for you to experiment with in this presentation.  These tables are filled with fabricated data meant to look a little like an electronic health record (EHR).  Rest assured that this data was completely invented, although it might look realistic!
+In the hands-on portion of this webinar, we'll be using "AlaSQL", which is a form of SQL that runs in your web browser as you look at these pages. We pre-populated some tables for you to experiment with in this presentation. These tables are filled with fabricated data meant to look a little like an electronic health record (EHR). Rest assured that this data was completely invented, although it might look realistic!
 
 <h2> **CLICK** </h2> 
 
@@ -94,10 +94,9 @@ In the chat, let me know what you think the name of the table is in the first ex
 
 _Insert ad libs here as answers come in as appropriate_
 
- 
 To be extra clear, we end each query with a semicolon. This tells SQL you're done with a query.  If you're working interactively with SQL, one query at a time, you can sometimes get away with not ending your query with a semicolon.  Still, one of the things we're interested in doing in this webinar is instilling good practices from the start, so we encourage you to always end your queries with proper punctuation.
 
-Similarly, while we write these queries all on a single line to show you a few examples in just a little space, that's the last time you'll see that kind of SQL in this webinar. On the next slide, we're going to get into some strong opinions about SQL style here that we'd like to share. 
+Similarly, while we write these queries all on a single line to show you a few examples in just a little space, that's the last time you'll see that kind of SQL in this webinar. On the next slide, we're going to get into some strong opinions about SQL style.
 
 <h2> **CLICK** </h2> 
 
@@ -110,14 +109,10 @@ All of the queries are on screen valid and would work perfectly fine.  What dist
 
 Most of the style conventions we're going to advocate for are on display here in the third query.
 
-There is no SQL-level enforcement of line breaks or indentation -- you could write a long query on a single line, even if its so long that it runs off the side of the screen.  You are free to write SQL as you see fit, but we encourage you to adopt specific conventions and hold yourself to them, as doing so may make it easier to understand and troubleshoot your own code. 
-
 You may be working with a team that has an established SQL style guide, either in written form or as oral tradition.  If so, ignore the style suggestions we offer and do what they suggest.  Since style is intended to help humans read and write code more easily, it's a good idea to go along with what is already understood within your team.  Everyone agreeing on conventions like when to start a new line and how and where to comment means it's easier for other people to help you with your code or for you to copy / paste from existing examples your peers share with you.
 
 
-It might seem silly to start talking about style now with very short queries, but this is all about developing good habits from the start. That way, when you do start writing more complex queries, it's one fewer thing to worry about. We are going to advocate for some style conventions that not everyone will share. If you depart from our suggestions, that's fine -- just be sure to eventually develop your own standards for style! We promise, this will help you immensely once your SQL queries get to be 5, 10, or 100 lines long.
-
-Here are our (opinionated but not necessarily "right") style suggestions.  These might not make sense right now, but once you see them in actual queries, we think you'll understand them more intuitively.
+It might seem silly to start talking about style now with very short queries, but this is all about developing good habits from the start. That way, when you do start writing more complex queries, it's one fewer thing to worry about. We are going to advocate for some style conventions that not everyone will share. If you depart from our suggestions, that's fine -- just be sure to eventually develop your own standards for style! We promise, this will help you immensely once your SQL queries get to be 5, 10, or 100 lines long. These suggestions might not all make sense right now, but once you see them in actual queries, we think you'll understand them more intuitively.
 
 <h3> **CLICK** </h3> 
 
@@ -139,17 +134,16 @@ Indenting the list of columns below a SELECT statement is a way of subordinating
 <h3> **CLICK** </h3> 
 Use "dot notation"
 
-We'll talk more  about dot notation in the next section, but for now --  Dot notation means adding more information about your data, for example, by including the table name the column comes from.  This practice will prepare you for using multiple data sources in your queries. In the example above, we do this by specifying that each column that we're requesting comes from the products table. This one may make more sense as we go along. 
+We'll talk more about dot notation in the next section, but for now --  Dot notation means adding more information about your data, for example, by including the table name the column comes from.  This practice will prepare you for using multiple data sources in your queries. In the example above, we do this by specifying that each column that we're requesting comes from the products table. This one may make more sense as we go along. 
 
 <h3> **CLICK** </h3> 
 Use a comma-first style
-What this means is to that, in a list of length n, instead of putting the comma **after** items 1 through n-1.  Instead, you put the comma **before** items 2 through n.The first time I saw someone doing this, it totally threw me for a loop! However, once I learned the reason, I became a quick convert, as I realized it solves some of my biggest annoyances when working with lists! There are two key reasons I prefer this approach over the more conventional style:
+In a list of length n, when using a comma-first style, you put the comma **before** items 2 through n rather than instead of putting the comma **after** items 1 through n-1.  The first time I saw someone doing this, it totally threw me for a loop! However, once I learned the reason, I became a quick convert, as I realized it solves some of my biggest annoyances when working with lists! There are two key reasons I prefer this approach over the more conventional style:
 
 
 (1) the commas all line up -- this makes it much easier to identify at a quick glance if you've forgotten a comma -- a common source of errors when running code that involves lists!
 
-(2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. Typically, the first item in your list is something of central importance, and will stay in first place. In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the columns we don't need.  Usually, the first item in a list of columns is something of central importance, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. Because you rarely touch the first item in a list but more frequently change the last item, it's less likely that you'll introduce a missing (or extra) comma using a comma-first paradigm as compared to the comma-last style. This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error! 
-
+(2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the columns we don't need.  Usually, the first item in a list of columns is something of central importance, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. Because you rarely touch the first item in a list but more frequently change the last item, using a comma-first paradigm means it's less likely that you'll introduce a missing (or extra) comma as compared to the comma-last style. This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error! 
 
 Now that we've got you thinking about style, let's move on to the substance of SQL and work with SELECT and FROM.
 
@@ -232,13 +226,9 @@ In order to return only a specific few of the columns, you need to write a comma
 
 Note that this time, we're also using dot notation for our columns, in the form of `table_name.column_name`. We do this to be very explicit about which data we mean.  
 
-Now, it might seem a bit redundant in this example to list our columns this way. After all, we already list that the data is coming from the `patients` table in the `FROM` statement, and we're only querying one table.
+Now, it might seem a bit redundant in this example to list our columns this way since we're only querying one table. This is another example of forming good habits early, because eventually (though not in today's webinar) you will need to do queries that involve multiple tables. Sometimes, these tables may have identical column names. SQL won't automatically know if you're asking for `date` in `encounters` table, or `date` in `medication_administration` table. In that case, you are **required** to specify which table you're referring to in order to disambiguate. 
 
-
-This is another example of forming good habits early. While right now, we're only querying from one table, eventually (though not in today's workshop) you will need to do queries that involve multiple tables. Sometimes, these tables may have identical column names. In that case, you are **required** to specify which table you're referring to in order to disambiguate. 
-
-
-SQL won't automatically know if you're asking for `date` in `encounters` table, or `date` in `medication_administration` table?  Rather than learn dot notation later, we want to introduce you to it now, even if it feels unnecessary. That way, when you do get to the point of querying multiple tables, it will already feel natural to you, and you can focus all your brain power on learning the other, trickier aspects of mastering queries of multiple tables at once.
+Rather than learn dot notation later, we want to introduce you to it now, even if it feels unnecessary. That way, when you do get to the point of querying multiple tables, it will already feel natural to you, and you can focus all your brain power on learning the other, trickier aspects of mastering queries of multiple tables at once.
 
 
 It's also a good idea to get into the habit of doing it now so that it's easier to change your code down the line. You may write an initial query on just one table from a dataset you're not super familiar with, only to discover that in order to answer your question, you actually need to get data from more than one table. Rather than having to go back through and update all of your code to ensure it references the table so you can add references to the other table, you will already be set up for successfully querying more than one table. 
