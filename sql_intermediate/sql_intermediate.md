@@ -688,10 +688,73 @@ The `LOWER()` (or `UPPER()`) operator can help us out by taking the data in a fi
 Wrap both sides of the `LIKE` statement in `LOWER()` to make sure the query returns both capital and lowercase versions of our pattern. 
 
 
-
 ### 💫 **Your Turn 2** 
 
+You'd like to research patients born in the 1970s (so any year starting 197\_ would work).  Use a `LIKE` statement to enrich the query below and find the patient set you care about.
+
+```sql
+SELECT
+  patients.id
+  ,patients.birthdate
+FROM alasql.patients;
+```
+@AlaSQL.eval("#dataTable_like_your_turn")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_like_your_turn" border="1"></table><br>
+
+</details><br/><br/>
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
 ## Aggregate Functions
+
+**Aggregate functions** can be used to get a single value related the values for multiple rows of data in some meaningful way.  
+
+--{{0}}--
+This aggregation could be a numerical statistic, like the sum or standard deviation of a number of rows, or it could pull out a special value, like the minimum or maximum value (this works as well for strings, in which case it would be the first or last value in alphabetical order). There are many other possibilities as well, like giving a count of rows or pulling a value at random from the rows.
+
+Commonly used aggregate functions:
+
+|Function|Description|
+|:---|:---|
+|`COUNT()`|Returns the count of the number of non-null values among the column(s)/rows provided as input.|
+|`SUM()`|Returns the summation of all values from a column provided as input.|
+|`MIN()`|Returns the minimum value from a column provided as input.|
+|`MAX()`|Returns the maximum value from a column provided as input.|
+|`AVG()`|Returns the numerical mean of all values from a column provided as input.|
+
+If you just want to count how many rows there are, use `COUNT(*)`.  You can use a specific column, instead, if you wish, like `COUNT(birthdate)`, but if you do that, a missing birthdate will mean the count is lower than the number of rows.
+
+
+```sql
+SELECT *
+FROM alasql.patients;
+```
+@AlaSQL.eval("#dataTable_count_example")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_count_example" border="1"></table><br>
+
+</details><br/><br/>
+
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
 
 ### `GROUP BY`
 
