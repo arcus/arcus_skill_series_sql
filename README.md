@@ -43,8 +43,9 @@ After completion of this module, learners will be able to:
 
 **Session Materials**
 
-- Review the workshop slides (link available after the first session)
-- Work through this content as an [interactive tutorial](https://bit.ly/DART_sql_basics)
+- Watch a [recording of the SQL Basics workshop](https://www.youtube.com/watch?v=On54EiSYJmY)
+- Review the [SQL Basics slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_basics/sql_basics.md) 
+- Work through [SQL Basics as an interactive tutorial](https://bit.ly/DART_sql_basics)
 
 ## Session 4 - SQL Intermediate Level
 
