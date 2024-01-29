@@ -19,9 +19,9 @@ After completion of this module, learners will be able to:
 
 **Session Materials** 
 
-- Watch a [recording of the workshop](https://www.youtube.com/watch?v=PajXC0D-6qM)
-- Review the [workshop slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/demystifying_sql/demystifying_sql.md#1)
-- Work through this content as an [interactive tutorial](https://bit.ly/DART_demystifying_sql)
+- Watch a [recording of the Demystifying SQL workshop](https://www.youtube.com/watch?v=PajXC0D-6qM)
+- Review the [Demystifying SQL slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/demystifying_sql/demystifying_sql.md#1)
+- Work through [Demystifying SQL as an interactive tutorial](https://bit.ly/DART_demystifying_sql)
 
 ## Session 2 - Database Normalization 
 
@@ -31,9 +31,9 @@ After completion of this module, learners will be able to:
 
 **Session Materials**
 
-- Watch a [recording of the workshop](https://youtu.be/ZakRuThdZJE)
-- Review the [workshop slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/database_normalization/database_normalization.md#1)
-- Work through this content as an [interactive tutorial](https://bit.ly/DART_database_normalization)
+- Watch a [recording of the Database Normalization workshop](https://youtu.be/ZakRuThdZJE)
+- Review the [Database Normalization slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/database_normalization/database_normalization.md#1)
+- Work through [Database Normalization as an interactive tutorial](https://bit.ly/DART_database_normalization)
 
 ## Session 3 - SQL Basics
 
@@ -43,8 +43,9 @@ After completion of this module, learners will be able to:
 
 **Session Materials**
 
-- Review the workshop slides (link available after the first session)
-- Work through this content as an [interactive tutorial](https://bit.ly/DART_sql_basics)
+- Watch a [recording of the SQL Basics workshop](https://www.youtube.com/watch?v=On54EiSYJmY)
+- Review the [SQL Basics slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_basics/sql_basics.md) 
+- Work through [SQL Basics as an interactive tutorial](https://bit.ly/DART_sql_basics)
 
 ## Session 4 - SQL Intermediate Level
 
