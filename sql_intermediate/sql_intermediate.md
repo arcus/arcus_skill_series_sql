@@ -140,8 +140,7 @@ So with that, let's get started!
 Today, we'll be learning how to do some more advanced SQL queries on single tables. This is a hands-on webinar -- we'll be writing some real SQL code! If that sounds daunting -- don't worry. I'll provide plenty of scaffolding, and we'll work through things together. 
 
 --{{0}}--
-You'll learn how to compose simple queries using keywords such as SELECT, WHERE, FROM, DISTINCT, AS, and ORDER BY. We'll also introduce you to the value of the LIMIT keyword, as well as cover working with null (or empty) values using IS NULL and IS NOT NULL. 
-
+In the last webinar in this series my colleague Rose Franzen taught you how to compose simple queries with SELECT, WHERE, FROM, DISTINCT, AS, and ORDER BY. Today, after a quick review of those commands, we are going to learn how to write more complicated queries using CASE, LIKE, and GROUP BY. Along the way we will learn about some aggregate functions, as well as practice and refresh the skills you already know.
 
 ## Thank you!
 
@@ -155,7 +154,7 @@ Material for this talk is based closely on the DART module @module_link, written
 --{{0}}--
 Many thanks to Peter and Joy for their work developing this excellent content!
 
-While our webinar today will cover all of the topics in their module, we won't be doing all of the exercises or quiz questions, so if you're interested in getting just a bit more practice, I suggest you check out the module after our session. 
+Our webinar today will **not** cover all of the topics in their module, as we simply won't have time, so I suggest you check out the module after our session. 
 
 ## Learn by doing
 
@@ -178,7 +177,7 @@ First, let's quickly review some key concepts from our November, December, and J
 "Sequel", or S-Q-L (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
 
 --{{0}}--
-Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. When data has been fragmented to reduce inefficiency and repetition, it is considered to be **normalized**. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
+Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error-prone. When data has been fragmented to reduce inefficiency and repetition, it is considered to be **normalized**. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
 
 {{1}}
 *****
@@ -905,110 +904,149 @@ GROUP BY
 --{{2}}--
 Notice that the rows being output by the `GROUP BY` statement correspond to the same rows we would have gotten using a `DISTINCT` statement -- only combinations that actually correspond to rows of the `patients` table appear. The aggregate function `COUNT` gives a single value for each of those distinct combinations. 
 
+### `HAVING`
+
+--{{0}}--
+So far when we have grouped data using `GROUP BY` we have gotten relatively few rows. When you are working with real data, this may not be the case. Maybe you are grouping patients by zip code. 
+
+
+The `HAVING` clause can be used to filter your result set on the value of an aggregate function.  It works similarly to a `WHERE` clause, but the two are not interchangeable.  
+
+--{{0}}--
+This is a common error people who are new to SQL often encounter -- mixing up `WHERE` and `HAVING`.
+
+In terms of placement in your query, the `HAVING` clause can be placed directly after your `GROUP BY` statement. Let's take a look at this query into the population of subjects in each county.
+ 
+
+```sql
+SELECT 
+  patients.county
+  ,COUNT(*) AS subject_pop
+FROM alasql.patients
+GROUP BY
+    patients.county
+--HAVING COUNT(*) > 1;
+```
+@AlaSQL.eval("#dataTable_having_example")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_having_example" border="1"></table><br>
+
+</details><br/><br/>
+
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
+{{1}}
+You can use an `ORDER BY` statement **after** a `HAVING` statement. Let's add `ORDER BY patients.city` to the end of our query.
+
 ### 💫 **Your Turn 3** 
 
-### `HAVING` (if time)
+Challenge: create a query below that queries `alasql.patients` and gives the patient population of each city (`patients.city`) which has more than one patient living there.  Give the results in an alphabetized list. 
 
-## Sub Queries (if time, not promised)
+```sql
+
+
+
+
+
+```
+@AlaSQL.eval("#dataTable_blank_quiz")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_blank_quiz" border="1"></table><br>
+
+</details><br/><br/>
+
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
+## Sub Queries (take this out entirely?)
 
 ### WITH
 
 ### 💫 **Your Turn 4** 
 
-## SQL: A Brief Refresher
-
-**SQL** (**S**tructured **Q**uery **L**anguage) is a programming language that for more than four decades has been used to interact with **relational databases**.
-
-A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
-
---{{0}}--
-First, let's quickly review some key concepts from our November, December, and January sessions. 
-"Sequel", or S-Q-L (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
-
---{{0}}--
-Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. When data has been fragmented to reduce inefficiency and repetition, it is considered to be **normalized**. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
-
-{{1}}
-*****
-<h4> What SQL is for: </h4>
-isolating and combining just the data you're interested in, such as:
-
- * extracting columns you're interested in
- * filtering to just the data that meets specific criteria
-*****
---{{1}}--
-SQL is great at working with rectangular data, data that is stored in tables with rows and columns / fields.  Its powerful SELECT - FROM - WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions. 
-
-{{2}}
-*****
-<h4> What SQL is **NOT** good for: </h4>
-
-* fine tuned statistical, linguistic, or data visualization needs
-*****
---{{2}}--
-However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis.
-
-
-## SQL Implementations
-
-Some popular "flavors" of SQL:
-
-* [**MySQL**](https://www.mysql.com/) (open source)
-* [**SQLite**](https://www.sqlite.org) (open source)
-* [**PostgreSQL**](https://www.postgresql.org/) (open source)
-* [**Oracle**](https://www.oracle.com/database/technologies/appdev/sql.html) (proprietary)
-* [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary)
---{{0}}--
-Believe it or not, SQL is technically not just one thing -- there are a variety of different implementations. Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
-
---{{0}}--
-Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
-
---{{0}}--
-The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues.
-
---{{0}}--
-Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
-
-{{1}}
-*****
-<h3>Flavor of the Day: [**AlaSQL**](https://alasql.org/) </h3> 
-*****
---{{1}}-- 
-In the hands-on portion of this webinar, we'll be using a form of SQL that actually runs in your web browser as you look at these pages.  This lightweight SQL engine is called "AlaSQL".  We pre-populated some tables for you to experiment with in this presentation.  These tables are filled with fabricated data meant to look a little like an electronic health record (EHR).  Rest assured that this data was completely invented, although it might look realistic!
-
-
 ## Recap
 
 --{{0}}--
-Today, you learned about the language "sequel" or S-Q-L, which is an acronym for "Structured Query Language", a powerful tool for retrieving data from relational databases. 
+Today, you continued learning about the language "sequel" or S-Q-L, which is an acronym for "Structured Query Language." 
 
 --{{0}}--
-We covered a variety of important functions, represented in SQL by **keywords**. In particular, we covered: 
+We covered several important functions, represented in SQL by **keywords** that let us build more complicated queries. In particular, we covered: 
 
 {{1}}
-* `SELECT`: used to indicate which fields (columns) you want to retrieve
+*****
+**`CASE`**: used to return different values based on a conditional statement. A full `CASE` statement uses 5 keywords:
+
+* `CASE`: opens the statement
+* `WHEN`: give a conditional statement that could be true or false
+* `THEN`: what value should be returned when that conditional statement is true
+* `ELSE`: what value should be returned when none of the `WHEN` statements are true
+* `END`: closes the statement
+
+*****
+
 {{2}}
-* `FROM`: used to indicate which table you want to retrieve data from
+*****
+------
+
+**`LIKE`**: used to compare patterns of characters in ways more complicated than an exact match. We saw several helper functions to use with `LIKE`:
+
+* `%`: represents any number of unknown characters
+* `_`: represents exactly one unknown character
+* `LOWER()`: makes all the characters inside the parentheses lowercase
+* `UPPER()`: makes all the characters inside the parentheses uppercase
+
+*****
+
+
 {{3}}
-* `DISTINCT`: used to ask for only a single example of each possible unique value
+*****
+------
+
+**Aggregate** functions return one value for multiple rows of data. We saw the most frequently used aggregate functions:
+
+* `COUNT()`: returns the number of non-null values
+* `SUM()`: sums all non-null values (numeric data)
+* `MIN()`: returns the first (alphabetically) or smallest (numerically) value
+* `MAX()`: returns the last (alphabetically) or largest (numerically) value
+* `AVG()`: returns the average of all non-null values (numeric data)
+
+*****
+
 {{4}}
-* `WHERE`: used to give a condition which filters the data retrieved
+*****
+------
+
+**`GROUP BY`**: used to collect rows into groups with matching entries in a particular column or columns. 
+
+*****
+
 {{5}}
-* `IS NULL`: used to compare a value to *NULL* (an empty/missing value)
-{{6}}
-* `IS NOT NULL`: used to compare a value to not *NULL* (a value that is not missing and not empty)
-{{7}}
-* `ORDER BY`: used to display results organized by the values in one or more columns
-{{8}}
-* `LIMIT`: used to truncate (cut off) the number of result rows retrieved at a given number
-{{9}}
-* `AS`: used to alias (rename) columns or tables
+*****
+------
 
---{{9}}--
-We also learned about comparison operators, comments, and style -- how to write code in a specific way that promotes reusability and readability.
+**`HAVING`**: used filter for only groups that meet a condition. 
 
---{{9}}--
+*****
+
+
+--{{5}}--
 You also got to practice hands on, which probably meant you got to see some error messages, too, which is helpful experience.
 
 ## Additional Resources
@@ -1024,12 +1062,6 @@ You also got to practice hands on, which probably meant you got to see some erro
 ## Upcoming sessions
 
 (all sessions are held 12:00pm – 1:00pm) 
-
-@colorhighlight(February 2024 - SQL Intermediate Level)
-
-Learn about intermediate SQL queries with keywords like CASE, LIKE, and GROUP BY. We'll work on single tables, using code, hands-on.
-
-[Tuesday February 6, 2024](https://events.teams.microsoft.com/event/c3fc728e-9809-4910-9b31-8ca3859e2ad1@a6112416-07b0-41a5-9bb1-d146b575c975) and [Wednesday February 21, 2024](https://events.teams.microsoft.com/event/dac5952f-1e4c-4226-8b48-9c2c1e77e254@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 @colorhighlight(March 2024 - SQL Joins)
 
