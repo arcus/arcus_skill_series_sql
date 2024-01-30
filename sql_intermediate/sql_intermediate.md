@@ -731,11 +731,15 @@ Commonly used aggregate functions:
 |`MAX()`|Returns the maximum value from a column provided as input.|
 |`AVG()`|Returns the numerical mean of all values from a column provided as input.|
 
-If you just want to count how many rows there are, use `COUNT(*)`.  You can use a specific column, instead, if you wish, like `COUNT(birthdate)`, but if you do that, a missing birthdate will mean the count is lower than the number of rows.
+To count the rows in a table, use `COUNT(*)`.
 
+These aggregate functions will ignore null values if you apply them to a specific column:
 
 ```sql
-SELECT *
+SELECT 
+  COUNT(*) AS total_rows
+  ,COUNT(patients.birthdate) AS births
+  ,COUNT(patients.deathdate) AS deaths
 FROM alasql.patients;
 ```
 @AlaSQL.eval("#dataTable_count_example")
@@ -755,6 +759,38 @@ FROM alasql.patients;
 
 </div>
 
+--{{1}}--
+SQL will do its best to use the aggregate functions regardless of what type of data is in the column, but the outputs will make the most sense if the data type is what the function expects. For example `SUM` might return a value for a column that isn't numeric, but it isn't particularly useful information. The `MAX` and `MIN` functions, on the other hand, can be useful when used on text data: they will order the text alphabetically.
+
+{{1}}
+*****
+
+```sql
+SELECT 
+  SUM(patients.expenses)
+  ,MAX(patients.last)
+  ,MIN(patients.first)
+  ,AVG(patients.coverage)
+FROM alasql.patients;
+```
+@AlaSQL.eval("#dataTable_sum_example")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_sum_example" border="1"></table><br>
+
+</details><br/><br/>
+
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
+*****
 
 ### `GROUP BY`
 
