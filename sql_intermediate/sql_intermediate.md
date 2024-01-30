@@ -187,7 +187,7 @@ Believe it or not, SQL is technically not just one thing -- there are a variety 
 Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
 
 --{{0}}--
-The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues.
+The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues. There will be a few times during this webinar when I will point out that the flavor of SQL we are using is impacting the outputs we get. 
 
 --{{0}}--
 Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
@@ -196,6 +196,7 @@ Knowing the specific flavor or dialect of SQL your database uses is especially u
 *****
 <h3>Flavor of the Day: [**AlaSQL**](https://alasql.org/) </h3> 
 *****
+
 --{{1}}-- 
 In the hands-on portion of this webinar, we'll be using a form of SQL that actually runs in your web browser as you look at these pages.  This lightweight SQL engine is called "AlaSQL".  We pre-populated some tables for you to experiment with in this presentation.  These tables are filled with fabricated data meant to look a little like an electronic health record (EHR).  Rest assured that this data was completely invented, although it might look realistic!
 
@@ -773,13 +774,13 @@ SELECT
   ,AVG(patients.coverage)
 FROM alasql.patients;
 ```
-@AlaSQL.eval("#dataTable_sum_example")
+@AlaSQL.eval("#dataTable_aggregate_example")
 
 <details open>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
-<table id="dataTable_sum_example" border="1"></table><br>
+<table id="dataTable_aggregate_example" border="1"></table><br>
 
 </details><br/><br/>
 
@@ -792,7 +793,89 @@ FROM alasql.patients;
 
 *****
 
+--{{1}}--
+We can see how SQL tries to adapt by changing which columns we try to sum or average. Let's see how all four functions work on the column `patients.sex`. Summing the `patients.sex` column just concatenates all of the entries, while averaging `patient.sex` returns a null value. These outputs might differ depending on what flavor of SQL you are using. While alaSQL does return a null value when it can't parse an aggregate statement, other flavors of SQL may give you error messages.
+
 ### `GROUP BY`
+
+--{{0}}--
+Often, you are interested in statistics by group, such as the average BMI for men and for women, or the standard deviation of reading test scores in teens with ADHD, depression, neither condition, or both conditions.
+
+
+The `GROUP BY` clause is used to group column results into only the unique/distinct values among them. 
+
+It is used in combination with aggregate functions to generate summary statistics about the larger dataset that was "grouped" (i.e. "collapsed") by `GROUP BY`. These can be tricky, so let's see a `GROUP BY` function in action before we examine how it works in more depth.
+
+```sql
+SELECT 
+  patients.sex
+  ,COUNT(patients.birthdate) AS births
+  ,COUNT(patients.deathdate) AS deaths
+FROM alasql.patients
+GROUP BY
+    patients.sex;
+```
+@AlaSQL.eval("#dataTable_group_by_example")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_group_by_example" border="1"></table><br>
+
+</details><br/><br/>
+
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+
+{{1}}
+*****
+`GROUP BY` aggregations like the one above can be confusing and frustrating for new SQL users, because you have to remember that an aggregation returns **one and only one** value for the entire group of rows. This means you **cannot** ask for something in your `SELECT` clause that could give more than one value for the group.
+*****
+
+--{{1}}--
+I find it helps to start with the `GROUP BY` clause. In this first example, we are grouping by one thing, `patient.sex`. That means each group will have one value for `patient.sex`. We couldn't ask for `race` when we have only grouped by `sex` because not every member of the `M` group is guaranteed to have the same `race` value. If we try to add `race` to our `SELECT` statement, alaSQL just returns a null value. Other flavors of SQL may give you an error message in these cases.
+
+{{2}}
+*****
+You can `GROUP BY` more than one column. 
+
+```sql
+SELECT 
+  patients.sex
+  ,patients.race
+  ,COUNT(patients.birthdate) AS births
+  ,COUNT(patients.deathdate) AS deaths
+FROM alasql.patients
+GROUP BY
+    patients.sex
+    ,patients.race;
+```
+@AlaSQL.eval("#dataTable_group_by_2_example")
+
+<details open>
+
+<summary>**Results of Query (click to collapse or expand this section)**</summary>
+
+<table id="dataTable_group_by_2_example" border="1"></table><br>
+
+</details><br/><br/>
+
+
+<div style = "display:none;">
+
+@AlaSQL.buildTable_patients
+
+</div>
+*****
+
+--{{2}}--
+Notice that the rows being output by the `GROUP BY` statement correspond to the same rows we would have gotten using a `DISTINCT` statement. 
+
 
 ### `HAVING` (if time)
 
