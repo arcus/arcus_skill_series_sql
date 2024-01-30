@@ -169,7 +169,36 @@ With that being said, lets hop in!
 
 ## SQL: A Brief Refresher
 
-What is it and what is it good for.
+**SQL** (**S**tructured **Q**uery **L**anguage) is a programming language that for more than four decades has been used to interact with **relational databases**.
+
+A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
+
+--{{0}}--
+First, let's quickly review some key concepts from our November, December, and January sessions. 
+"Sequel", or S-Q-L (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
+
+--{{0}}--
+Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. When data has been fragmented to reduce inefficiency and repetition, it is considered to be **normalized**. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
+
+{{1}}
+*****
+<h4> What SQL is for: </h4>
+isolating and combining just the data you're interested in, such as:
+
+ * extracting columns you're interested in
+ * filtering to just the data that meets specific criteria
+*****
+--{{1}}--
+SQL is great at working with rectangular data, data that is stored in tables with rows and columns / fields.  Its powerful SELECT - FROM - WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions. 
+
+{{2}}
+*****
+<h4> What SQL is **NOT** good for: </h4>
+
+* fine tuned statistical, linguistic, or data visualization needs
+*****
+--{{2}}--
+However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis.
 
 ### Flavors of SQL
 
@@ -203,7 +232,7 @@ In the hands-on portion of this webinar, we'll be using a form of SQL that actua
 ### SELECT, FROM, WHERE
 
 --{{0}}--
-Before we learn any new SQL commands, let's do a quick review of the the commands SELECT, FROM, and WHERE that we learned about last month.
+Before we learn any new SQL commands, let's do a quick review of the commands SELECT, FROM, and WHERE that we learned about last month.
 
 
 The basic structure of a SQL query is
@@ -874,12 +903,11 @@ GROUP BY
 *****
 
 --{{2}}--
-Notice that the rows being output by the `GROUP BY` statement correspond to the same rows we would have gotten using a `DISTINCT` statement. 
-
-
-### `HAVING` (if time)
+Notice that the rows being output by the `GROUP BY` statement correspond to the same rows we would have gotten using a `DISTINCT` statement -- only combinations that actually correspond to rows of the `patients` table appear. The aggregate function `COUNT` gives a single value for each of those distinct combinations. 
 
 ### 💫 **Your Turn 3** 
+
+### `HAVING` (if time)
 
 ## Sub Queries (if time, not promised)
 
