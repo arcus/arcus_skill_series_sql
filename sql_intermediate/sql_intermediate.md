@@ -573,6 +573,28 @@ FROM alasql.patients;
 --{{0}}--
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
 
+<details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
+
+Try:
+
+```sql
+SELECT
+  patients.first
+  ,patients.last
+  ,patients.county
+  ,CASE
+    WHEN patients.county = "Plymouth County" THEN "Phase 1"
+    WHEN patients.county = "Essex County" THEN "Phase 2"
+    WHEN patients.county = "Barnstable County" THEN "Phase 3"
+    ELSE NULL
+  END AS phase
+FROM alasql.patients;
+```
+
+</details>
+
+
 ## `LIKE`
 --{{0}}--
 So far every time we have created a query, we have needed to know the exact form the data in our table takes. To see what I mean, let's take a closer look at the allergies table.
@@ -753,6 +775,22 @@ FROM alasql.patients;
 
 --{{0}}--
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
+
+<details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
+
+Try:
+
+```sql
+SELECT
+  patients.id
+  ,patients.birthdate
+FROM alasql.patients
+WHERE patients.birthdate LIKE '197%';
+```
+
+</details>
+
 
 ## Aggregate Functions
 
@@ -963,7 +1001,9 @@ You can use an `ORDER BY` statement **after** a `HAVING` statement. Let's add `O
 
 ### 💫 **Your Turn 3** 
 
-Challenge: create a query below that queries `alasql.patients` and gives the patient population of each city (`patients.city`) which has more than one patient living there.  Give the results in an alphabetized list. 
+**Challenge:** create a query below that queries `alasql.patients` and gives the patient population of each city (`patients.city`) which has more than one patient living there.  Give the results in an alphabetized list. 
+
+**Hint:** You don't need to write the entire query at once, try first writing a query that returns the population of each city, and then modify that query to get the list you want.
 
 ```sql
 
@@ -991,6 +1031,23 @@ Challenge: create a query below that queries `alasql.patients` and gives the pat
 
 --{{0}}--
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will construct the query together.
+
+<details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
+
+Try:
+
+```sql
+SELECT
+	patients.city
+	,count(patients.city)
+FROM alasql.patients
+GROUP BY patients.city
+HAVING count(patients.city)>1
+ORDER BY patients.city;
+```
+
+</details>
 
 ## Recap
 
