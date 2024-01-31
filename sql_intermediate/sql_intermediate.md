@@ -15,7 +15,7 @@ title: SQL Intermediate Level
 
 comment:  Learn how to do intermediate SQL queries on single tables, by using code, hands-on.
 
-long_description: Do you want to learn intermediate Structured Query Language (SQL) for more precise and complex data querying on single tables?  This module will give you hands on experience with single-table queries using keywords including CASE, LIKE, REGEXP_LIKE, GROUP BY, HAVING, and WITH, along with a number of aggregate functions like COUNT and AVG.  This module is appropriate for people who are comfortable writing basic SQL queries and are ready to practice more advanced skills.
+long_description: Do you want to learn intermediate Structured Query Language (SQL) for more precise and complex data querying on single tables?  This module will give you hands on experience with single-table queries using keywords including CASE, LIKE, GROUP BY, and HAVING, along with a number of aggregate functions like COUNT and AVG.  This module is appropriate for people who are comfortable writing basic SQL queries and are ready to practice more advanced skills.
 
 estimated_time_in_minutes: 60
 
@@ -29,7 +29,6 @@ After completion of this module, learners will be able to:
 - Create new data classifications using `CASE` statements
 - Find text that matches a given pattern using `LIKE` statements
 - Use `GROUP BY` and `HAVING` statements along with aggregate functions to understand group characteristics
-- Use `WITH` to create sub queries
 @end
 
 good_first_module: false
@@ -126,7 +125,7 @@ When we reach 💫 **Your Turn** sections, you'll have a chance to write or edit
 --{{0}}--
 Welcome! 
 I'm Elizabeth Drellich, and I use she/her pronouns. 
-I'm a data science educator with the Arcus project in DBHi. 
+I'm a member of CHOP's Data Education Collaborative and I sit on the Arcus Education team in DBHi. 
 Today's talk is the fourth in our five-part series on sequel, or S-Q-L.  
 Today's webinar will be recorded, so please leave your cameras and mics turned off until the question time at the end.
 If you do have questions that come up during the talk, feel free to put them in the chat. 
@@ -164,7 +163,7 @@ Our webinar today will **not** cover all of the topics in their module, as we si
 We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient database. There will also be some short quizzes to help solidify your understanding as we go.
 
 --{{0}}--
-With that being said, lets hop in!
+With that being said, lets jump in!
 
 ## SQL: A Brief Refresher
 
@@ -201,6 +200,12 @@ However, it's not great for fine-tuned statistical, linguistic, or data visualiz
 
 ### Flavors of SQL
 
+--{{0}}--
+Believe it or not, SQL is technically not just one thing -- there are a variety of different implementations. Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
+
+--{{0}}--
+Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
+
 Some popular "flavors" of SQL:
 
 * [**MySQL**](https://www.mysql.com/) (open source)
@@ -208,17 +213,13 @@ Some popular "flavors" of SQL:
 * [**PostgreSQL**](https://www.postgresql.org/) (open source)
 * [**Oracle**](https://www.oracle.com/database/technologies/appdev/sql.html) (proprietary)
 * [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary)
---{{0}}--
-Believe it or not, SQL is technically not just one thing -- there are a variety of different implementations. Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
+
 
 --{{0}}--
-Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
+The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues. There will be a few times during this webinar when I will point out that the flavor of SQL we are using today is impacting the outputs we get. 
 
 --{{0}}--
-The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues. There will be a few times during this webinar when I will point out that the flavor of SQL we are using is impacting the outputs we get. 
-
---{{0}}--
-Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
+Because different flavors can have different outputs, knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
 
 {{1}}
 *****
@@ -347,10 +348,15 @@ WHERE
 
 *****
 
+--{{3}}--
+We will also be seeing the `DISTINCT` and `ORDER BY` functions again today, and will review them when we get there.
+
 ## `CASE`
 
+--{{0}}--
+Our miniature database has three tables, `patients`, `allergies`, and `observations`. 
 
-Let's look at the observations of Peanut IgE Ab in Serum in the `alasql.observations` table.
+Let's look at the observations of "Peanut IgE Ab in Serum" in the `alasql.observations` table.
 
 
 --{{0}}--
@@ -391,7 +397,7 @@ Often when working with data, you will come across the need to define your own c
 ### Structure
 
 --{{0}}--
-The `CASE` statement is used to produce conditional row-level output based on columns/rows provided as input.  It's like an "if" statement in other languages, but with multiple possibilities, or "cases", that are considered. Let's take a look at a generic example, then we will practice with our dataset.
+The `CASE` statement is used to produce conditional row-level output based on columns/rows provided as input.  It's like an "if" statement in other languages, but with multiple possibilities, or "cases," that are considered. Let's take a look at a generic example, then we will practice with our dataset.
 
 
 The `CASE` statement has 4 main components (shown below).
@@ -422,7 +428,7 @@ Conditional statements:
 *****
 
 --{{1}}--
-Conditional statements in SQL use this `WHEN`/`THEN` form. If you are used to other programming languages, you might be used to "if/then" statements, and this is no different. `WHEN` the conditional statement is true, `THEN` the designated output will be returned to you.
+Conditional statements in SQL use this `WHEN`/`THEN` form. If you are used to other programming languages, you might be used to "if/then" statements, and this is very similar. `WHEN` the conditional statement is true, `THEN` the designated output will be returned to you.
 
 --{{1}}--
 You can have as many conditional statements as you want. Be aware, however, that for each row, SQL will only return one output, corresponding to the first time a condition is true.
@@ -473,7 +479,7 @@ END
 The indentation before each of the `WHEN` statements and the `ELSE` statement are for use as human readers of this code. SQL doesn't need those lines to be indented, but it makes it a lot clearer to us where this block of code starts and ends.
 
 --{{4}}--
-This has been a lot of theory, which makes sense because `CASE` statements are complicated, so let's return to that observations table and see how using a `CASE` statement helps us understand the data.
+We have started with a lot of theory because `CASE` statements are complicated, so let's return to that observations table and see how using a `CASE` statement helps us understand the data.
 
 ### Example
 
@@ -517,7 +523,7 @@ When we run this code, we get a new column with the outcomes of our conditional 
 
 
 --{{1}}--
-We can make that column heading much nicer by telling SQL what we want it to be called. At the end of the `CASE` statement, immediately after the word `END`, add `AS interpretation` and run the code again. Giving this new column a name will make it much easier to use and understand.
+We can make that column heading much nicer by telling SQL what we want it to be called. At the end of the `CASE` statement, immediately after the word `END`, add `AS interpretation` and run the code again. Giving this new column an alias will make it much easier to use and understand.
 
 {{1}}
 ******
@@ -565,7 +571,7 @@ FROM alasql.patients;
 </div>
 
 --{{0}}--
-I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will do complete the query together.
+I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
 
 ## `LIKE`
 --{{0}}--
@@ -619,7 +625,7 @@ How can we get all the pollen allergies without having perfectly type them out i
 
 ### Structure
 
-`LIKE` operators let you compare text data to a pattern rather than checking if two strings are equal with `=`.
+`LIKE` operators let you compare textual data to a pattern rather than checking if two strings are equal with `=`.
 
 ```sql
 SELECT *
@@ -628,7 +634,7 @@ WHERE
     allergies.description LIKE a_particular_pattern;
 ```
 
-This action is known as **pattern matching**, and can let you filter on row values that are similar, but not an exact match.
+This action is known as **pattern matching**, and can let you filter on row values that are similar, but not exact matches.
 
 ### Patterns
 
@@ -659,7 +665,7 @@ If instead the `%` symbol is only after the string `pollen`, a phrase would have
 *****
 
 --{{2}}--
-Capitalization matters to the `LIKE` operator, if the P were capitalized in "pollen allergy - trees" that would not be a match.
+Capitalization matters to the `LIKE` operator, if the P were capitalized in "pollen allergy - trees" that would not be a match. We will return to the problem of capitalization in a moment.
 
 --{{3}}--
 To match both of these constructions, as well as data like "Tree pollen allergy," we can put `%` symbols both before and after.
@@ -674,6 +680,8 @@ In the same way we needed quotes around the data we wanted to match exactly, the
 
 {{4}}
 *****
+Surround the pattern in quotes:
+
 `... LIKE '%pollen'%` or `... LIKE "%pollen%"`
 *****
 
@@ -743,6 +751,9 @@ FROM alasql.patients;
 
 </div>
 
+--{{0}}--
+I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
+
 ## Aggregate Functions
 
 **Aggregate functions** can be used to get a single value related the values for multiple rows of data in some meaningful way.  
@@ -788,6 +799,9 @@ FROM alasql.patients;
 
 </div>
 
+--{{0}}--
+The count function shows us that the `patients` table has 25 rows, and all of those 25 rows contains a `birthdate`. But most rows have a `NULL` vaule for the `deathdate`.
+
 --{{1}}--
 SQL will do its best to use the aggregate functions regardless of what type of data is in the column, but the outputs will make the most sense if the data type is what the function expects. For example `SUM` might return a value for a column that isn't numeric, but it isn't particularly useful information. The `MAX` and `MIN` functions, on the other hand, can be useful when used on text data: they will order the text alphabetically.
 
@@ -822,7 +836,7 @@ FROM alasql.patients;
 *****
 
 --{{1}}--
-We can see how SQL tries to adapt by changing which columns we try to sum or average. Let's see how all four functions work on the column `patients.sex`. Summing the `patients.sex` column just concatenates all of the entries, while averaging `patient.sex` returns a null value. These outputs might differ depending on what flavor of SQL you are using. While alaSQL does return a null value when it can't parse an aggregate statement, other flavors of SQL may give you error messages.
+We can see how SQL tries to adapt by changing which columns we try to sum or average. Let's see how all four functions work on the column `patients.sex`. Summing the `patients.sex` column just concatenates all of the entries, while averaging `patient.sex` returns a null value. These outputs might differ depending on what flavor of SQL you are using. While AlaSQL does return a null value when it can't parse an aggregate statement, other flavors of SQL may give you error messages.
 
 ### `GROUP BY`
 
@@ -866,7 +880,7 @@ GROUP BY
 *****
 
 --{{1}}--
-I find it helps to start with the `GROUP BY` clause. In this first example, we are grouping by one thing, `patient.sex`. That means each group will have one value for `patient.sex`. We couldn't ask for `race` when we have only grouped by `sex` because not every member of the `M` group is guaranteed to have the same `race` value. If we try to add `race` to our `SELECT` statement, alaSQL just returns a null value. Other flavors of SQL may give you an error message in these cases.
+I find it helps to start with the `GROUP BY` clause. In this first example, we are grouping by one thing, `patient.sex`. That means each group will have one value for `patient.sex`. We couldn't ask for `race` when we have only grouped by `sex` because not every member of the `M` group is guaranteed to have the same `race` value. If we try to add `race` to our `SELECT` statement, AlaSQL just returns a null value. Other flavors of SQL may give you an error message in these cases.
 
 {{2}}
 *****
@@ -907,7 +921,7 @@ Notice that the rows being output by the `GROUP BY` statement correspond to the 
 ### `HAVING`
 
 --{{0}}--
-So far when we have grouped data using `GROUP BY` we have gotten relatively few rows. When you are working with real data, this may not be the case. Maybe you are grouping patients by zip code. 
+So far when we have grouped data using `GROUP BY` we have gotten relatively few rows. When you are working with real data, this may not be the case. Maybe you are grouping patients by zip code. Pennsylvania has over 1500 active 5-digit zip codes, perhaps it only makes sense to look at zip codes which have a minimum patient population.
 
 
 The `HAVING` clause can be used to filter your result set on the value of an aggregate function.  It works similarly to a `WHERE` clause, but the two are not interchangeable.  
@@ -915,7 +929,7 @@ The `HAVING` clause can be used to filter your result set on the value of an agg
 --{{0}}--
 This is a common error people who are new to SQL often encounter -- mixing up `WHERE` and `HAVING`.
 
-In terms of placement in your query, the `HAVING` clause can be placed directly after your `GROUP BY` statement. Let's take a look at this query into the population of subjects in each county.
+The `HAVING` clause can be placed directly after your `GROUP BY` statement. Let's take a look at this query into the population of subjects in each county.
  
 
 ```sql
@@ -975,11 +989,8 @@ Challenge: create a query below that queries `alasql.patients` and gives the pat
 
 </div>
 
-## Sub Queries (take this out entirely?)
-
-### WITH
-
-### 💫 **Your Turn 4** 
+--{{0}}--
+I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will construct the query together.
 
 ## Recap
 
