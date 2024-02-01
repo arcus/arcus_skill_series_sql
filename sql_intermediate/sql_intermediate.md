@@ -638,7 +638,7 @@ WHERE
 *****
 
 --{{1}}--
-In the very small table we are working with here, this method works fine. But if we were looking at a real patient data, there might be hundreds of types of pollen allergies specified. Moreover, if these data were entered by hand, the same allergy might show up as both "Allergy to grass pollen" and "grass pollen allergy" with different wording and different capitalization. 
+In the very small table we are working with here, this method works fine. But if we were looking at a real patient data, there might be hundreds of types of pollen allergies specified. Moreover, if these data were entered by hand, the same allergy might show up as both "Allergy to grass pollen" and "grass pollen allergy" with different wording and different capitalization. Or maybe a new patient comes in who has a different pollen allergy, will you need to update your whole query?
 
 {{2}}
 *****
@@ -687,7 +687,7 @@ If instead the `%` symbol is only after the string `pollen`, a phrase would have
 *****
 
 --{{2}}--
-Capitalization matters to the `LIKE` operator, if the P were capitalized in "pollen allergy - trees" that would not be a match. We will return to the problem of capitalization in a moment.
+Capitalization matters to the `LIKE` operator, if the P were capitalized in "Pollen allergy - trees" that would not be a match. We will return to the problem of capitalization in a moment.
 
 --{{3}}--
 To match both of these constructions, as well as data like "Tree pollen allergy," we can put `%` symbols both before and after.
@@ -704,7 +704,7 @@ In the same way we needed quotes around the data we wanted to match exactly, the
 *****
 Surround the pattern in quotes:
 
-`... LIKE '%pollen'%` or `... LIKE "%pollen%"`
+`... LIKE '%pollen%'` or `... LIKE "%pollen%"`
 *****
 
 ### Example
@@ -997,13 +997,13 @@ GROUP BY
 </div>
 
 {{1}}
-You can use an `ORDER BY` statement **after** a `HAVING` statement. Let's add `ORDER BY patients.city` to the end of our query.
+You can use an `ORDER BY` statement **after** a `HAVING` statement. Let's add `ORDER BY patients.county` to the end of our query.
 
 ### 💫 **Your Turn 3** 
 
 **Challenge:** create a query below that queries `alasql.patients` and gives the patient population of each city (`patients.city`) which has more than one patient living there.  Give the results in an alphabetized list. 
 
-**Hint:** You don't need to write the entire query at once, try first writing a query that returns the population of each city, and then modify that query to get the list you want.
+**Hint:** You don't need to write the entire query at once, try first writing a query that returns the COUNT of patients in each city, and then modify that query to get the list you want.
 
 ```sql
 
