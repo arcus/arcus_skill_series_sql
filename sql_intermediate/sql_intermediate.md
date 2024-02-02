@@ -196,7 +196,7 @@ SQL is great at working with rectangular data, data that is stored in tables wit
 * fine tuned statistical, linguistic, or data visualization needs
 *****
 --{{2}}--
-However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis.
+However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis. We will, however, see some of the ways that SQL can generate simple summary statistics today.
 
 ### Flavors of SQL
 
@@ -476,7 +476,7 @@ END
 ```
 *****
 --{{4}}--
-The indentation before each of the `WHEN` statements and the `ELSE` statement are for use as human readers of this code. SQL doesn't need those lines to be indented, but it makes it a lot clearer to us where this block of code starts and ends.
+The indentation before each of the `WHEN` statements and the `ELSE` statement are for us as human readers of this code. SQL doesn't need those lines to be indented, but it makes it a lot clearer to us where this block of code starts and ends.
 
 --{{4}}--
 We have started with a lot of theory because `CASE` statements are complicated, so let's return to that observations table and see how using a `CASE` statement helps us understand the data.
@@ -519,11 +519,11 @@ WHERE
 
 
 --{{0}}--
-When we run this code, we get a new column with the outcomes of our conditional `WHEN`/`THEN` statements in it. The data here looks great, we can read immediately that all three Peanut IgE Ab results were positive, two of them strongly positive so. But we have this ugly column name, with the entire `CASE` statement.
+When we run this code, we get a new column with the outcomes of our conditional `WHEN`/`THEN` statements in it. The data here looks great, we can read immediately that all three Peanut IgE Ab results were positive, two of them strongly positive. But we have this ugly column name, with the entire `CASE` statement.
 
 
 --{{1}}--
-We can make that column heading much nicer by telling SQL what we want it to be called. At the end of the `CASE` statement, immediately after the word `END`, add `AS interpretation` and run the code again. Giving this new column an alias will make it much easier to use and understand.
+We can make that column heading much nicer by telling SQL what we want it to be called. At the end of the `CASE` statement, immediately after the word `END`, add `AS interpretation` and run the code again. Using `AS` to give this new column an alias will make it much easier for us to read and understand.
 
 {{1}}
 ******
@@ -574,7 +574,7 @@ FROM alasql.patients;
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
 
 <details>
-<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
 Try:
 
@@ -599,7 +599,7 @@ FROM alasql.patients;
 --{{0}}--
 So far every time we have created a query, we have needed to know the exact form the data in our table takes. To see what I mean, let's take a closer look at the allergies table.
 
-Use `SELECT DISTINCT` to discover how many distinct allergies appear in the `allergies` table.
+Use `SELECT DISTINCT` to discover which distinct allergy descriptions appear in the `allergies` table.
 
 ```sql
 SELECT DISTINCT allergies.description
@@ -638,7 +638,7 @@ WHERE
 *****
 
 --{{1}}--
-In the very small table we are working with here, this method works fine. But if we were looking at a real patient data, there might be hundreds of types of pollen allergies specified. Moreover, if these data were entered by hand, the same allergy might show up as both "Allergy to grass pollen" and "grass pollen allergy" with different wording and different capitalization. Or maybe a new patient comes in who has a different pollen allergy, will you need to update your whole query?
+In the very small table we are working with here, this method works fine. But if we were looking at a real patient data, there might be hundreds of types of pollen allergies specified. Moreover, if these data were entered by hand, the same allergy might show up as both "Allergy to grass pollen" and "grass pollen allergy" with different wording and different capitalization. Or maybe a new patient comes in who has a new, different pollen allergy. In that case you would need to update the query to get that data that you want, and that interferes with one of the main reasons we write scripted queries like this. For reproducibility purposes, you should be able to rerun the same query every time new data is gathered.
 
 {{2}}
 *****
@@ -647,7 +647,7 @@ How can we get all the pollen allergies without having perfectly type them out i
 
 ### Structure
 
-`LIKE` operators let you compare textual data to a pattern rather than checking if two strings are equal with `=`.
+`LIKE` operators let you compare textual data to a pattern rather than checking if two strings of characters are equal with `=`.
 
 ```sql
 SELECT *
@@ -683,7 +683,9 @@ If instead the `%` symbol is only after the string `pollen`, a phrase would have
 
 {{2}}
 *****
-`pollen%` matches "pollen allergy - trees"
+
+`pollen%` matches "pollen allergy - trees" (but not "Pollen allergy - trees")
+
 *****
 
 --{{2}}--
@@ -694,7 +696,9 @@ To match both of these constructions, as well as data like "Tree pollen allergy,
 
 {{3}}
 *****
+
 `%pollen%` matches both, and also "Tree pollen allergy"
+
 ****
 
 --{{4}}--
@@ -702,9 +706,15 @@ In the same way we needed quotes around the data we wanted to match exactly, the
 
 {{4}}
 *****
+
 Surround the pattern in quotes:
 
-`... LIKE '%pollen%'` or `... LIKE "%pollen%"`
+`allergies.description LIKE '%pollen%'` 
+
+or 
+
+`allergies.description LIKE "%pollen%"`
+
 *****
 
 ### Example
@@ -716,7 +726,7 @@ Let's apply this structure to finding the pollen allergies from our `alasql.alle
 SELECT *
 FROM alasql.allergies
 WHERE
-    allergies.description LIKE '%pollen';
+    allergies.description LIKE '%pollen%';
 ```
 @AlaSQL.eval("#dataTable_like_example")
 
@@ -777,7 +787,7 @@ FROM alasql.patients;
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
 
 <details>
-<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
 Try:
 
@@ -874,7 +884,7 @@ FROM alasql.patients;
 *****
 
 --{{1}}--
-We can see how SQL tries to adapt by changing which columns we try to sum or average. Let's see how all four functions work on the column `patients.sex`. Summing the `patients.sex` column just concatenates all of the entries, while averaging `patient.sex` returns a null value. These outputs might differ depending on what flavor of SQL you are using. While AlaSQL does return a null value when it can't parse an aggregate statement, other flavors of SQL may give you error messages.
+We can see how SQL tries to adapt by changing which columns we try to sum or average. Let's see how all four functions work on the column `patients.sex`. Summing the `patients.sex` column just concatenates all of the entries, while averaging `patient.sex` returns a null value. These outputs might differ depending on what flavor of SQL you are using.  Our flavor, AlaSQL, returns a null value when it can't parse an aggregate statement, but other flavors of SQL may give you error messages.
 
 ### `GROUP BY`
 
@@ -884,6 +894,7 @@ Often, you are interested in statistics by group, such as the average BMI for me
 
 The `GROUP BY` clause is used to group column results into only the unique/distinct values among them. 
 
+--{{0}}--
 It is used in combination with aggregate functions to generate summary statistics about the larger dataset that was "grouped" (i.e. "collapsed") by `GROUP BY`. These can be tricky, so let's see a `GROUP BY` function in action before we examine how it works in more depth.
 
 ```sql
@@ -920,6 +931,7 @@ GROUP BY
 --{{1}}--
 I find it helps to start with the `GROUP BY` clause. In this first example, we are grouping by one thing, `patient.sex`. That means each group will have one value for `patient.sex`. We couldn't ask for `race` when we have only grouped by `sex` because not every member of the `M` group is guaranteed to have the same `race` value. If we try to add `race` to our `SELECT` statement, AlaSQL just returns a null value. Other flavors of SQL may give you an error message in these cases.
 
+
 {{2}}
 *****
 You can `GROUP BY` more than one column. 
@@ -954,7 +966,10 @@ GROUP BY
 *****
 
 --{{2}}--
-Notice that the rows being output by the `GROUP BY` statement correspond to the same rows we would have gotten using a `DISTINCT` statement -- only combinations that actually correspond to rows of the `patients` table appear. The aggregate function `COUNT` gives a single value for each of those distinct combinations. 
+There are two types of fields in this `SELECT` statement. We are only selecting fields that 1. we are grouping by in the `GROUP BY` statement, or 2. are aggregate functions. 
+
+--{{2}}--
+Notice, also, that the rows being output by the `GROUP BY` statement correspond to the same rows we would have gotten using a `DISTINCT` statement -- only combinations that actually correspond to rows of the `patients` table appear. The aggregate function `COUNT` gives a single value for each of those distinct combinations. 
 
 ### `HAVING`
 
@@ -996,6 +1011,9 @@ GROUP BY
 
 </div>
 
+--{{0}}--
+Let's run the code as it is, and then see how the results change when we un-comment the `HAVING` statement. 
+
 {{1}}
 You can use an `ORDER BY` statement **after** a `HAVING` statement. Let's add `ORDER BY patients.county` to the end of our query.
 
@@ -1033,7 +1051,7 @@ You can use an `ORDER BY` statement **after** a `HAVING` statement. Let's add `O
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will construct the query together.
 
 <details>
-<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
 Try:
 
@@ -1087,7 +1105,7 @@ We covered several important functions, represented in SQL by **keywords** that 
 *****
 ------
 
-**Aggregate** functions return one value for multiple rows of data. We saw the most frequently used aggregate functions:
+**Aggregate functions** return one value for multiple rows of data. We saw the most frequently used aggregate functions:
 
 * `COUNT()`: returns the number of non-null values
 * `SUM()`: sums all non-null values (numeric data)
@@ -1125,7 +1143,7 @@ You also got to practice hands on, which probably meant you got to see some erro
 
 * Give the [SQL Murder Mystery](https://mystery.knightlab.com/) a try. Note that some of the content is more advanced than what we cover here, but there is a walkthrough, and you can always stop once you've reached the limits of what we've learned so far. 
 
-* Select Star SQL is a [free interactive book that teaches SQL](https://selectstarsql.com/) by exploring Texas state execution data. The first chapter mostly covers topics we learned about today, while the remaining chapters begin to dig deeper.
+* Select Star SQL is a [free interactive book that teaches SQL](https://selectstarsql.com/) by exploring Texas state execution data. The second and third chapters mostly cover topics we learned about today, while the remaining chapters dig deeper.
 
 ## Upcoming sessions
 
