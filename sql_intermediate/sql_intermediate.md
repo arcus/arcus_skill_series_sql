@@ -176,7 +176,7 @@ First, let's quickly review some key concepts from our November, December, and J
 "Sequel", or S-Q-L (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
 
 --{{0}}--
-Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error-prone. When data has been fragmented to reduce inefficiency and repetition, it is considered to be **normalized**. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
+Relational databases consist of many different data tables. Today we will only be working with data from **one** table at a time, even though the three tables we will work with are stored in a single relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
 
 {{1}}
 *****
@@ -187,7 +187,7 @@ isolating and combining just the data you're interested in, such as:
  * filtering to just the data that meets specific criteria
 *****
 --{{1}}--
-SQL is great at working with rectangular data, data that is stored in tables with rows and columns / fields.  Its powerful SELECT - FROM - WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions. 
+SQL is great at working with rectangular data, data that is stored in tables with rows and columns / fields. 
 
 {{2}}
 *****
@@ -201,7 +201,7 @@ However, it's not great for fine-tuned statistical, linguistic, or data visualiz
 ### Flavors of SQL
 
 --{{0}}--
-Believe it or not, SQL is technically not just one thing -- there are a variety of different implementations. Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
+SQL is technically not just one thing -- there are a variety of different implementations. Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
 
 --{{0}}--
 Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
@@ -416,7 +416,7 @@ END                 --COMPONENT 4: end tag of case statement with optional
 
 
 --{{0}}--
-We will look at these 4 components one by one, starting in the middle of the statement and working our way out.
+We will look at these components one by one, starting in the middle of the statement and working our way out.
 
 {{1}}
 *****
