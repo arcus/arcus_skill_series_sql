@@ -167,7 +167,7 @@ With that being said, lets jump in!
 
 ## SQL: A Brief Refresher
 
-**SQL** (**S**tructured **Q**uery **L**anguage) is a programming language that for more than four decades has been used to interact with **relational databases**.
+**SQL** (**S**tructured **Q**uery **L**anguage) is a query language that for more than four decades has been used to interact with **relational databases**.
 
 A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
 
@@ -570,9 +570,6 @@ FROM alasql.patients;
 
 </div>
 
---{{0}}--
-I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
-
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
@@ -640,14 +637,13 @@ WHERE
 --{{1}}--
 In the very small table we are working with here, this method works fine. But if we were looking at a real patient data, there might be hundreds of types of pollen allergies specified. Moreover, if these data were entered by hand, the same allergy might show up as both "Allergy to grass pollen" and "grass pollen allergy" with different wording and different capitalization. Or maybe a new patient comes in who has a new, different pollen allergy. In that case you would need to update the query to get that data that you want, and that interferes with one of the main reasons we write scripted queries like this. For reproducibility purposes, you should be able to rerun the same query every time new data is gathered.
 
-{{2}}
-*****
+--{{1}}--
 How can we get all the pollen allergies without having perfectly type them out in a very long `WHERE` statement? We need the `LIKE` operator to help us out.
-*****
+
 
 ### Structure
 
-`LIKE` operators let you compare textual data to a pattern rather than checking if two strings of characters are equal with `=`.
+`LIKE` operators let you compare textual data to a pattern rather than checking if two strings of characters are exactly equal with `=`.
 
 ```sql
 SELECT *
@@ -665,7 +661,7 @@ The `LIKE` operator uses 2 distinct **wildcard characters** that let you make pa
 | Wildcard Characters | Description |
 | --- | --- |
 | `%` | "Wildcard" for 0 or more characters. |
-| `_` | "Wildcard" for exactly 1 characters. |
+| `_` | "Wildcard" for exactly 1 character. |
 
 --{{0}}--
 Wildcard characters let us build patterns to compare with a string of text data. Let's take a closer look at some examples using the `%` wildcard.
@@ -783,8 +779,6 @@ FROM alasql.patients;
 
 </div>
 
---{{0}}--
-I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together.
 
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
@@ -980,9 +974,9 @@ So far when we have grouped data using `GROUP BY` we have gotten relatively few 
 The `HAVING` clause can be used to filter your result set on the value of an aggregate function.  It works similarly to a `WHERE` clause, but the two are not interchangeable.  
 
 --{{0}}--
-This is a common error people who are new to SQL often encounter -- mixing up `WHERE` and `HAVING`.
+This is a common error people who are new to SQL often encounter -- mixing up `WHERE` and `HAVING`. `WHERE` is for filtering rows, `HAVING` is for filtering groups.
 
-The `HAVING` clause can be placed directly after your `GROUP BY` statement. Let's take a look at this query into the population of subjects in each county.
+The `HAVING` clause is placed directly after your `GROUP BY` statement. Let's take a look at this query into the population of subjects in each county.
  
 
 ```sql
