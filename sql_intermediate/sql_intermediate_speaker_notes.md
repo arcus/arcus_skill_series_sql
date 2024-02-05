@@ -33,7 +33,7 @@ With that being said, lets jump in!
 
 ## SQL: A Brief Refresher
 
-**SQL** (**S**tructured **Q**uery **L**anguage) is a query language that for more than four decades has been used to interact with **relational databases**.
+**SQL** (**S**tructured **Q**uery **L**anguage) has, for more than four decades, been used to interact with **relational databases**.
 
 A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
 

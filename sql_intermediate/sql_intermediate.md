@@ -167,7 +167,7 @@ With that being said, lets jump in!
 
 ## SQL: A Brief Refresher
 
-**SQL** (**S**tructured **Q**uery **L**anguage) is a query language that for more than four decades has been used to interact with **relational databases**.
+**SQL** (**S**tructured **Q**uery **L**anguage) has, for more than four decades, been used to interact with **relational databases**.
 
 A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
 
@@ -750,7 +750,7 @@ But what if there was an entry where the word "Pollen" was capitalized? The `LIK
 The `LOWER()` (or `UPPER()`) operator can help us out by taking the data in a field and making all of the characters lowercase (or uppercase).
 
 {{1}}
-Wrap both sides of the `LIKE` statement in `LOWER()` to make sure the query returns both capital and lowercase versions of our pattern. 
+Wrap left side of the `LIKE` statement in `LOWER()` to make sure the query returns both capital and lowercase versions of our pattern. 
 
 
 ### 💫 **Your Turn 2** 
