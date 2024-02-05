@@ -1,5 +1,11 @@
 # SQL Intermediate Level Speaker Notes
 
+<h3><strong><u>LINKS TO SHARE</u></strong></h3>
+- The slides: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#1
+- Your Turn 1: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#11
+- Your Turn 2: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#16
+- Your Turn 3: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#20
+
 Welcome! 
 I'm Elizabeth Drellich, and I use she/her pronouns. 
 I'm a member of CHOP's Data Education Collaborative and I sit on the Arcus Education team in DBHi. 
@@ -183,6 +189,10 @@ I want to pause here for questions before giving you your first opportunity to p
 
 ### 💫 **Your Turn 1** 
 
+<h3><strong><u>SHARE LINK</u></strong></h3>
+
+Your Turn 1: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#11
+
 You're studying attitudes about smoking and will issue a survey in phases.  Phase 1 will go out to residents of Plymouth County, Phase 2 will go out to residents of Essex County and Phase 3 will go out to Barnstable County.  Finish the following query such that you get the patient name, county, and a new column called `phase`. 
 
 I'm going to give you a few minutes to try this on your own. There will be a comment in the chat for you to "like" when you are done, and when we have a quorum, we will complete the query together. 
@@ -289,6 +299,10 @@ I want to pause here for questions before giving you your next opportunity to pr
 <h3><strong><u>CLICK</u></strong></h3>
 
 ### 💫 **Your Turn 2** 
+
+<h3><strong><u>SHARE LINK</u></strong></h3>
+
+Your Turn 2: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#16
 
 You'd like to research patients born in the 1970s (so any year starting 197\_ would work).  Use a `LIKE` statement to enrich the query below and find the patient set you care about.
 
@@ -403,6 +417,10 @@ Phew, that was a lot! I want to pause here for questions before giving you your 
 <h3><strong><u>CLICK</u></strong></h3>
 
 ### 💫 **Your Turn 3** 
+
+<h3><strong><u>SHARE LINK</u></strong></h3>
+
+Your Turn 1: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#20
 
 This is a bit of a challenge because I'm not giving you and code to start with.
 
