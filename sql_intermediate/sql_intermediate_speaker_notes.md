@@ -6,7 +6,8 @@
 - Your Turn 2: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#16
 - Your Turn 3: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md#20
 
-Welcome! 
+## Welcome! 
+
 I'm Elizabeth Drellich, and I use she/her pronouns. 
 I'm a member of CHOP's Data Education Collaborative and I sit on the Arcus Education team in DBHi. 
 Today's talk is the fourth in our five-part series on sequel, or S-Q-L.  
