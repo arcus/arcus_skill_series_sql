@@ -38,11 +38,9 @@ We're firm believers that the best way to learn is to practice! As I mentioned b
 
 With that being said, lets jump in!
 
+<h3><strong><u>CLICK</u></strong></h3>
+
 ## SQL: A Brief Refresher
-
-**SQL** (**S**tructured **Q**uery **L**anguage) has, for more than four decades, been used to interact with **relational databases**.
-
-A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
 
 First, let's quickly review some key concepts from our November, December, and January sessions. 
 "Sequel", or S-Q-L (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
