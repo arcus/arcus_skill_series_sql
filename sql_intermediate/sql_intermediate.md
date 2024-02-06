@@ -1,6 +1,6 @@
 <!--
 author: Elizabeth Drellich
-email: franzenr@chop.edu
+email: drelliche@chop.edu
 version: 1.0.0
 current_version_description: Initial version
 module_type: slides
