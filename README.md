@@ -55,7 +55,7 @@ After completion of this module, learners will be able to:
 
 **Session Materials**
 
-- Review the workshop slides (link available after the first session)
+- Review the [SQL Intermediate Level slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md)
 - Work through this content as an [interactive tutorial](https://bit.ly/DART_sql_intermediate)
 
 ## Session 5 - SQL Joins
