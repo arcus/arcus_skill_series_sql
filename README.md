@@ -55,6 +55,7 @@ After completion of this module, learners will be able to:
 
 **Session Materials**
 
+- Watch a [recording of the SQL Intermediate Level workshop](https://www.youtube.com/watch?v=emI3_bfzRl8)
 - Review the [SQL Intermediate Level slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_intermediate/sql_intermediate.md)
 - Work through this content as an [interactive tutorial](https://bit.ly/DART_sql_intermediate)
 
