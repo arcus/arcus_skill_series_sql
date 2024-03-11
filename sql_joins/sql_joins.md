@@ -1383,6 +1383,8 @@ This is the last webinar in our five-part SQL series, but we have other offering
 
 The link to sign up for any of these sessions is here: [https://arcus.github.io/r102/](https://arcus.github.io/r102/)
 
+Also, if you would like to learn more about Arcus, we welcome you to [sign up for Arcus 101](https://outlook.office365.com/owa/calendar/BKG-StandardArcusEducationOfficeHours@chop.edu/bookings/s/vQqIuHMozkSLitoltva7bg2), an hour-long orientation to what Arcus has to offer that take place on the second Wednesday and the fourth Thursday of each month. 
+
 ## About these slides
 
 @about_these_slides
