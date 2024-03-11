@@ -247,7 +247,7 @@ When we reach 💫 **Your Turn** sections, you'll have a chance to write or edit
 --{{0}}--
 Welcome! 
 I'm Meredith Lee, and I use she/her pronouns. 
-I'm a data instructor on the Arcus Education team in DBHi, which is a part of CHOP's Data Education Collaborative. 
+I'm a data instructor on the Arcus Education team in DBHi. 
 Today's talk is the final piece of our five-part series on sequel, or S-Q-L.  
 Today's webinar will be recorded, so please leave your cameras and mics turned off until the question time at the end.
 If you do have questions that come up during the talk, feel free to put them in the chat. 
@@ -1377,7 +1377,13 @@ ON disease.subject_id = smoking.subject_id;
 
 ## Upcoming Sessions
 
-Talk about R 102 stuff? 
+This is the last webinar in our five-part SQL series, but we have other offerings coming up: 
+
+* Summary Statistics in R (April 8, 2024, 12pm-1pm ET)
+* Reshaping Data with tidyr (May 6, 2024 12pm-1pm ET)
+* Data Types and Visualizations (June 3, 2024, 12pm-1pm ET)
+
+The link to sign up for any of these sessions is here: [https://arcus.github.io/r102/](https://arcus.github.io/r102/)
 
 ## About these slides
 
