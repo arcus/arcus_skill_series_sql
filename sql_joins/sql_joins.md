@@ -397,6 +397,12 @@ Here, we have selected "id", "address", "city", "county", and "state", which is 
 --{{0}}--
 As a reminder, we recommend using dot notation and comma-first style to list the specific fields you want to see.
 
+--{{1}}--
+The **WHERE clause**, using the `WHERE` keyword, is the section of your query used to specify any "filtering logic" that should be applied to your query before returning any output.  It's optional but very useful.
+
+--{{1}}-- 
+As an example, here's how you'd filter the output to only include records for a specific county.
+
 {{1}}
 *****
 Use `WHERE` to return only rows for which a conditional statement is true:
@@ -431,84 +437,7 @@ WHERE
 *****
 
 --{{1}}--
-
-The **WHERE clause**, using the `WHERE` keyword, is the section of your query used to specify any "filtering logic" that should be applied to your query before returning any output.  It's optional but very useful.
-
---{{1}}-- 
-As an example, here's how you'd filter the output to only include records for a specific county.
-
-
-### DISTINCT and ORDER BY
-
---{{0}}--
-Now let's quickly review the DISTINCT and ORDER BY keywords.
-
-Use `DISTINCT` to limit a result set to only unique row values; this is placed directly after the `SELECT` keyword.
-
-```sql
-SELECT DISTINCT allergies.description
-FROM alasql.allergies;
-```
-@AlaSQL.eval("#dataTable_allergies")
-
-<details open>
-
-<summary>**Results of Query (click to collapse or expand this section)**</summary>
-
-<table id="dataTable_allergies" border="1"></table><br>
-
-</details><br/><br/>
-
-<div style = "display:none;">
-
-@AlaSQL.buildTable_allergies
-
-</div>
---{{0}}--
-The `DISTINCT` keyword can be placed directly after the `SELECT` keyword to limit your result set to only the unique row values. 
-
-{{1}}
-*****
-Use `ORDER BY` to order the result set by one or more columns. 
-
-```sql
-SELECT DISTINCT
-  patients.county
-  ,patients.ethnicity
-FROM alasql.patients
-ORDER BY
-  patients.county ASC
-  ,patients.ethnicity DESC;
-```
-@AlaSQL.eval("#dataTable14a")
-
-<details open>
-
-<summary>**Results of Query (click to collapse or expand this section)**</summary>
-
-<table id="dataTable14a" border="1"></table>
-
-</details><br/><br/>
-
-<div style = "display:none;">
-
-@AlaSQL.buildTable_patients
-
-</div>
-
-*****
-
---{{1}}--
-The `ORDER BY` keyword is used to order your results by a given set of one or more columns, in either ascending or descending order (the default being ascending). If you list more than one column, items will be sorted first by the first column you provide, and then, within "ties", by the second, then third, etc.  
-
-
---{{1}}--
-For instance, this code sorts first by `county`, and then within each possible value of `county` sorts by `ethnicity`. Let's run it and take a look at the output. 
-
-### CASE, LIKE, GROUP BY, and HAVING
-
---{{0}}--
-A `CASE` statement produces conditional output based on some input (similar to an "if" statement in other languages) with multiple possibilities, or "cases," that are considered.
+In the previous webinar in this series, we learned other keywords such as `DISTINCT`, `CASE`, `LIKE`, `GROUP BY`, and `HAVING`. We won't need to use those today, and so we're not going to review them. If you need a review of those keywords, or any other topic we've previously covered, please see our previous webinar recordings. 
 
 ## Overview of Joins
 
@@ -617,7 +546,7 @@ This is the basic structure of a SQL join, including the type of join and the cr
 ## Join Types
 
 --{{0}}--
- Let's consider the gradebook example we mentioned earlier. We might have two tables, one called "math\_grades" and one called "language\_grades".  Some students appear in "math\_grades", some in "language\_grades", and some students have rows in both tables. 
+Let's consider the gradebook example we mentioned earlier. We might have two tables, one called "math\_grades" and one called "language\_grades".  Some students appear in "math\_grades", some in "language\_grades", and some students have rows in both tables. 
 
 Let's consider the gradebook example we mentioned earlier.
 
@@ -638,13 +567,13 @@ Let's consider the gradebook example we mentioned earlier.
 | 11 | C | Sep-Dec 2022 |
 | 14 | B | Jan-May 2023 |
  
- --{{1}}--
- This can be represented by a Venn diagram where the left circle represents a group of students who appear in the math\_grades table and the right circle represents the group of students who appear in the language\_grades table. There's some overlap of these two circles, representing the subset of students who appear in both tables. There are 4 basic join types we'll talk about now.
+--{{1}}--
+This can be represented by a Venn diagram where the left circle represents a group of students who appear in the math\_grades table and the right circle represents the group of students who appear in the language\_grades table. There's some overlap of these two circles, representing the subset of students who appear in both tables. There are 4 basic join types we'll talk about now.
 
- {{1}}
- *****
+{{1}}
+*****
 
- We can visualize these groups of students using a Venn diagram with students in "math\_grades" on the left and students in "language\_grades" on the left.  
+We can visualize these groups of students using a Venn diagram with students in "math\_grades" on the left and students in "language\_grades" on the right.  
 
 <lia-keep>
 
@@ -943,7 +872,7 @@ FROM math_grades FULL OUTER JOIN language_grades
 ```
 *****
 
-### 💫 **Your Turn: Join Types**
+### 💫 **Your Turn 1: Join Types**
 
 Consider the scenario of a table of math grades for 9th grade students and a table of language grades for 9th grade students.  Some 9th graders appear in both tables, but some appear only in one of them.  Fatima appears in the math\_grades table, but not in the language\_grades table.  When you perform a full outer join on these two tables, what will happen to Fatima's data in the resulting joined table?
 
@@ -962,29 +891,52 @@ A full outer join is indeed a type of join, and it can take place on any two tab
 
 ## Join Criteria
 
-Join criteria are conditions that mean that rows from two different tables belong together or "match".  For example, what makes a row from the math\_grades table match up with a row from the language\_grades table?
+--{{0}}--
+The second component of a SQL Join, regardless of the join type, is the set of conditions  by which rows from two different tables are said to "match", called join criteria. Join criteria will be some sort of relationship statement referencing data that occurs in both tables you want to join. This relationship statement will be valuated to TRUE or FALSE when your join is executed. 
 
-Your criteria might be something like:
+What makes a row from the math\_grades table match up with a row from the language\_grades table?
 
-* Join the rows from "depression\_scale" with rows from "subject\_address" **... but only if the subject ID field matches**
-* Join the rows from "items" with the rows from "orders" **... but only if the item ID field matches**
-* Join the rows from "biology\_grades" with the rows from "psychology\_grades" **... but only if the student ID is the same and the semester is the same**
+Let's look at some examples of join criteria:
 
-When the conditions in your join criteria evaluate as TRUE for a row then a join will be performed for those rows, and when the join criteria are evaluated as FALSE no join for those rows will take place.
+--{{1}}--
+As a reminder, SQL is a **relational database**, so it's not surprising that we talk about data relationships here. If for example you had the two tables "depression scale" and "subject address", you might want to match on the common field "subject ID". 
 
-### Data Relationships
+{{1}}
+Join the rows from "depression\_scale" with rows from "subject\_address" **... but only if the subject ID field matches**
 
-As a reminder, SQL is a **relational database**, so it's not surprising that we talk about data relationships in this module.  Equality is one kind of relationship, when two data points are identical, but other relationships, like "less than" or "between" will also prove useful when we set up our join criteria.
+--{{2}}--
+Similarly, if you had the two tables "items" and "orders", you might want a subset of data, but ony where the item ID is the same. 
 
-Join criteria will be some sort of relationship statement referencing data that occurs in both tables you want to join.  This relationship statement will be valuated to TRUE or FALSE when  your join is executed.  Often, the relationship is equality -- you're looking for a perfect match.  We'll start with equality, the most frequently used condition, on the next page. 
+{{2}}
+Join the rows from "items" with the rows from "orders" **... but only if the item ID field matches**
+
+--{{3}}--
+You can also have more than one condition to match on-- in this case, perhaps we want not only to match the student IDs between the two tables, but also the semester. 
+
+{{3}}
+Join the rows from "biology\_grades" with the rows from "psychology\_grades" **... but only if the student ID is the same and the semester is the same**
+
+--{{3}}--
+When the conditions in your join criteria evaluate as TRUE for a row then a join will be performed for those rows, and when the join criteria are evaluated as FALSE no join for those rows will take place. Often, the relationship is equality, such as in the examples above -- you're looking for a perfect match between your two tables (though this is not always the case, as we'll see later).
+
 
 ### Examples of Equality
 
-**Example 1**
+--{{0}}--
+Equality is the most frequently used condition for joins, when you are looking for "matches" between two tables. We've already seen a few general examples, but now let's look at some tables and how we might express our criteria in SQL. 
 
+Equality is the most frequently used condition for joins. 
+
+--{{1}}--
 Do you have subject identifiers or student ID numbers in two different tables?  This shared information can be used to connect (join) data from these tables, based on the identifier being equal.  
 
+--{{1}}--
 For example, if the subject ID matches, a row from table A and a row from table B will be joined.  If the subject ID doesn't match, these rows won't be joined.  Maybe we're trying to match lung cancer occurrence and smoking exposure in the same row:
+
+{{1}}
+*****
+
+**Example 1**
 
 **disease**
 
@@ -1005,39 +957,35 @@ For example, if the subject ID matches, a row from table A and a row from table 
 | 4  | 0 |
 
 
-In code, we usually use an **ON** statement:
+In code, we can write this two ways:
 
 ```sql
 ...
 ON disease.subject_id = smoking.subject_id
 ```
 
-<div class = "options">
-<b style="color: rgb(var(--color-highlight));">Another option</b><br>
+OR 
 
-In this case, we're comparing the equality of two fields that **have the same name**, so we could also use **USING**.  This special word only applies when you're looking for a perfect match between fields that have matching names, too.  It's okay if you never use `USING` and prefer to always stick with `ON`, which is more multi-purpose.
-
-</div>
 
 ```sql
 ...
 USING(subject_id)
 ```
+*****
 
-With either of the above code snippets (`ON` or `USING`):
+--{{1}}--
+In this case, we're comparing the equality of two fields that **have the same name**, so we could also use **USING**.  This special word only applies when you're looking for a perfect match between fields that have matching names, too.  It's okay if you never use `USING` and prefer to always stick with `ON`, which is more multi-purpose. 
 
-* subject 3 from disease **matches** with subject 3 from smoking 
-* subject 5 from disease **doesn't match** with anyone in smoking 
-* subject 8 from disease **doesn't match** with anyone from smoking 
-* subject 2 from smoking **doesn't match** with anyone from disease 
-* subject 4 from smoking **doesn't match** with anyone from disease 
+--{{1}}--
+With either of the above code snippets (`ON` or `USING`): subject 3 from disease **matches** with subject 3 from smoking, subject 5 from disease **doesn't match** with anyone in smoking, subject 8 from disease **doesn't match** with anyone from smoking, subject 2 from smoking **doesn't match** with anyone from disease, and subject 4 from smoking **doesn't match** with anyone from disease 
 
-{{1}}
+--{{2}}--
+Sometimes the data that appears in the two tables has the same field name, as we just saw, but sometimes the data might be stored under different names. Here is an example in which the "same" data, "semester" in "math grades" and "term" in "language grades", is labeled differently between the two tables. SQL can handle this.
+
+{{2}}
 *****
 
 **Example 2**
-
-Sometimes the data that appears in the two tables has the same field name, as we just saw on the previous page.  Sometimes, however, the data might be stored under different names.  Let's consider this example:
 
 **math\_grades**
 
@@ -1055,30 +1003,44 @@ Sometimes the data that appears in the two tables has the same field name, as we
 | 11 | C | Sep-Dec 2022 |
 | 14 | B | Jan-May 2023 |
 
-Here, "semester" is used in math\_grades and "term" is used in language\_grades.  So you might also see something like:
+So you might see something like:
 
 ```sql
 ...
 ON math_grades.semester = language_grades.term
 ```
-
-In this example:
-
-* The A grade for Jan-May 2023 from math\_grades **matches** with the B grade for Jan-May 2023 in language\_grades (whoops, even though the student\_id doesn't match!)
-* The C grade for Sep-Dec 2022 in language\_grades **does not match** with any row in math\_grades 
-
-<div class = "help">
-<b style="color: rgb(var(--color-highlight));">Troubleshooting help</b><br>
-
-This highlights the importance of documenting your data so you can tell which fields hold which data in order to use them properly for joins.  If `semester` and `term` are  different things, not just the same thing with two different names, the result of your join will be disappointing.  <br/>
-
-This also shows that figuring out your join criteria requires close attention: we probably don't mean to match student 11's math grades with student 14's language grades!
-</div>
 *****
+
+--{{2}}--
+In this example, the A grade for Jan-May 2023 from math\_grades **matches** with the B grade for Jan-May 2023 in language\_grades (even though the student\_id doesn't match!), and the C grade for Sep-Dec 2022 in language\_grades **does not match** with any row in math\_grades. 
+
+--{{2}}--
+This also highlights the importance of documenting your data so you can tell which fields hold which data in order to use them properly for joins!  If `semester` and `term` are  different things, not just the same thing with two different names, the result of your join will be disappointing. This also shows that figuring out your join criteria requires close attention: we probably don't mean to match student 11's math grades with student 14's language grades!
 
 ### Non-Equality and More
 
-Sometimes you don't need equality as your condition.  For example, in our example from our multi-site mental health research (see the first page of this module for a reminder), let's say we want to associate a particular depression score with a particular address only if the depression inventory was given between the start and end dates of residency at that address. In a case like that, you might see something like:
+--{{0}}--
+Sometimes you don't need equality as your condition. Let's look again at our example from our multi-site mental health research, and let's say we want to associate a particular depression score with a particular address **only if the depression inventory was given between the start and end dates of residency at that address**.
+
+**Table 1: depression\_scale**
+
+<!-- data-type="none" class="tight-table" style="font-size:80%"-->
+| subj\_id  | date  | dep\_q1  | dep\_q2   | dep\_q3  | dep\_q4  | dep\_total   |
+| :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
+| 11234   | 2021-05-15   | 3    | 3  | 2    | 4    | 12    |
+| 86234   | 2021-06-01   | 4    | 4  | 3    | 4    | 15    |
+| 32660   | 2021-06-10   | 1    | 1  | 2    | 1    | 5   |
+| 86234   | 2022-01-13   | 2    | 2  | 1    | 3    | 8    |
+| 41356   | 2022-02-10   | 1    | 3  | 2    | 3    | 10   |
+
+**Table 2: subject\_address**
+
+<!-- data-type="none" class="tight-table" style="font-size:80%"-->
+| subj\_id  | street\_address  | city  | state   | zip  | date\_start  | date\_end   |
+| :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
+| 11234   | 123 Main Street   | Smithtown    | PA  | 19000    | 2022-01-01   | `NULL`    |
+| 11234   | 123 Oak Lane   | Old Towne    | PA  | 18000   | 2000-01-01    | 2021-12-31    |
+| 93452   | 123 Green Blvd  | Kirby    | TN  | 37000    | 2020-05-01    | `NULL`   |
 
 ```sql
 ...
@@ -1087,12 +1049,10 @@ ON depression_scale.date BETWEEN
    subject_address.date_end
 ```
 
-{{1}}
-*****
+### Multiple conditions
 
-**Multiple conditions**
-
-Of course, in the example of the depression inventory, we'd also want to make sure that there was a match on subject identifier (you don't want to match Lakshmi's depression score with Larry's address, just because the dates worked!).  You can combine conditions too.  Here, we look for an exact match on subject ID and a date match that's between the correct dates:
+--{{0}}--
+Of course, in the example of the depression inventory, we'd also want to make sure that there was a match on subject identifier (you don't want to match Lakshmi's depression score with Larry's address, just because the dates worked!).  You can combine conditions too.  Here, we want to look for an exact match on subject ID and a date match that's between the correct dates.
 
 ```sql
 ...
@@ -1101,12 +1061,13 @@ ON depression_scale.subj_id = subject_address.subj_id AND
       subject_address.date_start AND 
       subject_address.date_end
 ```
-*****
 
-### Getting Really Complicated
+### Getting More Complicated
 
-Let's keep thinking about our depression inventories and our goal of matching depression scores to addresses in our study. What if some addresses don't have end dates?  This could be because the subject is currently still living there.  There are some addresses with `NULL` end dates in our data, so this isn't an academic question.
+--{{0}}--
+Let's keep thinking about our depression inventories and our goal of matching depression scores to addresses in our study. What if some addresses don't have end dates?  This could be because the subject is currently still living there. We can see in our data that there are some addresses with `NULL` end dates, so this is something we should account for.
 
+--{{0}}--
 You can create arbitrarily complex **boolean logic** (or **boolean algebra**), using AND, OR, NOT, and parentheses as needed.  Much as in math, there's an order of operations in this kind of logic, and you might need several sets of parentheses to make sure you're applying the conditions correctly.  For example, see below.  We've added comments to help illustrate the logic.
 
 ```sql
@@ -1125,8 +1086,6 @@ ON depression_scale.subj_id = subject_address.subj_id AND
 -- the depression date is after the start date,
 -- and there's no end date.
 ```
-
-Let's take this more comprehensive example and look at the example tables from the first page of this module:
 
 **depression\_scale**
 
@@ -1148,22 +1107,10 @@ Let's take this more comprehensive example and look at the example tables from t
 | 11234   | 123 Oak Lane   | Old Towne    | PA  | 18000   | 2000-01-01    | 2021-12-31    |
 | 93452   | 123 Green Blvd  | Kirby    | TN  | 37000    | 2020-05-01    | `NULL`   |
 
-With this most recent join criteria:
+--{{0}}--
+With this most recent join criteria: the depression score (dep\_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period, the depression score (dep\_total) for subject 11234, measured on 2021-05-15, will **not match** with the address 123 Main Street for the same subject, because the time period doesn't match, the other rows in the depression\_scale **don't match** with any rows in the subject\_address table, and the first and third rows of the subject\_address table **don't match** with any rows in the depression\_scale table. 
 
-* The depression score (dep\_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period. 
-* The depression score (dep\_total) for subject 11234, measured on 2021-05-15, will **not match** with the address 123 Main Street for the same subject, because the time period doesn't match. 
-* The other rows in the depression\_scale **don't match** with any rows in the subject\_address table. 
-* The first and third rows of the subject\_address table **don't match** with any rows in the depression\_scale table. 
-
-### Using Other SQL Commands
-
-Especially for one-to-many data relationships, you might want to create a simplified table temporarily in order to have that be part of a join.  This means you may have to also do some complicated things like using `GROUP BY` with aggregation, using `WHERE` and/or `HAVING`, or creating subqueries.  
-
-For example, let's say you want to only use the earliest depression inventory for each subject, not any subsequent depression inventories, for your analysis of the correlation between depression score and zip code.  Then you want to join that earliest depression inventory with the address of the subject at the time of administration of that earliest inventory.  That's a lot of logic!  The easiest way to do that is to first create a simplified table that only contains the earliest depression inventory for each subject id.  This is a great place to use `GROUP BY` and the aggregation function `MIN()` to find the earliest date of administration.  Then you can use that simpler table to join to subject addresses.  
-
-We won't show the code for this in this module, but be aware that you can think about complex joins by first planning how you can simplify a table to make the logic easier to work with!
-
-### 💫 **Your Turn: Join Criteria**
+### 💫 **Your Turn 2: Join Criteria**
 
 True or False: a matching ID (like student\_id or patient\_id) is generally sufficient as a join criterion.
 
@@ -1179,31 +1126,25 @@ Often, a matching identifier is part of what makes up good join criteria, but it
 
 ## Combining It All
 
-In the next few sections, we'll combine our join type and join criteria, to show you how these work together.  
+--{{0}}--
+Now, we'll get the chance to combine the two parts of SQL joins to craft some queries. We'll use `FROM` statements to describe the type of join and an `ON` statement to describe the join criteria. Don't worry, we'll add plenty of scaffolding in the beginning, and slowly work up to crafting an entire SQL query. 
 
-And, since you have lots of reference pages to look back at, we are confident that you'll be able to write the code yourself!  
+Now we'll practice crafting some SQL queries by combining join type and join criteria. 
 
-<div class = "care">
-<b style="color: rgb(var(--color-highlight));">A little encouragement...</b><br>
+To create a SQL join, we'll need:
 
-Don't worry, we'll scaffold the code for you so you have the support you need to write the SQL code.  And if you don't get it right the first time, you can try a few times.  Still stuck?  You can click the "check" icon to show the answer!
+* A `FROM` statement, describing the type of join, and 
+* A `ON` statement, describing the join criteria
 
-</div>
+--{{0}}--
+Importantly, we will only present a few examples.  There are many combinations we could consider, at all levels of complexity, and we won't have time to cover all of the possibilities. Instead of being exhaustive, we've concentrated on the most frequent use case you'll encounter over and over: equality.  We'll go over each join type (inner, left, right, and full) on a simple equality matching a single field from each table.
 
-You'll use a `FROM` statement, which describes the type of join, and an `ON` statement, which describes the join criteria.
+### 💫 **Your Turn 3: `INNER JOIN` and Equality Condition**
 
-Importantly, we will only presesent a few examples.  There are many combinations we could consider, at all levels of complexity.  Here are a few we **won't** do:
+--{{0}}--
+To understand what an `INNER JOIN` with equality looks and acts like practically, let's perform an inner join on these two tables.  To do this, we have to combine join criteria (subject\_id matching) with join type (inner). 
 
-* A `LEFT JOIN` involving tables which require a "between" type relationship (like a "spend" value between a "budget\_floor" value and a "budget\_ceiling" value)
-* An `INNER JOIN` involving equality matching on three fields: two identifiers and one date field
-* A `RIGHT JOIN` involving matching data with a "less than" relationship, such as a 3 month old weight measurement being less than a 1 month old weight measurement
-* and many more!
-
-Instead of being exhaustive, we've concentrated on the most frequent use case you'll encounter over and over: equality.  We'll go over each join type (inner, left, right, and full) on a simple equality matching a single field from each table.
-
-### `INNER JOIN` and Equality Condition
-
-To understand what an `INNER JOIN` with equality looks and acts like practically, let's go to a simple example of two tables we used earlier in this module:
+You are studying the link between lung cancer and smoking behavior. Let's perform an **inner join** on these two tables, matching on `subject_id`. (Remember, with an inner join, we only want subjects for which data are present in **both** tables). 
 
 **disease**
 
@@ -1223,11 +1164,9 @@ To understand what an `INNER JOIN` with equality looks and acts like practically
 | 3 | 10  |
 | 4  | 0 |
 
-Let's perform an inner join on these two tables.  To do this, we have to combine join criteria (subject\_id matching) with join type (inner).   
 
-We've taken care of the join criteria, but we need you to add the join type.  Please add the `FROM` statement in the partial SQL code below.  You'll need two table names separated by some kind of `JOIN` command.  For now, leave the `ON` code unchanged. Think about what rows you expect to see in your result set before you run any code.
-
-When you want to see the results of your code, click on the "play" button below the code block.
+--{{0}}--
+The join criteria is already written, but we need to add the join type. You'll need two table names separated by some kind of `JOIN` command.  For now, leave the `ON` code unchanged. Think about what rows you expect to see in your result set before you run any code. When you want to see the results of your code, click on the "play" button below the code block. Return here when you're done and we'll do through the answer together. 
 
 ```sql
 SELECT *
@@ -1246,27 +1185,10 @@ ON disease.subject_id = smoking.subject_id;
 
 </div>
 
-<div class = "options">
-<b style="color: rgb(var(--color-highlight));">Another option</b><br>
-
-Once you've gotten your code to work, you might want to try the following variations.  How do they change your results?  Or do they?  
-
-* Swap the order of the tables 
-* Add or delete the `INNER` keyword before `JOIN`
-
-</div>
-
---------
-
 <details>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
-<summary>**Still stuck?  Click to see our solution!**</summary>
-
-<br/>
-
-<div class = "answer">
-
-Here's the code we used:
+Try:
 
 ```sql
 SELECT *
@@ -1274,29 +1196,15 @@ FROM disease JOIN smoking
 ON disease.subject_id = smoking.subject_id;
 ```
 
-This is the result we got. 
-
-<!-- data-type="none" class="tight-table"-->
-| subject\_id  | lung\_cancer | smoking\_pack\_years |
-| :--------- | :--------- | :--------- | 
-| 3  | TRUE | 10 |
-
-Our resulting dataset only includes data for subjects appearing in both tables.
-
-<div class = "options">
-<b style="color: rgb(var(--color-highlight));">Another option</b><br>
-Did you notice that we used `JOIN` by itself here, without any other keywords?  `JOIN` by itself means `INNER JOIN`.
-
-</div>
-
-</div>
-
 </details>
 
 
-### `LEFT JOIN` and Equality Condition
+### 💫 **Your Turn 4: `LEFT JOIN` and Equality Condition**
 
-To understand what a `LEFT JOIN` with equality looks and acts like practically, let's again go to that same simple example of two tables we used earlier in this module:
+--{{0}}--
+Now's let's practice a left join. This time, you'll need to add both the `FROM` and the `ON` code sections to the SQL code. For now, use `ON`, and don't try `USING` just yet.
+
+Now let's try a `LEFT JOIN`. We'll make **disease** the left table and **smoking** the right table, still matching on `subject_id`. 
 
 **disease**
 
@@ -1316,11 +1224,6 @@ To understand what a `LEFT JOIN` with equality looks and acts like practically, 
 | 3 | 10  |
 | 4  | 0 |
 
-Again let's combine our join criteria (subject\_id matching) with our join type (this time, a left join).  We'll make **disease** the left table and **smoking** the right table.  Think about what rows you expect to see in your result set before you run any code.
-
-We're going to make things a bit harder.  Please add both the `FROM` and the `ON` code sections to the SQL code!  For now, use `ON`, and don't try `USING` just yet.
-
-When you want to see the results of your code, click on the "play" button below the code block.
 
 ```sql
 SELECT *
@@ -1339,25 +1242,11 @@ ON ...
 
 </div>
 
-<div class = "options">
-<b style="color: rgb(var(--color-highlight));">Another option</b><br>
-
-Once you've got that code working, you might want to try `USING`.  The SQL dialect we're using here, AlaSQL, uses the word `USING` without parentheses.  So, while in many SQL dialects you would type `USING(subject_id)`, in this module, try `USING subject_id`.  Put `USING subject_id` in place of the `ON` statement to see if there are any changes in your result set!
-
-</div>
-
-
---------
-
 <details>
 
-<summary>**Still stuck?  Click to see our solution!**</summary>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
-<br/>
-
-<div class = "answer">
-
-Here's the code we used:
+Try:
 
 ```sql
 SELECT *
@@ -1365,37 +1254,11 @@ FROM disease LEFT JOIN smoking
 ON disease.subject_id = smoking.subject_id;
 ```
 
-This is the result we got.  We have a row for each item of data in the left table, enriched where possible with data from the right table.  Below, we've added `NULL` to show empty cells, but in your results from running SQL code you'll just see blanks.  
-
-<!-- data-type="none" class="tight-table"-->
-| subject\_id  | lung\_cancer | smoking\_pack\_years |
-| :--------- | :--------- | :--------- | 
-| 3  | TRUE | 10 |
-| 5 | FALSE  | `NULL` |
-| 8  | FALSE | `NULL` |
-
-When there's no matching data from the right table to join to the data you included from the left, `NULL` values (empty cells) are added.
-
-<div class = "options">
-<b style="color: rgb(var(--color-highlight));">Another option</b><br>
-We could have also used `USING`, and the following code would have given us the same results:
-
-```sql
-SELECT *
-FROM disease LEFT JOIN smoking
-USING subject_id;
-```
-
-
-</div>
-
-</div>
-
 </details>
 
-### `RIGHT JOIN` and Equality Condition
+### 💫 **Your Turn 5: `RIGHT JOIN` and Equality Condition**
 
-To understand what a `RIGHT JOIN` with equality looks and acts like practically, let's again use our example tables:
+Now let's practice a `RIGHT JOIN`. As before, we're matching on `subject_id`. 
 
 **disease**
 
@@ -1415,7 +1278,6 @@ To understand what a `RIGHT JOIN` with equality looks and acts like practically,
 | 3 | 10  |
 | 4  | 0 |
 
-You'll now combine our join criteria (subject\_id matching) with our join type (right).  Please use the **disease** table as the left table and the **smoking** table as the right table.
 
 ```sql
 SELECT *
@@ -1433,18 +1295,11 @@ SELECT *
 
 </div>
 
-
---------
-
 <details>
 
-<summary>**Still stuck?  Click to see our solution!**</summary>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
-<br/>
-
-<div class = "answer">
-
-Here's the code we used:
+Try:
 
 ```sql
 SELECT *
@@ -1452,24 +1307,11 @@ FROM disease RIGHT JOIN smoking
 ON disease.subject_id = smoking.subject_id;
 ```
 
-This is the result we would get.  We're including all the data from the right table, enriched where possible with data from the left table.  Below, we've added `NULL` to show empty cells, but in your results from running SQL code you'll just see blanks. 
-
-<!-- data-type="none" class="tight-table"-->
-| subject\_id  | lung\_cancer | smoking\_pack\_years |
-| :--------- | :--------- | :--------- | 
-| 3 | TRUE | 10  |
-| 2  | `NULL` | 10 |
-| 4  | `NULL` | 0 |
-
-When there's no matching data from the left table to join to the data you included from the right, `NULL` values (empty cells) are added.
-
-</div>
-
 </details>
 
-### `FULL JOIN` and Equality Condition
+### 💫 **Your Turn 6: `FULL JOIN` and Equality Condition**
 
-To understand what a `FULL JOIN` with equality looks and acts like practically, let's go, one last time, to our example tables:
+Finally, let's try a full join. 
 
 **disease**
 
@@ -1489,14 +1331,11 @@ To understand what a `FULL JOIN` with equality looks and acts like practically, 
 | 3 | 10  |
 | 4  | 0 |
 
-And let's combine our join criteria (subject\_id matching) with our join type (full).  This time, we're going to have you write the entire query! 
 
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Important note</b><br>
 
-Different SQL dialects have different quirks.  We explained earlier, for example, that the SQL running behind the scenes in this module (AlaSQL) expects the `USING` keyword to appear without parentheses. 
-
-There's another important difference we want to point out here: AlaSQL **requires that you use `FULL OUTER JOIN` instead of just `FULL JOIN`.** That's not the case for every dialect of SQL, but here, please use `FULL OUTER JOIN`.
+Different SQL dialects have different quirks. One of these is that AlaSQL **requires that you use `FULL OUTER JOIN` instead of just `FULL JOIN`.** That's not the case for every dialect of SQL, but here, please use `FULL OUTER JOIN`.
 
 </div>
 
@@ -1515,38 +1354,17 @@ There's another important difference we want to point out here: AlaSQL **require
 
 </div>
 
---------
-
 <details>
 
-<summary>**Still stuck?  Click to see our solution!**</summary>
+<summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal an answer once you're done!*</summary>
 
-<br/>
-
-<div class = "answer">
-
-Here's the code we used:
+Try:
 
 ```sql
 SELECT *
 FROM disease FULL OUTER JOIN smoking
 ON disease.subject_id = smoking.subject_id;
 ```
-
-This is the result we would get.  Each subject is represented here, both the ones who appear in the left table and in the right table. Below, we've added `NULL` to show empty cells, but in your results from running SQL code you'll just see blanks. 
-
-<!-- data-type="none" class="tight-table"-->
-| subject\_id  | lung\_cancer | smoking\_pack\_years |
-| :--------- | :--------- | :--------- | 
-| 3  | TRUE | 10 |
-| 5 | FALSE  | `NULL` |
-| 8  | FALSE | `NULL` |
-| 2  | `NULL` | 10 |
-| 4  | `NULL` | 0 |
-
-When there's no matching data from the one of the tables to join to the data you included from the other table, `NULL` values (empty cells) are added.  
-
-</div>
 
 </details>
 
