@@ -249,9 +249,10 @@ Welcome!
 I'm Meredith Lee, and I use she/her pronouns. 
 I'm a data instructor on the Arcus Education team in DBHi. 
 Today's talk is the final piece of our five-part series on sequel, or S-Q-L.  
-This webinar will be recorded, so please leave your cameras and mics turned off until the question time at the end, when we'll turn off the recording. 
+This webinar will be recorded, so please leave your cameras and mics turned off until the end, when we'll turn off the recording and give you time to ask any questions. 
 If you do have questions that come up during the talk, feel free to put them in the chat. 
 
+--{{0}}--
 So with that, let's get started!
 
 ## Today's talk
@@ -262,7 +263,7 @@ So with that, let's get started!
 Today, we'll be learning how to combine data from two or more interrelated tables into one dataset using the JOIN command. This is a hands-on webinar -- we'll be writing some real SQL code! If that sounds daunting, don't worry; I'll provide plenty of scaffolding, and we'll work through things together. 
 
 --{{0}}--
-In previous webinars in this series my colleagues Rose Franzen and Elizabeth Drellich taught you how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, and GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
+In previous webinars in this series my colleagues Rose Franzen and Elizabeth Drellich taught you how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
 
 ## Thank you!
 
@@ -305,7 +306,7 @@ Relational databases consist of many different data tables. Today we will be wor
 {{1}}
 *****
 <h4> What SQL is for: </h4>
-isolating and combining just the data you're interested in, such as:
+Isolating and combining just the data you're interested in, such as:
 
  * extracting columns you're interested in
  * filtering to just the data that meets specific criteria
@@ -317,7 +318,7 @@ SQL is great at working with rectangular data, data that is stored in tables wit
 *****
 <h4> What SQL is **NOT** good for: </h4>
 
-* fine tuned statistical, linguistic, or data visualization needs
+* Fine tuned statistical, linguistic, or data visualization needs
 *****
 --{{2}}--
 However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis.
@@ -337,10 +338,7 @@ Some popular "flavors" of SQL:
 
 
 --{{0}}--
-The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting the output we get. 
-
---{{0}}--
-Because different flavors can have different outputs, knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
+The most common difference between different SQL "flavors" are the availability of certain functions, as well as the types of error messages you might see. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting how we need to write a query. 
 
 {{1}}
 *****
@@ -348,7 +346,11 @@ Because different flavors can have different outputs, knowing the specific flavo
 *****
 
 --{{1}}-- 
-The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting the output we get. 
+Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
+
+--{{1}}-- 
+In the hands-on portion of this webinar, we'll be using a form of SQL that actually runs in your web browser as you look at these pages, called "AlaSQL".  We pre-populated some tables for you to experiment with in this presentation. Some of these tables are filled with fabricated data meant to look a little like an electronic health record (EHR).  Rest assured that this data was completely invented, although it might look realistic!
+
 
 ### SELECT, FROM, WHERE
 
@@ -566,7 +568,7 @@ Let's consider the gradebook example we mentioned earlier.
 | 14 | B | Jan-May 2023 |
  
 --{{1}}--
-This can be represented by a Venn diagram where the left circle represents a group of students who appear in the math\_grades table and the right circle represents the group of students who appear in the language\_grades table. There's some overlap of these two circles, representing the subset of students who appear in both tables. There are 4 basic join types we'll talk about now.
+This can be represented by a Venn diagram where the left circle represents a group of students who appear in the math\_grades table and the right circle represents the group of students who appear in the language\_grades table. There's some overlap of these two circles, representing the subset of students who appear in both tables. There are 4 basic join types we'll talk about now. The data you would want to capture with each type of join is represented in blue. 
 
 {{1}}
 *****
@@ -673,15 +675,21 @@ We can visualize these groups of students using a Venn diagram with students in 
 
 ### `INNER JOIN`
 
+--{{0}}--
+Here, an `INNER JOIN` (and this is the default behavior of `JOIN` without any modifying words) finds matching grade data falling in the "Both Math and Language Grades" overlap section. This is often the data you want to capture, and if you're conducting research on the correlation between math and language grades, this is the join you want. If a student lacks one or the other grade, their data isn't useful to you, so you don't want it.
+
 Here, let's consider the left table to be **math\_grades** and the right table to be **language\_grades**.
 
 ![Overlapping circles with only the inner, overlapping part highlighted](media/inner.png) 
 
 --{{1}}--
-An `INNER JOIN` (and this is the default behavior of `JOIN` without any modifying words) here finds matching grade data falling in the "Both Math and Language Grades" overlap section. This is often the data you want to capture, and if you're conducting research on the correlation between math and language grades, this is the join you want.  If a student lacks one or the other grade, their data isn't useful to you, so you don't want it. The result of an inner join will be a table that only has rows of data for students who appear in both tables.  If a student is missing in one or the other table of grades, that student won't appear in your result set.
+The result of an inner join will be a table that only has rows of data for students who appear in both tables.  If a student is missing in one or the other table of grades, that student won't appear in your result set.
 
 {{1}}
 An `INNER JOIN`, finds the data falling in the "Both Math and Language Grades" overlap section (highlighted in blue above). This is the most frequently used join type, and will result in a table with only the students who have both math and language grades. 
+
+--{{2}}--
+An `INNER JOIN` shows up in code like this. Note that the word `JOIN` by itself means `INNER JOIN`-- you can use either in your code. 
 
 {{2}}
 *****
@@ -703,12 +711,15 @@ FROM math_grades JOIN language_grades
 ```
 *****
 
+--{{3}}--
+In fact it is important to remember that an inner join is the **default** behavior if you just use `JOIN`. Be certain that this is the type of join that you really want!
+
 {{3}}
 ******
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Important note</b><br>
 
-Note that the word `JOIN` by itself means `INNER JOIN`.  Make sure you remember that the default kind of join, without any keywords, is an inner join, which may or may not be what you want!
+Make sure you remember that the default kind of join, without any keywords, is an inner join, which may or may not be what you want!
 </div>
 *****
 
@@ -978,7 +989,7 @@ In this case, we're comparing the equality of two fields that **have the same na
 With either of the above code snippets (`ON` or `USING`): subject 3 from disease **matches** with subject 3 from smoking, subject 5 from disease **doesn't match** with anyone in smoking, subject 8 from disease **doesn't match** with anyone from smoking, subject 2 from smoking **doesn't match** with anyone from disease, and subject 4 from smoking **doesn't match** with anyone from disease 
 
 --{{2}}--
-Sometimes the data that appears in the two tables has the same field name, as we just saw, but sometimes the data might be stored under different names. Here is an example in which the "same" data, "semester" in "math grades" and "term" in "language grades", is labeled differently between the two tables. SQL can handle this.
+Sometimes the data that appears in the two tables has the same field name, as we just saw, but sometimes the data might be stored under different names. Here is an example in which the "same" data, "semester" in "math grades" and "term" in "language grades", is labeled differently between the two tables. Luckily, SQL can handle this.
 
 {{2}}
 *****
@@ -1256,6 +1267,9 @@ ON disease.subject_id = smoking.subject_id;
 
 ### 💫 **Your Turn 5: `RIGHT JOIN` and Equality Condition**
 
+--{{0}}-- 
+Let's try a right join next. This time, if you would like, you can try `USING` rather than `ON`, but note that in AlaSQL, you have to write `USING` without parentheses. 
+
 Now let's practice a `RIGHT JOIN`. As before, we're matching on `subject_id`. 
 
 **disease**
@@ -1276,6 +1290,12 @@ Now let's practice a `RIGHT JOIN`. As before, we're matching on `subject_id`.
 | 3 | 10  |
 | 4  | 0 |
 
+<div class = "important">
+<b style="color: rgb(var(--color-highlight));">Important note</b><br>
+
+Different SQL dialects have different quirks. One of these is that AlaSQL requires that you use **no parentheses** with the keyword `USING`, which is different from many other flavors of SQL. If you don't want to bother remembering that, just know you can always use `ON` instead. 
+
+</div>
 
 ```sql
 SELECT *
