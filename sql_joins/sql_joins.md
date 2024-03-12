@@ -528,7 +528,7 @@ It can be surprisingly tricky to figure out what makes data "match" or "go toget
 As an example, let's take another look at the tables on the previous slide. What data should be considered "matching" between the "depression\_scale" table and the "subject\_address" table?
 
 --{{3}}--
-Was the answer as simple as just matching on the subject id ("subj\_id")? In this case probably not! Because subject_id 11234 is associated with two addresses at different times, you would need to include date in your join criteria as well, so you have the zip code of the subject when the depression scale was administered. 
+Was the answer as simple as just matching on the subject id ("subj\_id")? In this case probably not! Because subject_id 11234 is associated with two addresses at different times, you would need to include date in your join criteria as well, so you have the zip code of the subject when the depression scale was administered. If this is confusing, don't worry, we'll come back to this idea in a later example.
 
 ### Combining Join type and criteria
 
@@ -1029,7 +1029,7 @@ This also highlights the importance of documenting your data so you can tell whi
 ### Non-Equality and More
 
 --{{0}}--
-Sometimes you don't need equality as your condition. Let's look again at our example from our multi-site mental health research, and let's say we want to associate a particular depression score with a particular address **only if the depression inventory was given between the start and end dates of residency at that address**.
+Sometimes you don't need equality as your condition. Let's look again at our example from our multi-site mental health research, and let's say we want to associate a particular depression score with a particular address **only if the depression inventory was given between the start and end dates of residency at that address**. (Recall when we asked if subj_id matching was enough? This is the other part!).
 
 **Table 1: depression\_scale**
 

@@ -123,7 +123,7 @@ The second is **join criteria**. The join criteria shows up in SQL in an `ON` or
 
 It can be surprisingly tricky to figure out what makes data "match" or "go together" in your join criteria. If we take a look at the tables on the previous slide, what data should be considered "matching" between the "depression_scale" table and the "subject_address" table? Write your answer in the chat.
 
-Was the answer as simple as just matching on the subject id ("subj_id")? In this case probably not! Because subject_id 11234 is associated with two addresses at different times, you would need to include date in your join criteria as well, so you have the zip code of the subject when the depression scale was administered. 
+Was the answer as simple as just matching on the subject id ("subj_id")? In this case probably not! Because subject_id 11234 is associated with two addresses at different times, you would need to include date in your join criteria as well, so you have the zip code of the subject when the depression scale was administered. If this is confusing, don't worry, we'll come back to this idea in a later example.
 
 <h3><strong><u>CLICK</u></strong></h3>
 
@@ -280,7 +280,7 @@ This also highlights the importance of documenting your data so you can tell whi
 
 ### Non-Equality and More
 
-Sometimes you don't need equality as your condition. Let's look again at our example from our multi-site mental health research, and let's say we want to associate a particular depression score with a particular address **only if the depression inventory was given between the start and end dates of residency at that address**.
+Sometimes you don't need equality as your condition. Let's look again at our example from our multi-site mental health research, and let's say we want to associate a particular depression score with a particular address **only if the depression inventory was given between the start and end dates of residency at that address**. (Recall when we asked if subj_id matching was enough? This is the other part!).
 
 <h3><strong><u>CLICK</u></strong></h3>
 
