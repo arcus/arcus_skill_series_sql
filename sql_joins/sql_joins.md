@@ -260,7 +260,7 @@ So with that, let's get started!
 @todays_talk 
 
 --{{0}}--
-Today, we'll be learning how to combine data from two or more interrelated tables into one dataset using the JOIN command. This is a hands-on webinar -- we'll be writing some real SQL code! If that sounds daunting, don't worry; I'll provide plenty of scaffolding, and we'll work through things together. 
+Today, we'll be learning how to combine data from two or more interrelated tables into one dataset using the JOIN command. This is a hands-on webinar -- we'll be writing some real SQL code! Don't worry, I'll provide plenty of scaffolding when the time comes, and we'll work through things together. 
 
 --{{0}}--
 In previous webinars in this series my colleagues Rose Franzen and Elizabeth Drellich taught you how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
@@ -277,14 +277,14 @@ Material for this talk is based closely on the DART module @module_link, written
 --{{0}}--
 Many thanks to Joy for her work developing this excellent content!
 
-Our webinar today will **not** cover all of the topics in the module, as we simply won't have time, so I suggest you check it out after our session. 
+Our webinar today may not cover all of the topics in the module, as we simply may not have time, so I suggest you check it out after our session. 
 
 ## Learn by doing
 
 @teams_polls
 
 --{{0}}--
-We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using tables containing fake medical records. There will also be some short quizzes to help solidify your understanding as we go.
+We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today. There will also be some short quizzes to help solidify your understanding as we go.
 
 --{{0}}--
 With that being said, lets get started!
@@ -296,7 +296,7 @@ With that being said, lets get started!
 A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
 
 --{{0}}--
-First, let's quickly review some key concepts from our previous four sessions. 
+First, let's quickly review some key concepts from our previous four sessions. If you have attended those sessions or recently watched the recordings, some of this will be familiar by now! 
 
 As a reminder, "Sequel", or S-Q-L, stands for **Structured Query Language**, and is a specialized programming language that is used to interact with Relational Databases. 
 
@@ -401,7 +401,7 @@ As a reminder, we recommend using dot notation and comma-first style to list the
 The **WHERE clause**, using the `WHERE` keyword, is the section of your query used to specify any "filtering logic" that should be applied to your query before returning any output.  It's optional but very useful.
 
 --{{1}}-- 
-As an example, here's how you'd filter the output to only include records for a specific county.
+As an example, here's how you'd filter the output to only include records for a specific county-- "Suffolk County", in this case. 
 
 {{1}}
 *****
@@ -521,11 +521,14 @@ OR
 --{{2}}--
 When thinking about join criteria, we want to know what constitutes a "match" of data from one table to data from another. If you're joining tables that hold student grades, for example, you probably want to only join data together where the student ID matches.
 
---{{2}}--
+--{{3}}--
 It can be surprisingly tricky to figure out what makes data "match" or "go together" in your join criteria. If we take a look at the tables on the previous slide, what data should be considered "matching" between the "depression\_scale" table and the "subject\_address" table? Write your answer in the chat.
 
---{{2}}--
-Was the answer as simple as just matching on the subject id ("subj\_id")? 
+{{3}}
+As an example, let's take another look at the tables on the previous slide. What data should be considered "matching" between the "depression\_scale" table and the "subject\_address" table?
+
+--{{3}}--
+Was the answer as simple as just matching on the subject id ("subj\_id")? In this case probably not! Because subject_id 11234 is associated with two addresses at different times, you would need to include date in your join criteria as well, so you have the zip code of the subject when the depression scale was administered. 
 
 ### Combining Join type and criteria
 
@@ -845,7 +848,7 @@ A `FULL JOIN` (or sometimes you'll see `FULL OUTER JOIN`) will consider all the 
 ![Overlapping circles with both circles highlighted](media/full_outer.png) 
 
 --{{1}}--
-The result of a full join will be a table that has rows of data for students that have only math grades (and therefore appear only in the left table), students that have only language grades (and therefore appear only in the right table), and student that have both grades (and therefore appear in both tables). When there's no matching data from the one of the tables to join to the data you included from the other table, `NULL` values (empty cells) are added. When there is no matching data from one table to join to the data from the other table, because the student doesn't have grades for both subjects, these cells in the table are empty, or `NULL`. 
+The result of a full join will be a table that has rows of data for students that have only math grades (and therefore appear only in the left table), students that have only language grades (and therefore appear only in the right table), and student that have both grades (and therefore appear in both tables). When there's no matching data from the one of the tables to join to the data you included from the other table (for example, a language grade for a student who does not appear in the language grades table), `NULL` values (empty cells) are added. 
 
 {{1}}
 *****
@@ -908,7 +911,7 @@ What makes a row from the math\_grades table match up with a row from the langua
 Let's look at some examples of join criteria:
 
 --{{1}}--
-As a reminder, SQL is a **relational database**, so it's not surprising that we talk about data relationships here. If for example you had the two tables, "depression scale" and "subject address", you might want to match on the common field "subject ID". 
+As a reminder, a SQL database is a **relational database**, so it's not surprising that we talk about data relationships here. If for example you had the two tables, "depression scale" and "subject address", you might want to match on the common field "subject ID". 
 
 {{1}}
 Join the rows from "depression\_scale" with rows from "subject\_address" **... but only if the subject ID field matches**
@@ -932,15 +935,12 @@ When the conditions in your join criteria evaluate as TRUE for a row then a join
 ### Examples of Equality
 
 --{{0}}--
-Equality is the most frequently used condition for joins, when you are looking for "matches" between two tables. We've already seen a few general examples, but now let's look at some tables and how we might express our criteria in SQL. 
+Equality is the most frequently used condition for joins, when you are looking for "matches" between two tables. For instance, do you have subject identifiers or student ID numbers in two different tables? This shared information can be used to join data from these tables, based on the identifier being equal. We've already seen a few general examples of criteria based on equality, but now let's look at some tables and how we might express our criteria in SQL. 
 
 Equality is the most frequently used condition for joins. 
 
 --{{1}}--
-Do you have subject identifiers or student ID numbers in two different tables?  This shared information can be used to join data from these tables, based on the identifier being equal.  
-
---{{1}}--
-For example, if the subject ID matches, a row from table A and a row from table B will be joined.  If the subject ID doesn't match, these rows won't be joined.  Maybe we're trying to match lung cancer occurrence and smoking exposure in the same row:
+For example, if the subject ID matches, a row from the **diseases** table and a row from the **smoking** will be joined.  If the subject ID doesn't match, these rows won't be joined.  Maybe we're trying to match lung cancer occurrence and smoking exposure in the same row:
 
 {{1}}
 *****
@@ -1136,7 +1136,7 @@ Often, a matching identifier is part of what makes up good join criteria, but it
 ## Combining It All
 
 --{{0}}--
-Now, we'll get the chance to combine the two parts of SQL joins to craft some queries. We'll use `FROM` statements to describe the type of join and an `ON` statement to describe the join criteria. Don't worry, we'll add plenty of scaffolding in the beginning, and slowly work up to crafting an entire SQL query. 
+Now, we'll get the chance to combine the two parts of SQL joins to craft some queries. We'll use `FROM` statements to describe the type of join and an `ON` statement to describe the join criteria. Don't worry, we'll add plenty of scaffolding in the beginning, and slowly work up to crafting an entire SQL join. 
 
 Now we'll practice crafting some SQL queries by combining join type and join criteria. 
 
@@ -1175,7 +1175,7 @@ You are studying the link between lung cancer and smoking behavior. Let's perfor
 
 
 --{{0}}--
-The join criteria is already written, but we need to add the join type. You'll need two table names separated by some kind of `JOIN` command.  For now, leave the `ON` statement unchanged. Think about what rows you expect to see in your result set before you run any code. When you want to see the results of your code, click on the "play" button below the code block. Return here when you're done and we'll do through the answer together. 
+The join criteria is already written, but we need to add the join type. You'll need two table names separated by some kind of `JOIN` command.  For now, leave the `ON` statement unchanged. Think about what rows you expect to see in your result set before you run any code. When you want to see the results of your code, click on the "play" button below the code block. Return here when you're done and we'll work through the answer together. 
 
 ```sql
 SELECT *
@@ -1211,9 +1211,9 @@ ON disease.subject_id = smoking.subject_id;
 ### 💫 **Your Turn 4: `LEFT JOIN` and Equality Condition**
 
 --{{0}}--
-Now's let's practice a left join. This time, you'll need to add both the `FROM` and the `ON` code sections to the SQL code. For now, use `ON`, and don't try `USING` just yet.
+Now's let's practice a `LEFT JOIN`. This time, you'll need to add both the `FROM` and the `ON` code sections to the SQL code. For now, use `ON`, and don't try `USING` just yet.
 
-Now let's try a `LEFT JOIN`. We'll make **disease** the left table and **smoking** the right table, still matching on `subject_id`. 
+Now's let's practice a left join. We'll make **disease** the left table and **smoking** the right table, still matching on `subject_id`. 
 
 **disease**
 
@@ -1270,7 +1270,7 @@ ON disease.subject_id = smoking.subject_id;
 --{{0}}-- 
 Let's try a right join next. This time, if you would like, you can try `USING` rather than `ON`, but note that in AlaSQL, you have to write `USING` without parentheses. 
 
-Now let's practice a `RIGHT JOIN`. As before, we're matching on `subject_id`. 
+Now let's practice a `RIGHT JOIN`. As before, we're matching on `subject_id` (we've removed a little more of the scaffolding this time, but don't worry, we'll go through the answer together). 
 
 **disease**
 

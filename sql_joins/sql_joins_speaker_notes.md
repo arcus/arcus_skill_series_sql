@@ -6,19 +6,18 @@
 - Your Turn 5: 
 - Your Turn 6: 
 
-Welcome! 
+**Welcome!** 
 I'm Meredith Lee, and I use she/her pronouns. 
-I'm a data instructor on the Arcus Education team in DBHi, which is a part of CHOP's Data Education Collaborative. 
-Today's talk is the final piece of our five-part series on sequel, or S-Q-L.  
+I'm a data instructor on the Arcus Education team in DBHi, and today's talk is the final piece of our five-part series on sequel, or S-Q-L.  
 This webinar will be recorded, so please leave your cameras and mics turned off until the end, when we'll turn off the recording and give you time to ask any questions. 
-If you do have questions that come up during the talk, feel free to put them in the chat. 
+If you do have questions that come up during the talk, feel free to put them in the chat. I'll be pausing occasionally to check in the chat for any questions, and I have a few of my colleagues here as well who may chime in.  
 So with that, let's get started!
 
 <h3><strong><u>CLICK</u></strong></h3>
 
 ## Today's talk
 
-Today, we'll be learning how to combine data from two or more interrelated tables into one dataset using the JOIN command. This is a hands-on webinar -- we'll be writing some real SQL code! If that sounds daunting, don't worry; I'll provide plenty of scaffolding, and we'll work through things together. 
+Today, we'll be learning how to combine data from two or more interrelated tables into one dataset using the JOIN command. This is a hands-on webinar -- we'll be writing some real SQL code! Don't worry, I'll provide plenty of scaffolding when the time comes, and we'll work through things together. 
 
 In previous webinars in this series my colleagues Rose Franzen and Elizabeth Drellich taught you how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
 
@@ -28,19 +27,19 @@ Material for this talk is based closely on the DART module **SQL Joins**, writte
 
 Many thanks to Joy for her work developing this excellent content!
 
-Our webinar today many not cover all of the topics in the module, as we simply many not have time, so I suggest you check it out after our session. 
+Our webinar today may not cover all of the topics in the module, as we simply may not have time, so I suggest you check it out after our session. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
-We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using tables containing fake medical records. There will also be some short quizzes to help solidify your understanding as we go.
+We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today. There will also be some short quizzes to help solidify your understanding as we go.
 
-With that being said, lets get started!
+With that being said, let's dive in!
 
 <h3><strong><u>CLICK</u></strong></h3>
 
 ## SQL: A Quick Review
 
-First, let's quickly review some key concepts from our previous four sessions. 
+First, let's quickly review some key concepts from our previous four sessions. If you have attended those sessions or recently watched the recordings, some of this will be familiar by now! 
 
 As a reminder, "Sequel", or S-Q-L, stands for **Structured Query Language**, and is a specialized programming language that is used to interact with Relational Databases. 
 
@@ -62,8 +61,6 @@ Recall that SQL has a variety of different implementations, and while they all h
 
 The most common difference between different SQL "flavors" are the availability of certain functions, as well as the types of error messages you might see. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting how we need to write a query. 
 
-<h3><strong><u>CLICK</u></strong></h3>
-
 Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
 
 <h3><strong><u>CLICK</u></strong></h3>
@@ -84,7 +81,7 @@ As a reminder, we recommend using dot notation and comma-first style to list the
 
 The **WHERE clause**, using the `WHERE` keyword, is the section of your query used to specify any "filtering logic" that should be applied to your query before returning any output.  It's optional but very useful.
 
-As an example, here's how you'd filter the output to only include records for a specific county.
+As an example, here's how you'd filter the output to only include records for a specific county-- "Suffolk County", in this case. 
 
 In the previous webinar in this series, we learned other keywords such as `DISTINCT`, `CASE`, `LIKE`, `GROUP BY`, and `HAVING`. We won't need to use those today, and so we're not going to review them here. If you need a review of those keywords, or any other topic we've previously covered, please see our previous webinar recordings. 
 
@@ -94,7 +91,7 @@ In the previous webinar in this series, we learned other keywords such as `DISTI
 
 Up to now, we have be working with data from only one table at a time, but SQL databases are made up of many tables, and often the questions you want to answer will require referencing more than one table-- this is where SQL "join" functionality and the `JOIN` keyword come into play. 
 
-This is what a SQL join looks like. We will be discussing the various parts that make up a SQL join throughout this webinar. 
+This is what a SQL join looks like. We will be breaking the code for a SQL join into its distinct parts and discussing those parts throughout this webinar. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
@@ -122,9 +119,11 @@ The first is the **type of join**. The type of join shows up in SQL in a `FROM` 
 
 The second is **join criteria**. The join criteria shows up in SQL in an `ON` or `USING` statement. When thinking about join criteria, we want to know what constitutes a "match" of data from one table to data from another. If you're joining tables that hold student grades, for example, you probably want to only join data together where the student ID matches.
 
+<h3><strong><u>CLICK</u></strong></h3>
+
 It can be surprisingly tricky to figure out what makes data "match" or "go together" in your join criteria. If we take a look at the tables on the previous slide, what data should be considered "matching" between the "depression_scale" table and the "subject_address" table? Write your answer in the chat.
 
-Was the answer as simple as just matching on the subject id ("subj_id")?
+Was the answer as simple as just matching on the subject id ("subj_id")? In this case probably not! Because subject_id 11234 is associated with two addresses at different times, you would need to include date in your join criteria as well, so you have the zip code of the subject when the depression scale was administered. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
@@ -211,11 +210,11 @@ You might not see a lot of right joins "in the wild", and that's because many pe
 
 ### `FULL JOIN`
 
-A `FULL JOIN` (or sometimes you'll see `FULL OUTER JOIN`) will consider all the data -- all of the outer, unmatched data on the right (language_grades) and left (math_grades) tables, as well as the inner overlapping data which has matching data from both tables. This kind of join is important if you want to create a grade book that shows student grades for each student, including their math grades and/or their language grades.  
+A `FULL JOIN` (or sometimes you'll see `FULL OUTER JOIN`) will consider all the data -- all of the outer, unmatched data on the right (language_grades) and left (math_grades) tables, as well as the inner overlapping data which has matching data from both tables. This kind of join is important if you want to create, for example, a grade book that shows student grades for each student, including their math grades and/or their language grades.  
 
 <h3><strong><u>CLICK</u></strong></h3>
 
-The result of a full join will be a table that has rows of data for students that have only math grades (and therefore appear only in the left table), students that have only language grades (and therefore appear only in the right table), and student that have both grades (and therefore appear in both tables). When there's no matching data from the one of the tables to join to the data you included from the other table, `NULL` values (empty cells) are added. When there is no matching data from one table to join to the data from the other table, because the student doesn't have grades for both subjects, these cells in the table are empty, or `NULL`. 
+The result of a full join will be a table that has rows of data for students that have only math grades (and therefore appear only in the left table), students that have only language grades (and therefore appear only in the right table), and student that have both grades (and therefore appear in both tables). When there's no matching data from the one of the tables to join to the data you included from the other table (for example, a language grade for a student who does not appear in the language grades table), `NULL` values (empty cells) are added.
 
 <h3><strong><u>CLICK</u></strong></h3>
 
@@ -245,7 +244,7 @@ The second component of a SQL Join, which you will need regardless of the join t
 
 <h3><strong><u>CLICK</u></strong></h3>
 
-As a reminder, SQL is a **relational database**, so it's not surprising that we talk about data relationships here. If for example you had the two tables, "depression scale" and "subject address", you might want to match on the common field "subject ID". 
+As a reminder, a SQL database is a **relational database**, so it's not surprising that we talk about data relationships here. If for example you had the two tables, "depression scale" and "subject address", you might want to match on the common field "subject ID". 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
@@ -259,13 +258,11 @@ When the conditions in your join criteria evaluate as TRUE for a row then a join
 
 ### Examples of Equality
 
-Equality is the most frequently used condition for joins, when you are looking for "matches" between two tables. We've already seen a few general examples, but now let's look at some tables and how we might express our criteria in SQL. 
+Equality is the most frequently used condition for joins, when you are looking for "matches" between two tables. For instance, do you have subject identifiers or student ID numbers in two different tables? This shared information can be used to join data from these tables, based on the identifier being equal. We've already seen a few general examples of criteria based on equality, but now let's look at some tables and how we might express our criteria in SQL. 
 
-<h3><strong><u>CLICK</u></strong></h3>
+<h3><strong><u>CLICK</u></strong></h3>  
 
-Do you have subject identifiers or student ID numbers in two different tables?  This shared information can be used to join data from these tables, based on the identifier being equal.  
-
-For example, if the subject ID matches, a row from table A and a row from table B will be joined.  If the subject ID doesn't match, these rows won't be joined.  Maybe we're trying to match lung cancer occurrence and smoking exposure in the same row. In the code, we usually use an `ON` statement to do this (though we can instead use a `USING`).
+For example, if the subject ID matches, a row from the **diseases** table and a row from the **smoking** will be joined.  If the subject ID doesn't match, these rows won't be joined.  Maybe we're trying to match lung cancer occurrence and smoking exposure in the same row. In the code, we usually use an `ON` statement to do this (though we can instead use a `USING`).
 
 In this case, we're comparing the equality of two fields that **have the same name**, so we could also use **USING**.  This special word only applies when you're looking for a perfect match between fields that have matching names, too.  It's okay if you never use `USING` and prefer to always stick with `ON`, which is more multi-purpose. 
 
@@ -320,7 +317,7 @@ Often, a matching identifier is part of what makes up good join criteria, but it
 
 ## Combining It All
 
-Now, we'll get the chance to combine the two parts of SQL joins to craft some queries. We'll use `FROM` statements to describe the type of join and an `ON` statement to describe the join criteria. Don't worry, we'll add plenty of scaffolding in the beginning, and slowly work up to crafting an entire SQL query. 
+Now, we'll get the chance to combine the two parts of SQL joins to craft some queries. We'll use `FROM` statements to describe the type of join and an `ON` statement to describe the join criteria. Don't worry, we'll add plenty of scaffolding in the beginning, and slowly work up to crafting an entire SQL join. 
 
 Importantly, we will only present a few examples.  There are many combinations we could consider, at all levels of complexity, and we won't have time to cover all of the possibilities. Instead of being exhaustive, we've concentrated on the most frequent use case you'll encounter over and over: equality.  We'll go over each join type (inner, left, right, and full) on a simple equality matching a single field from each table.
 
@@ -338,7 +335,7 @@ To understand what an `INNER JOIN` with equality looks and acts like practically
 
 You are studying the link between lung cancer and smoking behavior. Let's perform an **inner join** on these two tables, matching on `subject_id`. (Remember, with an inner join, we only want subjects for which data are present in **both** tables). 
 
-The join criteria is already written, but we need to add the join type. You'll need two table names separated by some kind of `JOIN` command.  For now, leave the `ON` statement unchanged. Think about what rows you expect to see in your result set before you run any code. When you want to see the results of your code, click on the "play" button below the code block. Return here when you're done and we'll do through the answer together. 
+The join criteria is already written, but we need to add the join type. You'll need two table names separated by some kind of `JOIN` command.  For now, leave the `ON` statement unchanged. Think about what rows you expect to see in your result set before you run any code. When you want to see the results of your code, click on the "play" button below the code block. Return here when you're done and we'll work through the answer together. 
 
 
 <h3><strong><u>COPY INTO CHAT</u></strong></h3>
@@ -364,9 +361,9 @@ ON disease.subject_id = smoking.subject_id;
 
 Your Turn 4:
 
-Now's let's practice a left join. This time, you'll need to add both the `FROM` and the `ON` code sections to the SQL code. For now, use `ON`, and don't try `USING` just yet.
+Now's let's practice a `LEFT JOIN`. This time, you'll need to add both the `FROM` and the `ON` code sections to the SQL code. For now, use `ON`, and don't try `USING` just yet.
 
-Now let's try a `LEFT JOIN`. We'll make **disease** the left table and **smoking** the right table, still matching on `subject_id`.
+For this join, we'll make **disease** the left table and **smoking** the right table, still matching on `subject_id`.
 
 <h3><strong><u>COPY INTO CHAT</u></strong></h3>
 Like this comment when you have completed "Your Turn 4: `LEFT JOIN` and Equality Condition"
