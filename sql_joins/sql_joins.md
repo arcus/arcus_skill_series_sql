@@ -926,7 +926,7 @@ Join the rows from "items" with the rows from "orders" **... but only if the ite
 You can also have more than one condition to match on-- in this case, perhaps we want not only to match the student IDs between the two tables, but also the semester. 
 
 {{3}}
-Join the rows from "biology\_grades" with the rows from "psychology\_grades" **... but only if the student ID is the same and the semester is the same**.
+Join the rows from "biology\_grades" with the rows from "psychology\_grades" **... but only if the student ID is the same and the semester is the same**
 
 --{{3}}--
 When the conditions in your join criteria evaluate as TRUE for a row then a join will be performed for those rows, and when the join criteria are evaluated as FALSE, no join for those rows will take place. Often, the relationship is equality, such as in the examples above -- you're looking for a perfect match between your two tables (though this is not always the case, as we'll see later).
@@ -1117,7 +1117,7 @@ ON depression_scale.subj_id = subject_address.subj_id AND
 | 93452   | 123 Green Blvd  | Kirby    | TN  | 37000    | 2020-05-01    | `NULL`   |
 
 --{{0}}--
-With this most recent join criteria: the depression score (dep\_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period, the depression score (dep\_total) for subject 11234, measured on 2021-05-15, will **not match** with the address 123 Main Street for the same subject, because the time period doesn't match, the other rows in the depression\_scale **don't match** with any rows in the subject\_address table, and the first and third rows of the subject\_address table **don't match** with any rows in the depression\_scale table. 
+With this most recent join criteria: the depression score (dep\_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period (the second row in the subject\_address table); however, this same depression score will **not match** with the address 123 Main Street for this subject (the first row of the subject\_address table), because the time period doesn't match. The other rows in the depression\_scale table **don't match** with any rows in the subject\_address table, and the first and third rows of the subject\_address table **don't match** with any rows in the depression\_scale table. 
 
 ### 💫 **Your Turn 2: Join Criteria**
 

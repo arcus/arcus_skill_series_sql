@@ -252,6 +252,8 @@ Similarly, if you had the two tables "items" and "orders", you might want a subs
 
 <h3><strong><u>CLICK</u></strong></h3>
 
+You can also have more than one condition to match on-- in this case, perhaps we want not only to match the student IDs between the two tables, but also the semester. 
+
 When the conditions in your join criteria evaluate as TRUE for a row then a join will be performed for those rows, and when the join criteria are evaluated as FALSE, no join for those rows will take place. Often, the relationship is equality, such as in the examples above -- you're looking for a perfect match between your two tables (though this is not always the case, as we'll see later).
 
 <h3><strong><u>CLICK</u></strong></h3>
@@ -296,7 +298,7 @@ Let's keep thinking about our depression inventories and our goal of matching de
 
 You can create arbitrarily complex **boolean logic** (or **boolean algebra**), using AND, OR, NOT, and parentheses as needed.  Much as in math, there's an order of operations in this kind of logic, and you might need several sets of parentheses to make sure you're applying the conditions correctly.  For example, see below.  We've added comments to help illustrate the logic.
 
-With this most recent join criteria: the depression score (dep\_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period, the depression score (dep\_total) for subject 11234, measured on 2021-05-15, will **not match** with the address 123 Main Street for the same subject, because the time period doesn't match, the other rows in the depression\_scale **don't match** with any rows in the subject\_address table, and the first and third rows of the subject\_address table **don't match** with any rows in the depression\_scale table. 
+With this most recent join criteria: the depression score (dep_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period (the second row in the subject_address table); however, this same depression score will **not match** with the address 123 Main Street for this subject (the first row of the subject_address table), because the time period doesn't match. The other rows in the depression_scale table **don't match** with any rows in the subject_address table, and the first and third rows of the subject_address table **don't match** with any rows in the depression_scale table. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
