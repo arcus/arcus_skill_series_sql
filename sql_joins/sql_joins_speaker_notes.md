@@ -1,10 +1,10 @@
 <h3><strong><u>LINKS TO SHARE</u></strong></h3>
 
-- The slides:  
-- Your Turn 3:
-- Your Turn 4: 
-- Your Turn 5: 
-- Your Turn 6: 
+- The slides: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_joins/sql_joins.md#1
+- Your Turn 3: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_joins/sql_joins.md#25
+- Your Turn 4: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_joins/sql_joins.md#26
+- Your Turn 5: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_joins/sql_joins.md#27
+- Your Turn 6: https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_joins/sql_joins.md#28
 
 **Welcome!** 
 I'm Meredith Lee, and I use she/her pronouns. 
