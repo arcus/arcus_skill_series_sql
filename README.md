@@ -68,5 +68,5 @@ After completion of this module, learners will be able to:
 **Session Materials**
 
 - Watch a recording of the SQL Joins workshop (coming soon)
-- Review the [SQL Joins slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_joins/sql_joins.md)
+- Review the [SQL Joins slides](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/sql_joins/sql_joins.md#1)
 - Work through [SQL Joins as an interactive tutorial](https://bit.ly/DART_sql_joins)
