@@ -33,6 +33,8 @@ Our webinar today may not cover all of the topics in the module, as we simply ma
 
 We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today. There will also be some short quizzes to help solidify your understanding as we go.
 
+As a note, the tables you will see and work with today contain only fake data, even if they look realistic. 
+
 With that being said, let's dive in!
 
 <h3><strong><u>CLICK</u></strong></h3>
@@ -51,21 +53,17 @@ SQL is great at working with rectangular data, data that is stored in tables wit
 
 <h3><strong><u>CLICK</u></strong></h3>
 
-However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis.
+However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools better suited to those tasks, like R or Python.
 
 <h3><strong><u>CLICK</u></strong></h3>
 
 ### Flavors of SQL
 
-Recall that SQL has a variety of different implementations, and while they all have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect. People often refer to these SQL dialects as different "flavors" of SQL. 
-
-The most common difference between different SQL "flavors" are the availability of certain functions, as well as the types of error messages you might see. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting how we need to write a query. 
-
-Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
+Recall that SQL has a variety of different implementations, or "flavors". While these flavors all have a similar structure, and the same basic syntax, each can have differences in the availability of certain functions, as well as the types of error messages you might see. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting how we need to write a query. Knowing the specific flavor of SQL your database uses is especially useful when troubleshooting. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
-In the hands-on portion of this webinar, we'll be using a form of SQL that actually runs in your web browser as you look at these pages, called "AlaSQL".  We pre-populated some tables for you to experiment with in this presentation. Some of these tables are filled with fabricated data meant to look a little like an electronic health record (EHR).  Rest assured that this data was completely invented, although it might look realistic!
+In the hands-on portion of this webinar, we'll be using "AlaSQL", which runs right in your browser. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
