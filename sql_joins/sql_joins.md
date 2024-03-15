@@ -284,7 +284,7 @@ Our webinar today may not cover all of the topics in the module, as we simply ma
 @teams_polls
 
 --{{0}}--
-We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today. There will also be some short quizzes to help solidify your understanding as we go.
+We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today. There will also be some short quizzes to help solidify your understanding as we go. And as a note, the tables you will see and work with today contain only fake data, even if they look realistic. 
 
 --{{0}}--
 With that being said, lets get started!
@@ -321,12 +321,12 @@ SQL is great at working with rectangular data, data that is stored in tables wit
 * Fine tuned statistical, linguistic, or data visualization needs
 *****
 --{{2}}--
-However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis.
+However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools better suited to those tasks, like R or Python.
 
 ### Flavors of SQL
 
 --{{0}}--
-Recall that SQL has a variety of different implementations, and while they all have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect. People often refer to these SQL dialects as different "flavors" of SQL. 
+Recall that SQL has a variety of different implementations, or "flavors". While these flavors all have a similar structure, and the same basic syntax, each can have differences in the availability of certain functions, as well as the types of error messages you might see. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting how we need to write a query. Knowing the specific flavor of SQL your database uses is especially useful when troubleshooting. 
 
 Some popular "flavors" of SQL:
 
@@ -336,20 +336,13 @@ Some popular "flavors" of SQL:
 * [**Oracle**](https://www.oracle.com/database/technologies/appdev/sql.html) (proprietary)
 * [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary)
 
-
---{{0}}--
-The most common difference between different SQL "flavors" are the availability of certain functions, as well as the types of error messages you might see. There will be times later in this webinar when I will point out that the flavor of SQL we are using today is impacting how we need to write a query. 
+--{{1}}-- 
+In the hands-on portion of this webinar, we'll be using "AlaSQL", which runs right in your browser. 
 
 {{1}}
 *****
 <h3>Flavor of the Day: [**AlaSQL**](https://alasql.org/) </h3> 
 *****
-
---{{1}}-- 
-Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
-
---{{1}}-- 
-In the hands-on portion of this webinar, we'll be using a form of SQL that actually runs in your web browser as you look at these pages, called "AlaSQL".  We pre-populated some tables for you to experiment with in this presentation. Some of these tables are filled with fabricated data meant to look a little like an electronic health record (EHR).  Rest assured that this data was completely invented, although it might look realistic!
 
 
 ### SELECT, FROM, WHERE
@@ -926,7 +919,7 @@ Join the rows from "items" with the rows from "orders" **... but only if the ite
 You can also have more than one condition to match on-- in this case, perhaps we want not only to match the student IDs between the two tables, but also the semester. 
 
 {{3}}
-Join the rows from "biology\_grades" with the rows from "psychology\_grades" **... but only if the student ID is the same and the semester is the same**.
+Join the rows from "biology\_grades" with the rows from "psychology\_grades" **... but only if the student ID is the same and the semester is the same**
 
 --{{3}}--
 When the conditions in your join criteria evaluate as TRUE for a row then a join will be performed for those rows, and when the join criteria are evaluated as FALSE, no join for those rows will take place. Often, the relationship is equality, such as in the examples above -- you're looking for a perfect match between your two tables (though this is not always the case, as we'll see later).
@@ -1117,7 +1110,7 @@ ON depression_scale.subj_id = subject_address.subj_id AND
 | 93452   | 123 Green Blvd  | Kirby    | TN  | 37000    | 2020-05-01    | `NULL`   |
 
 --{{0}}--
-With this most recent join criteria: the depression score (dep\_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period, the depression score (dep\_total) for subject 11234, measured on 2021-05-15, will **not match** with the address 123 Main Street for the same subject, because the time period doesn't match, the other rows in the depression\_scale **don't match** with any rows in the subject\_address table, and the first and third rows of the subject\_address table **don't match** with any rows in the depression\_scale table. 
+With this most recent join criteria: the depression score (dep\_total) for subject 11234, measured on 2021-05-15, **matches** with the address 123 Oak Lane for the same subject and time period (the second row in the subject\_address table); however, this same depression score will **not match** with the address 123 Main Street for this subject (the first row of the subject\_address table), because the time period doesn't match. The other rows in the depression\_scale table **don't match** with any rows in the subject\_address table, and the first and third rows of the subject\_address table **don't match** with any rows in the depression\_scale table. 
 
 ### 💫 **Your Turn 2: Join Criteria**
 
