@@ -1,7 +1,7 @@
 <!--
 author: Elizabeth Drellich
 email: drelliche@chop.edu
-version: 1.0.0
+version: 1.0.1
 current_version_description: Initial version
 module_type: slides
 docs_version: 3.0.0
@@ -56,7 +56,7 @@ repo_link: [GitHub repository for these materials](https://github.com/arcus/arcu
 module_link: [SQL Intermediate Level](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/sql_intermediate/sql_intermediate.md)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
-import: https://raw.githubusercontent.com/arcus/education_modules/alasql_data_type_improvement/_module_templates/macros_sql.md
+import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros_sql.md
 
 big: <b style="font-size: 1.25em;">@0</b>
 center: <div style="text-align: center;">@0</div>
