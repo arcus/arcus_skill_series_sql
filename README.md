@@ -1,12 +1,14 @@
 # Beyond the Spreadsheet: Understanding SQL and Relational Databases
 
-Join Arcus Education for a series of lunch-and-learn workshops to learn about relational databases and how to use SQL to query databases effectively.  SQL is a relational database solution that has been around for decades. In the first two workshops, learn more about this technology at a high level, without having to write code. In the last three workshops, practice writing simple code to build your skills. If you work with raw data that is stored in multiple tables and you want to go beyond the capabilities of a spreadsheet, you’ll want to attend these workshops. You’ll leave these webinars with access to training modules that will help you practice these skills and develop confidence. 
+Join Arcus Education for a series of workshops to learn about relational databases and how to use SQL to query databases effectively.  SQL is a relational database solution that has been around for decades. In the first two workshops, learn more about this technology at a high level, without having to write code. In the last three workshops, practice writing simple code to build your skills. If you work with raw data that is stored in multiple tables and you want to go beyond the capabilities of a spreadsheet, you’ll want to attend these workshops. You’ll leave these webinars with access to training modules that will help you practice these skills and develop confidence. 
 
-All sessions are 12:00-1:00pm ET.
+All sessions for Fall 2023 - Spring 2024 were 12:00-1:00pm ET.
+
+Watch this space for new sign ups for Fall 2024!
 
 ## Session 1 - Demystifying SQL
 
-[**Nov 28** sign up link](https://events.teams.microsoft.com/event/a283d737-c606-40c3-85f4-74790a28b9a0@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Nov 28, 2023** sign up link](https://events.teams.microsoft.com/event/a283d737-c606-40c3-85f4-74790a28b9a0@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 What is a database? What is Structured Query Language? 
 
@@ -25,9 +27,9 @@ After completion of this module, learners will be able to:
 
 ## Session 2 - Database Normalization 
 
-[**Dec 5** sign up link](https://events.teams.microsoft.com/event/3a45c503-b0c0-4a3f-ba83-f8fd5e45bbd7@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Dec 5, 2023** sign up link](https://events.teams.microsoft.com/event/3a45c503-b0c0-4a3f-ba83-f8fd5e45bbd7@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-[**Dec 13** sign up link](https://events.teams.microsoft.com/event/96f78e2d-2855-4937-b3f1-394af8acf73b@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Dec 13, 2023** sign up link](https://events.teams.microsoft.com/event/96f78e2d-2855-4937-b3f1-394af8acf73b@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 **Session Materials**
 
@@ -37,9 +39,9 @@ After completion of this module, learners will be able to:
 
 ## Session 3 - SQL Basics
 
-[**Jan 17** sign up link](https://events.teams.microsoft.com/event/9635606e-0765-4725-9413-a294cfad7f81@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Jan 17, 2024** sign up link](https://events.teams.microsoft.com/event/9635606e-0765-4725-9413-a294cfad7f81@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-[**Jan 23** sign up link](https://events.teams.microsoft.com/event/65c10e68-f74b-4664-9de1-8520eb068bd2@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Jan 23, 2024** sign up link](https://events.teams.microsoft.com/event/65c10e68-f74b-4664-9de1-8520eb068bd2@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 **Session Materials**
 
@@ -49,9 +51,9 @@ After completion of this module, learners will be able to:
 
 ## Session 4 - SQL Intermediate Level
 
-[**Feb 6** sign up link](https://events.teams.microsoft.com/event/c3fc728e-9809-4910-9b31-8ca3859e2ad1@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Feb 6, 2024** sign up link](https://events.teams.microsoft.com/event/c3fc728e-9809-4910-9b31-8ca3859e2ad1@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-[**Feb 21** sign up link](https://events.teams.microsoft.com/event/dac5952f-1e4c-4226-8b48-9c2c1e77e254@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Feb 21, 2024** sign up link](https://events.teams.microsoft.com/event/dac5952f-1e4c-4226-8b48-9c2c1e77e254@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 **Session Materials**
 
@@ -61,9 +63,9 @@ After completion of this module, learners will be able to:
 
 ## Session 5 - SQL Joins
 
-[**Mar 12** sign up link](https://events.teams.microsoft.com/event/3b0842a5-d7ba-4292-a5e5-7bb47c9e6f13@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Mar 12, 2024** sign up link](https://events.teams.microsoft.com/event/3b0842a5-d7ba-4292-a5e5-7bb47c9e6f13@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-[**Mar 20** sign up link](https://events.teams.microsoft.com/event/5323d936-a3b7-4e70-81ed-ae428c93df09@a6112416-07b0-41a5-9bb1-d146b575c975)
+[**Mar 20, 2024** sign up link](https://events.teams.microsoft.com/event/5323d936-a3b7-4e70-81ed-ae428c93df09@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 **Session Materials**
 
