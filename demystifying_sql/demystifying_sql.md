@@ -1,8 +1,8 @@
 <!--
 author:   Rose Hartman
 email:    hartmanr1@chop.edu
-version: 1.0.0
-current_version_description: Initial version
+version: 1.2.0
+current_version_description: Updated dates for FY25 sessions
 docs_version: 3.0.0
 module_type: slides
 language: en
@@ -62,7 +62,7 @@ import: https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/macr
 Welcome! 
 I'm Rose Hartman, and I use she/her pronouns. 
 I'm a data science educator with the Arcus project in DBHi. 
-Today's talk is the first in a series of talks about SQL we'll be offering over the next several months. 
+Today's talk is the first in a series of talks about SQL we'll be offering this year. 
 We'll be recording today, so please leave your cameras and mics turned off until the question time at the end.
 If you have questions that come up during the talk, feel free to put them in the chat. 
 Okay, let's get started!
@@ -141,7 +141,7 @@ For example, when we look in the `encounters` table and in the `medication_order
 | TRSH789    | 1985-08-20    | M   | the Grouch | Oscar |
 | SMLE321    | 1990-12-12    | F   | Dawn      | Prairie |
 
-<h4>A `encounters` table</h4>
+<h4>An `encounters` table</h4>
 
 <!-- data-type="none" -->
 | patient\_id | encounter\_id | encounter\_date | ed\_ind |
@@ -187,7 +187,7 @@ Now that you have that background, you can think of SQL as the computer code (th
 
 Where did SQL come from?  SQL was created in the early 1970's by IBM as a method for more easily accessing information from their internal database system.
 
-By 1979 Relational Software, Inc. (now Oracle Corporation) released the first commercially available implementation of SQL as a part of their Oracle V2 database application.
+By 1979, Relational Software Inc. (now Oracle Corporation) released the first commercially available implementation of SQL as a part of their Oracle V2 database application.
 
 Today SQL is the most common programming language for extracting and organizing data in relational database systems.
 
@@ -349,7 +349,7 @@ The goal is to help **build your intuition about what SQL is good at** (picking 
 *****
 
 --{{2}}--
-So this is a no pressure situation. 
+So this is a no-pressure situation. 
 With that frame in mind, let's take a look at what SQL queries actually look like!
 
 ### What does a SQL query look like?
@@ -500,31 +500,33 @@ Finally, you learned about the structure of relational databases: data stored in
 
 ## Upcoming sessions
 
-(all sessions are held 12:00pm – 1:00pm) 
-
-@colorhighlight(December 2023 - Database Normalization)
+@colorhighlight(Database Normalization)
 
 Learn about the concept of normalization and why it's important for organizing complicated data in relational databases.
 
-Tuesday December 5, 2023 and Wednesday December 13, 2023 
+- [**October 21, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/5fe93c3c-c3c7-4dc0-b17a-edab5b92b62f@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**October 29, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/d1866e4a-c318-4b02-bafe-380f403c5428@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-@colorhighlight(January 2024 - SQL Basics)
+@colorhighlight(SQL Basics)
 
 Learn basic SQL queries (with the SELECT, FROM, WHERE, DISTINCT keywords). We'll work single tables, using code, hands-on.
 
-Wednesday January 17, 2024 and Tuesday January 23, 2024   
+- [**November 4, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/5f6fd2ab-9e1b-43e6-ab39-21671d3140d1@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**November 12, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/5007b4f0-06bc-4a5a-b629-92b448d1d382@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-@colorhighlight(February 2024 - SQL Intermediate Level)
+@colorhighlight(SQL Intermediate Level)
 
 Learn about intermediate SQL queries with keywords like CASE, LIKE, and GROUP BY. We'll work on single tables, using code, hands-on.
 
-Tuesday February 6, 2024 and Wednesday February 21, 2024  
+- [**November 18, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/3846b911-ba5b-42d4-be4b-5ba6a85c181a@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**December 3, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/a017dd51-d1c9-4378-9b2a-42e437673f25@a6112416-07b0-41a5-9bb1-d146b575c975) 
 
-@colorhighlight(March 2024 - SQL Joins)
+@colorhighlight(SQL Joins)
 
 Work with multiple tables and learn about SQL joins: learn what they accomplish and how to write them.
 
-Tuesday March 12, 2024 and Wednesday March 20, 2024
+- [**December 9, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/2ab870fa-cb27-49d0-a903-a7d42932caa2@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**December 17, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/c4d671df-292b-4562-af1d-bcbc49381081@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 ## About these slides
 
