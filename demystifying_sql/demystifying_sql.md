@@ -528,6 +528,29 @@ Work with multiple tables and learn about SQL joins: learn what they accomplish 
 - [**December 9, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/2ab870fa-cb27-49d0-a903-a7d42932caa2@a6112416-07b0-41a5-9bb1-d146b575c975)
 - [**December 17, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/c4d671df-292b-4562-af1d-bcbc49381081@a6112416-07b0-41a5-9bb1-d146b575c975)
 
+## Arcus On-Ramp
+
+**Do you have an Arcus Lab, or are you thinking about starting one?**
+
+Get hands-on practice working with real patient data in an Arcus On-Ramp workshop!
+
+- Arcus On-Ramp: Build your SQL Query
+- Arcus On-Ramp: Analysis in R 
+- Arcus On-Ramp: Analysis in Python 
+
+[See available dates and sign up for an Arcus On-Ramp workshop](https://arcus.chop.edu/education/webinar-signup). The next SQL On-Ramp is **Nov 20th**.
+
+--{{0}}--
+We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus. 
+We offer these on a regular, rotating basis all year.
+
+--{{0}}--
+The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, the Arcus On-Ramp workshops use tools like SQL, R, and Python, but the focus is on how to work in an Arcus Lab, not learning those languages per se. 
+And secondly, because the On-Ramp workshops use real patient data, unlike today's workshop, you need to have completed CITI training and attested the Arcus terms of use before you can sign up.
+
+--{{0}}--
+If you're feeling like you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
+
 ## About these slides
 
 @about_these_slides
