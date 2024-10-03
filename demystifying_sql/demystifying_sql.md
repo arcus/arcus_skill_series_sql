@@ -44,7 +44,7 @@ sequence_name: sql
 
 @end
 @version_history
-No previous versions.
+[1.0.0](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/fb522e46ad7ca27304c730966c33eed7fe8e0a6a/demystifying_sql/demystifying_sql.md#1): Version given Nov 2023.
 @end
 
 repo_link: [GitHub repository for these materials](https://github.com/arcus/arcus_skill_series_sql)
@@ -206,7 +206,7 @@ What does "SQL" stand for?
   input == "structured query language";
 </script>
 
---{{1}}--
+--{{0}}--
 SQL, which can be pronounced "sequel" or S-Q-L, stands for Structured Query Language!
 
 ### 💫 Your turn! Relational Databases
@@ -228,18 +228,18 @@ This allows for extracting data in very specific and customized ways.
 
 SQL should be used any time you need to access data stored within a relational database and select data that meets your requirements.
 
---{{1}}--
+--{{0}}--
 Usually, SQL is used for getting custom datasets for export and downstream analysis.  
 For example, you might use SQL to export data for doing statistical analysis and visualization in other languages like R, Python, or Stata.
 
---{{1}}--
+--{{0}}--
 If your source data comes from a relational database (like a data warehouse), your major data transformations (like selecting just the columns you care about or selecting only certain rows) should be done using SQL. 
 This ensures that the dataset you export from the relational database is pretty close to the final data you will analyze or visualize.
 
---{{2}}--
+--{{1}}--
 This is because, especially for large datasets, SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages.
 
-{{2}}
+{{1}}
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
@@ -251,7 +251,7 @@ Use SQL to get close to the final data you'll want to analyze, then export it.
 </div>
 *****
 
---{{3}}--
+--{{1}}--
 If you think about carving a sculpture out of stone or wood, you can imagine that the rough work of getting rid of big slabs of material that aren't needed can be done with powerful instruments like chainsaws or jackhammers.  
 Then, when an artist gets close to the shape of the final product, they might switch to smaller tools to give the sculpture its final form.  
 In this analogy, SQL is the heavy duty tool that gets your data close to its final form.
@@ -330,7 +330,7 @@ When you're trying to troubleshoot a SQL query, being able to add the name of th
 
 A SQL **query** is essentially a question or request for data, written in a specific structure.  
 
---{{1}}--
+--{{0}}--
 Let's take a closer look at how to compose a SQL query!
 But first, a word of encouragement. 
 If you are one of the many people who feel anxious when they see code, you have a great opportunity today.
@@ -348,7 +348,7 @@ The goal is to help **build your intuition about what SQL is good at** (picking 
 </div>
 *****
 
---{{2}}--
+--{{1}}--
 So this is a no-pressure situation. 
 With that frame in mind, let's take a look at what SQL queries actually look like!
 
@@ -387,7 +387,7 @@ SELECT * FROM patients WHERE age < 20;
 
 A **select statement** is used to specify which columns you would like to have returned as output from your SQL query.
 
---{{1}}--
+--{{0}}--
 The basic components of a select statement are the `SELECT` and `FROM` keywords. 
 The `FROM` keyword is used to specify the table or tables that hold the data you're interested in, and the `SELECT` keyword is used to provide a list of columns within those table(s) that you would like returned as output.
 
@@ -397,7 +397,7 @@ The `FROM` keyword is used to specify the table or tables that hold the data you
 - `SELECT`: provide a list of columns
 *****
 
---{{2}}--
+--{{1}}--
 Note that many people choose to write SQL keywords in all capital letters, but that's so that they stand out clearly in SQL code, not because it's a language requirement.
 
 ### Select All Columns
@@ -471,7 +471,7 @@ Which of these correctly describe the strengths of SQL?
 [[X]] **E.** SQL is a good choice for accessing data that can be organized in tables with rows and columns
 [[?]] There are multiple correct answers!
 
---{{1}}--
+--{{0}}--
 SQL is great at working with rectangular data, data that is stored in tables with rows and columns.
 If the data you want to use are stored in a relational database, then you'll likely need to use SQL to access the data you need. 
 Its powerful SELECT / FROM / WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions.  
@@ -479,14 +479,23 @@ However, it's not great for fine-tuned statistical, linguistic, or data visualiz
 
 ## Recap
 
-Today, you learned about the language SQL, which is an acronym for "Structured Query Language".  It's a powerful tool for requesting specific subsets of data from a relational database, and has been around since the 1970's because of its efficiency and utility.  
+--{{0}}--
+Today, you learned about the language SQL, which is an acronym for "Structured Query Language". 
+
+SQL is a powerful tool for requesting specific subsets of data from a relational database.
+
+--{{0}}--
+It has been around since the 1970's because of its efficiency and utility.  
 
 We also introduced you to two important elements of the language:
 
 * The "select" statement, which uses `SELECT` and `FROM`
 * The "where" statement, which uses `WHERE`
 
-We also discussed what SQL doesn't provide, like robust language and statistical processing and data visualization.  SQL is a tool that ordinarily is used in concert with other tools, each one used in its area of greater strength.
+We also discussed what SQL doesn't provide, like robust language and statistical processing and data visualization.  
+
+--{{0}}--
+SQL is a tool that ordinarily is used in concert with other tools, each one used in its area of greater strength.
 
 Finally, you learned about the structure of relational databases: data stored in tables, which are comprised of rows and columns.  Columns may contain identifiers that allow data from different tables to be related to one another, and that's why the word "relational" appears.
 
