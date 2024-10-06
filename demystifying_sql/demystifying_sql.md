@@ -2,7 +2,7 @@
 author:   Rose Hartman
 email:    hartmanr1@chop.edu
 version: 1.2.0
-current_version_description: Updated dates for FY25 sessions
+current_version_description: Updated for FY25 session (dates, and added Arcus On-Ramp slide)
 docs_version: 3.0.0
 module_type: slides
 language: en
