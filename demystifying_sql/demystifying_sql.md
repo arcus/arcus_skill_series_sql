@@ -101,7 +101,7 @@ Okay, let's dive in.
 
 **S**tructured **Q**uery **L**anguage
 
---{{1}}--
+--{{0}}--
 You can pronounce it as "sequel" or just say the letters S-Q-L.
 
 {{1}}
@@ -123,10 +123,10 @@ Consider, for example, this small relational database with three tables: `demogr
 The tables are rectangular (or tabular) in shape and organize data in rows and columns.  
 Can you identify the column they have in common?  
 
---{{1}}--
+--{{0}}--
 How could you figure out how many times Prairie Dawn had an encounter in the Emergency Department (`ed_ind` equal to 1)?
 
---{{1}}--
+--{{0}}--
 Let's walk through it together. 
 First, we discover the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
 We can then use this patient ID to find **related** data in other tables.  
@@ -218,11 +218,17 @@ Which of these correctly describe relational databases?  Choose all the correct 
 [[ ]] **C.** Tables in relational databases are organized into ranks and files
 [[X]] **D.** Relational databases permit the extraction of highly specific data
 [[X]] **E.** The "relational" in "relational database" refers to data that occurs in multiple places and allows for linking, or "relating" data
+*********
 
---{{1}}--
+<div class = "answer">
+
 Relational databases are a data storage solution and they store data in tables, which are in turn organized into rows and columns.  
 Relational databases use SQL as a way to access data, search for data meeting particular conditions, and connect related data, using columns that tables have in common.  
 This allows for extracting data in very specific and customized ways.
+
+</div>
+
+***********
 
 ### When to Use SQL
 
@@ -236,7 +242,7 @@ For example, you might use SQL to export data for doing statistical analysis and
 If your source data comes from a relational database (like a data warehouse), your major data transformations (like selecting just the columns you care about or selecting only certain rows) should be done using SQL. 
 This ensures that the dataset you export from the relational database is pretty close to the final data you will analyze or visualize.
 
---{{1}}--
+--{{0}}--
 This is because, especially for large datasets, SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages.
 
 {{1}}
@@ -278,15 +284,15 @@ SQL is the wrong choice for:
 - statistical analysis
 - data visualization
 
---{{1}}--
+--{{0}}--
 Despite having many functions for simple text parsing, SQL is not the tool/language you want to use for advanced NLP (Natural Language Processing) work.  
 Similarly, SQL has some basic statistical functions, but isn't intended to provide statistical analysis at the level of a statistical programming language like R.
 SQL also doesn't have any capabilities to directly support data visualization work.
 
---{{1}}--
+--{{0}}--
 For all of these "downstream analytics" use cases, you will want to use an actual analytical programming language or tool like R or Python.
 
-{{2}}
+{{1}}
 *****
 <div class = "important">
 <b style="color: rgb(var(--color-highlight));">Key Idea</b><br>
@@ -302,7 +308,7 @@ Switch to a tool like R, Python, or Stata.
 --{{0}}--
 Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
 
---{{1}}--
+--{{0}}--
 Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
 
 {{1}}
@@ -316,13 +322,13 @@ Some popular "flavors" of SQL:
 * [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary)
 *****
 
---{{2}}--
+--{{1}}--
 A given database will be set up for one particular "flavor" of SQL, so you generally don't get to choose what SQL implementation to work in (unless you're the one designing the database). Instead, you'll use whatever the SQL "flavor" is for the database you want to access. 
 
---{{2}}--
+--{{1}}--
 The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues.
 
---{{2}}--
+--{{1}}--
 That said, knowing the specific "flavor" of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors.
 When you're trying to troubleshoot a SQL query, being able to add the name of the implementation to your search terms will help you get more relevant results.
 
@@ -359,7 +365,6 @@ At a high level, we generally provide three pieces of information when construct
  1. The name of the **table(s)** where the data is stored.
  2. The **column name(s)** you want to look at from the table(s) you specified.
  3. Any **filtering condition(s)** you want to apply. 
-
 
 {{1}}
 *****
