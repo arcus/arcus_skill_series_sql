@@ -121,16 +121,23 @@ Let's dig into this idea a little further by looking at an example.
 --{{0}}--
 Consider, for example, this small relational database with three tables: `demographics`, `encounters`, and `medication_order`.  
 The tables are rectangular (or tabular) in shape and organize data in rows and columns.  
-Can you identify the column they have in common?  
+Take a look at these tables now and see if you can identify the column they have in common.  
+In this case, `patient_id` is the column that links these three tables together.
 
 --{{0}}--
-How could you figure out how many times Prairie Dawn had an encounter in the Emergency Department (`ed_ind` equal to 1)?
+Let's consider an example, and walk through how we might use this small relational database.
+Let's say you wanted to figure out how many times Prairie Dawn had an encounter in the Emergency Department.
+How would you go about that?
 
---{{0}}--
-Let's walk through it together. 
-First, we discover the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
+--{{0}}-- 
+Well, information about whether or not each encounter was in the Emergency Department is stored in the `encounters` table (`ed_ind` equal to 1).
+But when you look in that table, you won't see the patient name "Prairie Dawn" anywhere.
+
+--{{0}}-- 
+First, we need to find the patient Prairie Dawn in our `demographics` table, and note that this patient has a patient_id of SMLE321.  
 We can then use this patient ID to find **related** data in other tables.  
-For example, when we look in the `encounters` table and in the `medication_order` table, we never see the patient name "Prairie Dawn," but we **do** find her ID, SMLE321.  
+Now, when we look in the `encounters` table, even though we don't see her name, we **do** find her ID, SMLE321.  
+So now we can see that she's had three encounters, and two of them were in the Emergency Department. 
 
 <h4>A `demographics` table</h4>
 
@@ -242,7 +249,7 @@ For example, you might use SQL to export data for doing statistical analysis and
 If your source data comes from a relational database (like a data warehouse), your major data transformations (like selecting just the columns you care about or selecting only certain rows) should be done using SQL. 
 This ensures that the dataset you export from the relational database is pretty close to the final data you will analyze or visualize.
 
---{{0}}--
+--{{1}}--
 This is because, especially for large datasets, SQL is a much more efficient tool for large-scale data transformations than your traditional scripting or analytic packages.
 
 {{1}}
@@ -475,12 +482,18 @@ Which of these correctly describe the strengths of SQL?
 [[ ]] **D.** SQL is a good solution for complex language processing
 [[X]] **E.** SQL is a good choice for accessing data that can be organized in tables with rows and columns
 [[?]] There are multiple correct answers!
+*********
 
---{{0}}--
+<div class = "answer">
+
 SQL is great at working with rectangular data, data that is stored in tables with rows and columns.
 If the data you want to use are stored in a relational database, then you'll likely need to use SQL to access the data you need. 
 Its powerful SELECT / FROM / WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions.  
 However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  
+
+</div>
+
+*********
 
 ## Recap
 
@@ -548,6 +561,10 @@ Work with multiple tables and learn about SQL joins: learn what they accomplish 
 
 Get hands-on practice working with real patient data in an Arcus On-Ramp workshop!
 
+--{{0}}--
+We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus. 
+We offer these on a regular, rotating basis all year.
+
 - Arcus On-Ramp: Build your SQL Query
 - Arcus On-Ramp: Analysis in R 
 - Arcus On-Ramp: Analysis in Python 
@@ -555,15 +572,22 @@ Get hands-on practice working with real patient data in an Arcus On-Ramp worksho
 [See available dates and sign up for an Arcus On-Ramp workshop](https://arcus.chop.edu/education/webinar-signup). The next SQL On-Ramp is **Nov 20th**.
 
 --{{0}}--
-We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus. 
-We offer these on a regular, rotating basis all year.
-
---{{0}}--
-The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, the Arcus On-Ramp workshops use tools like SQL, R, and Python, but the focus is on how to work in an Arcus Lab, not learning those languages per se. 
+The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, although the Arcus On-Ramp workshops use tools like SQL, R, and Python, the focus is on how to work in an Arcus Lab, not learning those languages per se. 
 And secondly, because the On-Ramp workshops use real patient data, unlike today's workshop, you need to have completed CITI training and attested the Arcus terms of use before you can sign up.
 
 --{{0}}--
 If you're feeling like you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
+
+## 💫 One last poll!
+
+--{{0}}--
+I have one final poll for you.
+Note that this poll has two questions, so after you answer the first one you'll need to click the little arrow at the bottom right to go to the second question.
+Your time is a non-renewable resource, and it's very important to us that we use your time wisely. 
+Data we collect like this are really important in shaping what kinds of education we offer, so thank you so much for taking a moment to provide feedback!
+
+--{{0}}--
+I'll also turn off the recording now and answer any questions you may have.
 
 ## About these slides
 
