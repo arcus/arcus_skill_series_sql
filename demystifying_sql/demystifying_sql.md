@@ -474,14 +474,13 @@ WHERE sex = "F" AND date_of_birth >= '2019-01-01';
 
 ## 💫 Your turn! SQL Tasks
 
-Which of these correctly describe the strengths of SQL?
+Which of these correctly describe the strengths of SQL? Choose all the correct options.
 
 [[X]] **A.** SQL is the most common tool for exporting data from relational databases
 [[ ]] **B.** SQL is often used for data visualization purposes
 [[X]] **C.** SQL can pick just the columns you want as well as only the rows that meet some conditions
 [[ ]] **D.** SQL is a good solution for complex language processing
 [[X]] **E.** SQL is a good choice for accessing data that can be organized in tables with rows and columns
-[[?]] There are multiple correct answers!
 *********
 
 <div class = "answer">
