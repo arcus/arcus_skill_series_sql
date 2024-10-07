@@ -17,7 +17,7 @@ No previous versions.
 
 big: <b style="font-size: 1.25em;">@0</b>
 center: <div style="text-align: center;">@0</div>
-colorhighlight: <b style="font-size: 1.15em; color: rgba(var(--color-highlight));">@0</b>
+colorhighlight: <b style="font-size: 1.15em; background-color: rgba(var(--color-highlight), .2);">@0</b>
 
 @sql_series_slide
 
