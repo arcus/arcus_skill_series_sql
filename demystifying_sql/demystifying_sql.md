@@ -75,6 +75,11 @@ Okay, let's get started!
 Today will be about providing a high level overview of SQL -- what it is, what it's good for, why you might want to learn it. 
 We won't be doing any hands-on coding with SQL today, although we will during some of the future sessions in this series.
 
+--{{0}}--
+And I just want to mention that although we have an hour booked for today's workshop, we probably won't need all of that time. 
+The later workshops in this series will take the whole hour, but today's is a little lighter. 
+So we can use the extra time at the end for questions, or of course you can feel free to drop off and take a little time back.
+
 ## Thank you!
 
 <div class = "gratitude">
