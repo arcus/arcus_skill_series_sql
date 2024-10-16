@@ -1121,19 +1121,48 @@ You also got to practice hands on, which probably meant you got to see some erro
 
 ## Upcoming sessions
 
-(all sessions are held 12:00pm – 1:00pm) 
+Want to see the materials from an earlier session? 
+Everything is available on the [Arcus SQL Skill Series website](https://arcus.github.io/arcus_skill_series_sql/). 
 
-@colorhighlight(February 2024 - SQL Intermediate Level)
+@colorhighlight(SQL Intermediate Level)
 
 Learn about intermediate SQL queries with keywords like CASE, LIKE, and GROUP BY. We'll work on single tables, using code, hands-on.
 
-[Tuesday February 6, 2024](https://events.teams.microsoft.com/event/c3fc728e-9809-4910-9b31-8ca3859e2ad1@a6112416-07b0-41a5-9bb1-d146b575c975) and [Wednesday February 21, 2024](https://events.teams.microsoft.com/event/dac5952f-1e4c-4226-8b48-9c2c1e77e254@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**November 18, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/3846b911-ba5b-42d4-be4b-5ba6a85c181a@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**December 3, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/a017dd51-d1c9-4378-9b2a-42e437673f25@a6112416-07b0-41a5-9bb1-d146b575c975) 
 
-@colorhighlight(March 2024 - SQL Joins)
+@colorhighlight(SQL Joins)
 
 Work with multiple tables and learn about SQL joins: learn what they accomplish and how to write them.
 
-[Tuesday March 12, 2024](https://events.teams.microsoft.com/event/3b0842a5-d7ba-4292-a5e5-7bb47c9e6f13@a6112416-07b0-41a5-9bb1-d146b575c975) and [Wednesday March 20, 2024](https://events.teams.microsoft.com/event/5323d936-a3b7-4e70-81ed-ae428c93df09@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**December 9, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/2ab870fa-cb27-49d0-a903-a7d42932caa2@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**December 17, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/c4d671df-292b-4562-af1d-bcbc49381081@a6112416-07b0-41a5-9bb1-d146b575c975)
+
+## Arcus On-Ramp
+
+@onramp_slide
+
+--{{0}}--
+We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus. 
+We offer these on a regular, rotating basis all year.
+
+--{{0}}--
+The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, although the Arcus On-Ramp workshops use tools like SQL, R, and Python, the focus is on how to work in an Arcus Lab, not learning those languages per se. 
+And secondly, because the On-Ramp workshops use real patient data, unlike today's workshop, you need to have completed CITI training and attested the Arcus terms of use before you can sign up.
+
+--{{0}}--
+If you're feeling like you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
+
+## 💫 One last poll!
+
+--{{0}}--
+I have one final poll for you.
+Note that this poll has two questions, so after you answer the first one you'll need to click the little arrow at the bottom right to go to the second question.
+Your time is a non-renewable resource, and it's very important to us that we use your time wisely. 
+Data we collect like this are really important in shaping what kinds of education we offer, so thank you so much for taking a moment to provide feedback!
+
+--{{0}}--
+I'll also turn off the recording now and answer any questions you may have.
 
 ## About these slides
 
