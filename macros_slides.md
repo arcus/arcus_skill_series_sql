@@ -41,9 +41,6 @@ colorhighlight: <b style="font-size: 1.15em; background-color: rgba(var(--color-
 
 Get hands-on practice working with real patient data in an Arcus On-Ramp workshop!
 
---{{0}}--
-We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus. 
-We offer these on a regular, rotating basis all year.
 
 <div style = "align-items: center; display: flex;">
 <div style = "margin: 1rem; max-width: 25%; float:left; padding-right:4em;">![""](../media/onramp-Logo.png)
@@ -61,13 +58,6 @@ We offer these on a regular, rotating basis all year.
 </div>
 
 [See available dates and sign up for an Arcus On-Ramp workshop](https://arcus.chop.edu/education/webinar-signup). The next SQL On-Ramp is **Nov 20th**.
-
---{{0}}--
-The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, although the Arcus On-Ramp workshops use tools like SQL, R, and Python, the focus is on how to work in an Arcus Lab, not learning those languages per se. 
-And secondly, because the On-Ramp workshops use real patient data, unlike today's workshop, you need to have completed CITI training and attested the Arcus terms of use before you can sign up.
-
---{{0}}--
-If you're feeling like you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
 
 @end
 
