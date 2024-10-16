@@ -66,7 +66,7 @@ import: https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/macr
 
 --{{0}}--
 Welcome! 
-I'm Rose Franzen, and I use she/her pronouns. 
+I'm Rose Hartman, and I use she/her pronouns. 
 I'm a data science educator with the Arcus project in DBHi. 
 Today's talk is the third in our five-part series on SQL.  
 Today's webinar will be recorded, so please leave your cameras and mics turned off until the question time at the end.
@@ -115,8 +115,8 @@ With that being said, lets hop in!
 A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
 
 --{{0}}--
-First, let's quickly review some key concepts from our November and December sessions. 
-"Sequel", or S-Q-L (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
+First, let's quickly review some key concepts from the earlier sessions in this series. 
+"Sequel", or "S-Q-L" (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
 
 --{{0}}--
 Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
@@ -153,13 +153,10 @@ Some popular "flavors" of SQL:
 * [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary)
 
 --{{0}}--
-Believe it or not, SQL is technically not just one thing -- there are a variety of different implementations. Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
+Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
 
 --{{0}}--
 Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
-
---{{0}}--
-The most common difference between different SQL "flavors" are the availability of different functions that users can use for data manipulation, as well as the types of error messages that will be returned to the user when running code with syntax issues.
 
 --{{0}}--
 Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
@@ -177,7 +174,6 @@ In the hands-on portion of this webinar, we'll be using "AlaSQL", which is a for
 A SQL **query** is essentially a question or request for data, written in a specific structure. 
 
 --{{0}}--
-In order to receive the data we want from the database, we must communicate our requests to it via special "queries". 
 Let's take a closer look at how to compose a SQL query!
 
 {{1}}
@@ -265,7 +261,8 @@ It might seem silly to start talking about style now with very short queries, bu
 *****
 
 --{{2}}--
-Examples of keywords are SELECT, LIKE, AS, WHERE, JOIN, DISTINCT, MEAN, ORDER BY, and many more.  While most code editors and SQL clients (software that lets you query a database) do a good job of color-coding these special words, you might end up seeing a SQL query in monochrome, and having keywords stand out helps you figure out where each part of your query is.  
+Examples of keywords are SELECT, LIKE, AS, WHERE, JOIN, DISTINCT, MEAN, ORDER BY, and many more. 
+Making sure keywords consistently stand out helps you figure out where each part of your query is.  
 
 {{3}}
 *****
@@ -273,7 +270,8 @@ Examples of keywords are SELECT, LIKE, AS, WHERE, JOIN, DISTINCT, MEAN, ORDER BY
 *****
 
 --{{3}}--
-This usually means the list of fields you're requesting.  Putting each item on its own line is easier on the eyes and allows for much easier cut-and-paste to rearrange things.  It also means you have space after each item of the list to add a comment if necessary.
+This usually means the list of fields or columns you're requesting.  Putting each item on its own line is easier on the eyes and allows for much easier cut-and-paste to rearrange things.  It also means you have space after each item of the list to add a comment if necessary. 
+We'll talk more about adding comments a little later.
 
 {{4}}
 *****
@@ -316,7 +314,7 @@ Now that we've got you thinking about style, let's move on to the substance of S
 A **SELECT statement:** is used to specify which columns (or fields, we use both terms interchangeably here) you would like to have returned as output from your SQL query.
 
 {{1}}
-  * `SELECT` and `FROM`
+`SELECT` and `FROM`
 
 --{{1}}--
 The basic components of a select statement are the `SELECT` and `FROM` keywords. The `FROM` keyword is used to specify the table or tables that hold the data you're interested in, and the `SELECT` keyword is used to provide a list of columns within those table(s) that you would like returned as output.  
@@ -350,10 +348,10 @@ FROM alasql.patients;
 The asterisk is the "wildcard" character in SQL. When used alone, it indicates that you want to match **everything**. So in this case, you're asking SQL to select **all** of the fields from the patients table. 
 
 --{{2}}--
-Taking a look at the `FROM` line of this query, you may notice that the table name is written as two words separated by a period. This is the "dot notation" that we alluded to on the previous slide. Dot notation generally looks something like `dataset_name.table_name.column_name`
+Taking a look at the `FROM` line of this query, you may notice that the table name is written as two words separated by a period. This is the "dot notation" that we alluded to earlier. Dot notation generally looks something like `dataset_name.table_name.column_name`
 
 {{3}}
-* Dot notation: `dataset_name.table_name.column_name`
+Dot notation: `dataset_name.table_name.column_name`
 
 --{{3}}-- 
 In our sample query here, the first word in dot notation after the FROM keyword is alasql, which is the name of the **schema**, **catalog**, or **dataset** that the data is stored in. (terms vary according to which flavor of SQL you're using). The second word, "patients" is the name of the specific table within that dataset that we're hoping to query. 
@@ -362,7 +360,7 @@ In our sample query here, the first word in dot notation after the FROM keyword 
 Alright, lets run our first SQL query of the day! Hit the execute button, which is the right-facing triangle in the small circle below the SQL code.  
 
 --{{3}}--
-In our output, we have a variety of columns, such as id, birthdate, deathdate, first and last name, and more. If we couldn't already tell before from just the name "patients", its clear now that this is a table that contains important demographic information for patients in this fake Electronic Health Record. 
+In our output, we have a variety of columns, such as id, birth date, death date, first and last name, and more. If we couldn't already tell before from just the name "patients", its clear now that this is a table that contains important demographic information for patients in this fake Electronic Health Record. 
 
 --{{3}}--
 Let's move on now to our first exercise!
@@ -463,7 +461,7 @@ Just as we would hope, this time we haven't received the entire patients table, 
 ### DISTINCT
 {{0}}
 *****
-* `DISTINCT`: limits result set to only unique row values. 
+`DISTINCT`: limits result set to only unique row values. 
 
   * is placed directly after the `SELECT` keyword
 *****
@@ -548,6 +546,7 @@ FROM alasql.patients;
 </details>
 
 ### Adding Comments
+
 **Comments**: helpful bits of text or documentation added to your code for the benefit of future you or other people who look at your code
 
 __ Can be **single-line**__: using `--` as a delimiter
@@ -604,7 +603,7 @@ Here's an example that uses both! By having the code commented, it's much easier
 
 ### WHERE
 
-* `WHERE`: Optional keyword for filtering your output. 
+`WHERE`: Optional keyword for filtering your output. 
 
 --{{0}}--
 
@@ -738,14 +737,14 @@ WHERE
 
 ### Null Values
 
-* **Null:** concept used to represent "blank" values
+**Null:** concept used to represent "blank" values
 
 --{{0}}--
 Like many programming languages, **SQL** deals with "blank" values in a very specific way.
 **SQL** uses the concept of **null** to represent "blank" row values.
 
 {{1}}
-* `IS NULL` and `IS NOT NULL`: operators used to filter based on null values
+`IS NULL` and `IS NOT NULL`: operators used to filter based on null values
 
 --{{1}}--
 When you need to filter on null values you'll use the `IS NULL` or `IS NOT NULL` operators.
@@ -882,7 +881,7 @@ By combining a date comparison along with the `IS NULL` operator using the `OR` 
 
 ### ORDER BY Statement
 
-* `ORDER BY`: orders the result set by one or more columns. 
+`ORDER BY`: orders the result set by one or more columns. 
 
 --{{0}}--
 Another useful piece of SQL syntax for exploring data is the `ORDER BY` statement, which (as its name suggests) is used to order your result set by a given set of one or more columns.
@@ -927,7 +926,7 @@ For instance, this code sorts first by `county`, and then within each possible v
 
 ### LIMIT
 
-* `LIMIT`: sets a maximum number of rows to be returned. 
+`LIMIT`: sets a maximum number of rows to be returned. 
 
 --{{0}}--
 The `LIMIT` clause can be used to limit the result set of your select statement to a maximum number of rows.
@@ -962,7 +961,7 @@ This example returns all columns from the `patients` table, and limits the resul
 
 ### Aliasing with AS
 
-* `AS`: used to alias (rename) tables or columns
+`AS`: used to alias (rename) tables or columns
 
 --{{0}}--
 In SQL, it is possible to assign a custom name (usually a kind of shortened name) to a table or column in your query using a technique called **aliasing**.
@@ -971,7 +970,7 @@ In SQL, it is possible to assign a custom name (usually a kind of shortened name
 * Aliasing **tables** is especially helpful for long or complex queries involving many tables
 
 --{{1}}--
-* Aliasing **tables** can be helpful for long or complex queries involving multiple tables because it allows you to avoid typing out the full name of a table each time you refer to it.  
+Aliasing **tables** can be helpful for long or complex queries involving multiple tables because it allows you to avoid typing out the full name of a table each time you refer to it.  
 
 {{2}}
 *****
@@ -1091,32 +1090,23 @@ Finally, we order our results by the (aliased) postal code field!
 --{{0}}--
 Today, you learned about the language "sequel" or S-Q-L, which is an acronym for "Structured Query Language", a powerful tool for retrieving data from relational databases. 
 
---{{0}}--
-We covered a variety of important functions, represented in SQL by **keywords**. In particular, we covered: 
+We covered a variety of important functions, represented in SQL by **keywords**. 
+In particular, we covered: 
 
-{{1}}
 * `SELECT`: used to indicate which fields (columns) you want to retrieve
-{{2}}
 * `FROM`: used to indicate which table you want to retrieve data from
-{{3}}
 * `DISTINCT`: used to ask for only a single example of each possible unique value
-{{4}}
 * `WHERE`: used to give a condition which filters the data retrieved
-{{5}}
 * `IS NULL`: used to compare a value to *NULL* (an empty/missing value)
-{{6}}
 * `IS NOT NULL`: used to compare a value to not *NULL* (a value that is not missing and not empty)
-{{7}}
 * `ORDER BY`: used to display results organized by the values in one or more columns
-{{8}}
 * `LIMIT`: used to truncate (cut off) the number of result rows retrieved at a given number
-{{9}}
 * `AS`: used to alias (rename) columns or tables
 
---{{9}}--
+--{{0}}--
 We also learned about comparison operators, comments, and style -- how to write code in a specific way that promotes reusability and readability.
 
---{{9}}--
+--{{0}}--
 You also got to practice hands on, which probably meant you got to see some error messages, too, which is helpful experience.
 
 ## Additional Resources
