@@ -82,7 +82,7 @@ All of the speaker notes from today's talk are saved in [the slides themselves](
 </div>
 </div>
 
-The content from this talk is also available as @module_link 
+The content from this talk is also available as a self-paced interactive tutorial: @module_link 
 
 For all of the files and information from this talk, go to our @repo_link 
 
