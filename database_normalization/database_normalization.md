@@ -62,7 +62,7 @@ import: https://raw.githubusercontent.com/LiaTemplates/mermaid_template/0.1.4/RE
 
 --{{0}}--
 Welcome everyone! 
-I’m Joy Payton and I use she/her pronouns. 
+I’m Meredith Lee and I use she/her pronouns. 
 I’m a data science educator with the Arcus project in DBHI, the Department of Biomedical and Health Informatics. 
 Today’s talk is the second in a series of talks about “sequel”, S-Q-L, that we’ll be offering over the next several months.
 We’re going to be recording today’s webinar, so please leave your cameras and mics turned off until the question time at the end.
@@ -91,7 +91,9 @@ Material for this talk is based closely on the DART module [Database Normalizati
 </div>
 
 --{{0}}--
-Now, it feels weird to thank myself as the author of the module that this talk is based on, but I do think it’s important to acknowledge authors.  And of course we also want to express gratitude to NIH for funding our data education efforts in our R25 grant, which is the project that gave rise to the source materials we will be using throughout these series for the next few months.
+Material for this talk is based closely on the DART module **Database Normalization**, written by Joy Payton.
+
+Many thanks to Joy for her work developing this excellent content!
 
 ## Learn by doing
 
@@ -238,7 +240,7 @@ So maybe you have 100 columns for the first item in the order, the second, the t
 Also, many times, orders are much smaller. Many orders will just be one or two items, so they’re not taking advantage of all of those empty cells for those hundred columns that you created.  That’s not an efficient way to store data!
 
 
-## Quiz: One-to-Many 
+### 💫 **Your Turn 1: One-to-Many**  
 
 Which of the following relationships are likely to be one-to-many?  Select all the correct answers.
 
@@ -648,7 +650,7 @@ Here's a different representation of the orders.  Here we have an `items` table 
 
 
 
-## Quiz: Normalization
+### 💫 **Your Turn 2**: Normalization
 
 Why is data normalized (carefully fragmented to reduce repetition and inefficiency) in relational databases?  Select all the correct answers.
 
@@ -697,7 +699,7 @@ Fields that appear in two or more tables within a database are also sometimes ca
 Two categories of join keys are **primary keys** (unique within a table) and **foreign keys** (not unique, but come from -- and can be traced back to -- tables in which they **are** a primary key).
 It can be useful to know that the phrases "primary key" and "foreign key" originated in SQL, and if you use SQL, you need to learn them.  However, the concepts are useful in other situations and you might hear these terms used (less strictly and precisely) outside of relational databases.  "Let's use the student ID as the primary key," might be suggested, for example, even when the data is stored in .csv files, not in a SQL database. 
 
-## Quiz: Keys
+### 💫 **Your Turn 3**: Keys
 
 <div style="width: 50%; float:left;">
 
@@ -739,7 +741,7 @@ OK, so here's another quiz question.  I'll bring up the poll in Teams, and when 
 Which of the fields in this table is likely to be a primary key?  That's right, it's procedure\_id!
 Because this table is about procedures, and there's an identifier that looks like it uniquely identifies each of these interactions, we can guess that "procedure\_id" is probably a primary key.  On the other hand, we know for sure that "date" and "provider\_id" can't be primary keys, because they have repeating values.  That makes sense -- the same provider can conduct many different procedure, and on any given **date**, there are likely to be many procedures.  By that same logic, we also know that "patient\_id" can't be a primary key... it needs to be possible for a patient to have more than one procedure!
 
-## Quiz: Keys
+###  💫 **Your Turn 4**: Keys
 
 <div style="width: 50%; float:left;">
 
@@ -815,35 +817,61 @@ And here are a couple of additional resources, and I'll add those links to chat,
 
 ## Upcoming sessions
 
-All sessions are held 12:00pm – 1:00pm, and links to sign up can be found at our [GitHub repository for this series](https://github.com/arcus/arcus_skill_series_sql#readme).
-
-@colorhighlight(December 2023 - Database Normalization)
+@colorhighlight(Database Normalization)
 
 Learn about the concept of normalization and why it's important for organizing complicated data in relational databases.
 
-Tuesday December 5, 2023 and Wednesday December 13, 2023 
+- [**October 29, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/d1866e4a-c318-4b02-bafe-380f403c5428@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-@colorhighlight(January 2024 - SQL Basics)
+@colorhighlight(SQL Basics)
 
 Learn basic SQL queries (with the SELECT, FROM, WHERE, DISTINCT keywords). We'll work single tables, using code, hands-on.
 
-Wednesday January 17, 2024 and Tuesday January 23, 2024   
+- [**November 4, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/5f6fd2ab-9e1b-43e6-ab39-21671d3140d1@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**November 12, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/5007b4f0-06bc-4a5a-b629-92b448d1d382@a6112416-07b0-41a5-9bb1-d146b575c975)
 
-@colorhighlight(February 2024 - SQL Intermediate Level)
+@colorhighlight(SQL Intermediate Level)
 
 Learn about intermediate SQL queries with keywords like CASE, LIKE, and GROUP BY. We'll work on single tables, using code, hands-on.
 
-Tuesday February 6, 2024 and Wednesday February 21, 2024  
+- [**November 18, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/3846b911-ba5b-42d4-be4b-5ba6a85c181a@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**December 3, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/a017dd51-d1c9-4378-9b2a-42e437673f25@a6112416-07b0-41a5-9bb1-d146b575c975) 
 
-@colorhighlight(March 2024 - SQL Joins)
+@colorhighlight(SQL Joins)
 
 Work with multiple tables and learn about SQL joins: learn what they accomplish and how to write them.
 
-Tuesday March 12, 2024 and Wednesday March 20, 2024
+- [**December 9, 2024 at 12 pm** sign up link](https://events.teams.microsoft.com/event/2ab870fa-cb27-49d0-a903-a7d42932caa2@a6112416-07b0-41a5-9bb1-d146b575c975)
+- [**December 17, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/c4d671df-292b-4562-af1d-bcbc49381081@a6112416-07b0-41a5-9bb1-d146b575c975)
 
 --{{0}}--
 If you liked these talks, we have more coming!  I'll add the link to where you can sign up for all of these talks to the chat now.
 
+## Arcus On-Ramp
+
+@onramp_slide
+
+--{{0}}--
+We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus. 
+We offer these on a regular, rotating basis all year.
+
+--{{0}}--
+The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, although the Arcus On-Ramp workshops use tools like SQL, R, and Python, the focus is on how to work in an Arcus Lab, not learning those languages per se. 
+And secondly, because the On-Ramp workshops use real patient data, unlike today's workshop, you need to have completed CITI training and attested the Arcus terms of use before you can sign up.
+
+--{{0}}--
+If you're feeling like you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
+
+## 💫 One last poll!
+
+--{{0}}--
+I have one final poll for you.
+Note that this poll has two questions, so after you answer the first one you'll need to click the little arrow at the bottom right to go to the second question.
+Your time is a non-renewable resource, and it's very important to us that we use your time wisely. 
+Data we collect like this are really important in shaping what kinds of education we offer, so thank you so much for taking a moment to provide feedback!
+
+--{{0}}--
+I'll also turn off the recording now and answer any questions you may have.
 
 ## About these slides
 
