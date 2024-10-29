@@ -817,12 +817,6 @@ And here are a couple of additional resources, and I'll add those links to chat,
 
 ## Upcoming sessions
 
-@colorhighlight(Database Normalization)
-
-Learn about the concept of normalization and why it's important for organizing complicated data in relational databases.
-
-- [**October 29, 2024 at 4 pm** sign up link](https://events.teams.microsoft.com/event/d1866e4a-c318-4b02-bafe-380f403c5428@a6112416-07b0-41a5-9bb1-d146b575c975)
-
 @colorhighlight(SQL Basics)
 
 Learn basic SQL queries (with the SELECT, FROM, WHERE, DISTINCT keywords). We'll work single tables, using code, hands-on.
