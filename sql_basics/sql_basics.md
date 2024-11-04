@@ -60,7 +60,6 @@ import: https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/macr
 
 -->
 
-
 # SQL Basics
 @sql_series_slide
 
@@ -78,11 +77,14 @@ So with that, let's get started!
 @todays_talk 
 
 --{{0}}--
-Today, we'll be learning how to do basic SQL queries on single tables. This is a hands-on webinar -- we'll be writing some real SQL code! If that sounds daunting -- don't worry. I'll provide plenty of scaffolding, and we'll work through things together. 
+Today, we'll be learning how to do basic SQL queries on single tables. 
+This is a hands-on webinar -- we'll be writing some real SQL code! 
+If that sounds daunting -- don't worry. 
+I'll provide plenty of scaffolding, and we'll work through things together. 
 
 --{{0}}--
-You'll learn how to compose simple queries using keywords such as SELECT, WHERE, FROM, DISTINCT, AS, and ORDER BY. We'll also introduce you to the value of the LIMIT keyword, as well as cover working with null (or empty) values using IS NULL and IS NOT NULL. 
-
+You'll learn how to compose simple queries using keywords such as SELECT, WHERE, FROM, DISTINCT, AS, and ORDER BY. 
+We'll also introduce you to the value of the LIMIT keyword, as well as cover working with null (or empty) values using IS NULL and IS NOT NULL. 
 
 ## Thank you!
 
@@ -103,7 +105,8 @@ I'll put the link to that online module in the chat now.
 @teams_polls
 
 --{{0}}--
-We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient database. There will also be some short quizzes to help solidify your understanding as we go.
+We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient database. 
+There will also be some short quizzes to help solidify your understanding as we go.
 
 --{{0}}--
 With that being said, lets hop in!
@@ -116,10 +119,14 @@ A relational database is a data storage solution that stores data in tables, whi
 
 --{{0}}--
 First, let's quickly review some key concepts from the earlier sessions in this series. 
-"Sequel", or "S-Q-L" (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with **relational databases**. 
+"Sequel", or "S-Q-L" (either pronunciation is fine) stands for Structured Query Language. 
+SQL is a programming language used to interact with **relational databases**. 
 
 --{{0}}--
-Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
+Relational databases consist of many different data tables. 
+The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. 
+Today we will only be working with data from **one** table at a time that is stored in such a relational database. 
+To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins.
 
 {{1}}
 *****
@@ -133,15 +140,6 @@ isolating and combining just the data you're interested in, such as:
 --{{1}}--
 SQL is great at working with rectangular data, data that is stored in tables with rows and columns / fields.  Its powerful SELECT - FROM - WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions. 
 
-{{2}}
-*****
-<h4> What SQL is **NOT** good for: </h4>
-
-* fine tuned statistical, linguistic, or data visualization needs
-*****
---{{2}}--
-However, it's not great for fine-tuned statistical, linguistic, or data visualization purposes.  SQL is therefore a tool that is often partnered with other tools like R or Python, which are better suited for work like statistical analysis.
-
 ## SQL Implementations
 
 Some popular "flavors" of SQL:
@@ -154,17 +152,20 @@ Some popular "flavors" of SQL:
 
 --{{0}}--
 Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
+Overwhelmingly, most SQL queries will work exactly the same way across any of these different SQL flavors.
+The kinds of examples we'll cover today, for example, I would expect to work with maybe minor tweaks in any of these SQL flavors.
+But there are a few differences across dialects in the way you have to state things, the functions you can use, and the error messages you might get, so it's very useful to know the flavor of SQL you're working with when you're trying to query a database.
 
---{{0}}--
-Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
+--{{1}}-- 
+In the hands-on portion of this webinar, we'll be using "AlaSQL", which is a very lightweight form of SQL that runs in your web browser as you look at these pages. 
+We pre-populated some tables for you to experiment with in this presentation. 
+These tables are filled with fabricated data meant to look a little like an electronic health record (EHR). 
+Rest assured that this data was completely invented, although it might look realistic!
 
 {{1}}
 *****
 <h3>Flavor of the Day: [**AlaSQL**](https://alasql.org/) </h3> 
 *****
-
---{{1}}-- 
-In the hands-on portion of this webinar, we'll be using "AlaSQL", which is a form of SQL that runs in your web browser as you look at these pages. We pre-populated some tables for you to experiment with in this presentation. These tables are filled with fabricated data meant to look a little like an electronic health record (EHR).  Rest assured that this data was completely invented, although it might look realistic!
 
 ## SQL Queries
 
@@ -213,11 +214,11 @@ SELECT * FROM patients WHERE age < 20;
 --{{3}}--
 To be extra clear, we end each query with a semicolon. This tells SQL you're done with a query.  
 If you're working interactively with SQL, one query at a time, you can sometimes get away with not ending your query with a semicolon.  
-Still, one of the things we're interested in doing in this webinar is instilling good practices from the start, so we encourage you to always end your queries with proper punctuation.
+Still, it's good practice to always end your queries with proper punctuation.
 
 --{{3}}--
-Similarly, while we write these queries all on a single line to show you a few examples in just a little space, that's the last time you'll see that kind of SQL in this webinar. 
-On the next slide, we're going to get into some suggestions we have for you about SQL style.
+Similarly, while we write these queries all on a single line to show you a few examples in just a little space, that's the last time you'll see that format of SQL query in this webinar. 
+On the next slide, we're going to get into some recommendations we have for you about SQL style.
 
 ### An Aside About Style
 --{{0}}--
@@ -252,21 +253,15 @@ WHERE product_type = "FRUIT";
 --{{1}}--
 All of the queries are on screen valid and would work perfectly fine. 
 They also all return exactly the same resulting data. 
-What distinguishes them is __style__.  
-
---{{1}}--
-You may be working with a group that has an established SQL style guide.  
-If so, ignore the style suggestions we offer and do what they suggest.  
-Since style is intended to help humans read and write code more easily, it's a good idea to go along with what is already understood within your team. 
-Everyone agreeing on conventions like when to start a new line and how and where to comment means it's easier for other people to help you with your code or for you to copy / paste from existing examples your peers share with you.
+What distinguishes them is **style**.
+The third block represents the kind of style we recommend.
 
 --{{1}}--
 It might seem silly to start talking about style now with very short queries, but this is all about developing good habits from the start. 
 That way, when you do start writing more complex queries, it's one fewer thing to worry about. 
 We are going to advocate for some style conventions that not everyone will share. 
 If you depart from our suggestions, that's fine -- just be sure to eventually develop your own standards for style! 
-We promise, this will help you immensely once your SQL queries get to be 5, 10, or 100 lines long. 
-These suggestions might not all make sense right now, but once you see them in actual queries, we think you'll understand them more intuitively.
+And, of course, if you work within a team that already has an established SQL style guide, then you should stick with that and disregard our recommendations here. 
 
 {{2}}
 *****
@@ -285,8 +280,6 @@ Making sure keywords consistently stand out helps you figure out where each part
 --{{3}}--
 This usually means the list of fields or columns you're requesting. 
 Putting each item on its own line is easier on the eyes and allows for much easier cut-and-paste to rearrange things. 
-It also means you have space after each item of the list to add a comment if necessary. 
-We'll talk more about adding comments a little later.
 
 {{4}}
 *****
@@ -294,7 +287,7 @@ We'll talk more about adding comments a little later.
 *****
 
 --{{4}}--
-Indenting the list of columns below a SELECT statement is a way of subordinating those lines to the SELECT, subtly indicating that those lines are a continuation of the SELECT statement. 
+Indenting the list of columns below a SELECT statement is a way of subordinating those lines to the SELECT, indicating to the reader that those lines are a continuation of the SELECT statement. 
 A new line that isn't indented (say, a FROM statement) shows that the SELECT part of the query is over.
 
 {{5}}
@@ -331,6 +324,10 @@ Because you rarely touch the first item in a list but more frequently change the
 This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error!
 
 --{{6}}--
+I want to emphasize that all of these things are **style choices** intended to make your queries easier for you and other humans to read; they generally don't impact the way your queries run at all (with the exception of dot notation, which sometimes is mandatory for your query to work -- we'll come back to that later).
+So your SQL statements will work just fine whether or not you do these things. 
+But I encourage you to prioritize creating queries that are as **readable** as possible, not just functional. 
+When you re-open an old query months later, you'll be very glad you did!
 Now that we've got you thinking about style, let's move on to the substance of SQL and work with SELECT and FROM.
 
 ### SELECT and FROM
