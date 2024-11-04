@@ -1216,7 +1216,7 @@ In particular, we covered:
 * `DISTINCT`: used to ask for only a single example of each possible unique value
 * `WHERE`: used to give a condition which filters the data retrieved
 * `IS NULL`: used to compare a value to *NULL* (an empty/missing value)
-* `IS NOT NULL`: used to compare a value to not *NULL* (a value that is not missing and not empty)
+* `IS NOT NULL`: used to compare a value to not *NULL* (a value that is not empty/missing)
 * `ORDER BY`: used to display results organized by the values in one or more columns
 * `LIMIT`: used to truncate (cut off) the number of result rows retrieved at a given number
 * `AS`: used to alias (rename) columns or tables
