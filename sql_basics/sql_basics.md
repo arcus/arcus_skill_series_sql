@@ -347,32 +347,36 @@ Keywords `SELECT` and `FROM`
 The basic components of a select statement are the `SELECT` and `FROM` keywords. 
 The `FROM` keyword is used to specify the table or tables that hold the data you're interested in, and the `SELECT` keyword is used to provide a list of columns within that table that you would like returned as output.  
 
-*****
+
 ```sql
 SELECT *
 FROM alasql.patients;
 ```
 @AlaSQL.eval("#dataTable7a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable7a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 @AlaSQL.buildTable_allergies
 
 </div>
 
-*****
+
 
 --{{1}}--
-The asterisk is the "wildcard" character in SQL. When used alone, it indicates that you want to match **everything**. So in this case, you're asking SQL to select **all** of the fields from the patients table. 
+The asterisk is the "wildcard" character in SQL. When used alone, it indicates that you want to match **everything**. 
+So in this case, you're asking SQL to select **all** of the fields from the patients table. 
 
 --{{2}}--
 Taking a look at the `FROM` line of this query, you may notice that the table name is written as two words separated by a period. This is the "dot notation" that we alluded to earlier. Dot notation generally looks something like `dataset_name.table_name.column_name`
@@ -408,14 +412,18 @@ FROM  ;
 ```
 @AlaSQL.eval("#dataTable7b")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable7b" border="1"></table>
 
-</details><br/><br/>
-<div style = "display:none;">
+</details>
+
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 @AlaSQL.buildTable_allergies
@@ -436,7 +444,9 @@ FROM alasql.allergies;
 </details>
 
 --{{0}}--
-To get this data, we're going to want to write out SELECT * FROM alasql.allergies; When you run the query, you should see a table with five columns: start, stop, patient, encounter, and description. Note that while you would also get these same results if you just wrote FROM allergies instead of alasql.allergies, for the reasons we discussed before, we suggest writing the table name out using dot notation, so as to also include the dataset/schema name. 
+To get this data, we're going to want to write out SELECT * FROM alasql.allergies. 
+When you run the query, you should see a table with five columns: start, stop, patient, encounter, and description.
+Note that while you would also get these same results if you just wrote FROM allergies instead of alasql.allergies, for the reasons we discussed before, we suggest writing the table name out using dot notation, so as to also include the dataset/schema name. 
 
 --{{0}}-- 
 So we've practiced requesting all of the columns of a table, but what if we only want a few of them? 
@@ -457,36 +467,47 @@ FROM alasql.patients;
 ```
 @AlaSQL.eval("#dataTable7c")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable7c" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
 </div>
 
 --{{0}}--
-Note that this time, we're also using dot notation for our columns, in the form of `table_name.column_name`. We do this to be very explicit about which data we mean.  
+Note that this time, we're also using dot notation for our columns, in the form of `table_name.column_name`. 
+We do this to be very explicit about which data we mean.  
 
 --{{0}}--
-Now, it might seem a bit redundant in this example to list our columns this way since we're only querying one table. This is another example of forming good habits early, because eventually (though not in today's webinar) you will need to do queries that involve multiple tables. Sometimes, these tables may have identical column names. SQL won't automatically know if you're asking for `date` in `encounters` table, or `date` in `medication_administration` table. In that case, you are **required** to specify which table you're referring to in order to disambiguate. 
+Now, it might seem a bit redundant in this example to list our columns this way since we're only querying one table. 
+This is another example of forming good habits early, because eventually (though not in today's webinar) you will need to do queries that involve multiple tables. 
+Sometimes, these tables may have identical column names. 
+SQL won't automatically know if you're asking for `date` in `encounters` table, or `date` in `medication_administration` table. 
+In that case, you are **required** to specify which table you're referring to in order to disambiguate. 
 
 --{{0}}--
-Rather than learn dot notation later, we want to introduce you to it now, even if it feels unnecessary. That way, when you do get to the point of querying multiple tables, it will already feel natural to you, and you can focus all your brain power on learning the other, trickier aspects of mastering queries of multiple tables at once.
+Rather than learn dot notation later, we want to introduce you to it now, even if it feels unnecessary. 
+That way, when you do get to the point of querying multiple tables, it will already feel natural to you, and you can focus all your brain power on learning the other, trickier aspects of mastering queries of multiple tables at once.
 
 --{{0}}--
-Go ahead and run this code by clicking the execute button.  How are your results different from the `SELECT *` query you ran previously? 
+Go ahead and run this code by clicking the execute button.  
+How are your results different from the `SELECT *` query you ran previously? 
 
 --{{0}}--
 Just as we would hope, this time we haven't received the entire patients table, like we saw on the page before, but instead can only see the five columns we requested. 
 
 ### DISTINCT
+
 {{0}}
 *****
 `DISTINCT`: limits result set to only unique row values. 
@@ -501,7 +522,7 @@ The `DISTINCT` clause in **SQL** can be placed directly after the `SELECT` key w
 This can be especially useful when exploring a table for the first time and trying to become familiar with the data in each column.  
 
 --{{1}}--
-For example, perhaps you want to see all the possible values for `sex` or `race` in the `patients` table, to understand a bit more about the data collection options.  If you were to use `SELECT` by itself to get just the `race` field from the `patients` table, you'd get the race of every patient, with lots of repeats.  Using `SELECT DISTINCT` instead, you get a much shorter list of every possible value for `race`, each listed just once.
+For example, perhaps you want to see all the possible values for `sex` or `race` in the `patients` table, to understand a bit more about the data collection options. If you were to use `SELECT` by itself to get just the `race` field from the `patients` table, you'd get the race of every patient, with lots of repeats.  Using `SELECT DISTINCT` instead, you get a much shorter list of every possible value for `race`, each listed just once.
 
 --{{1}}--
 As you can see in this example, `SELECT DISTINCT` can also be used on more than one field.  The code block below provides an example of using this syntax to investigate the unique combinations of values from the `sex` and `ethnicity` columns from the `patient` table. Go ahead and execute this code to see the results.  
@@ -519,15 +540,18 @@ FROM alasql.patients;
 ```
 @AlaSQL.eval("#dataTable8a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable8a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
@@ -544,15 +568,18 @@ SELECT ...
 ```
 @AlaSQL.eval("#dataTable9a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable9a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
@@ -612,15 +639,18 @@ FROM alasql.patients;
 ```
 @AlaSQL.eval("#dataTable10a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable10a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
@@ -650,15 +680,18 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable11a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable11a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
@@ -686,15 +719,18 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable11b")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable11b" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
@@ -740,15 +776,21 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable11c")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable11c" border="1"></table>
 
-</details><br/><br/>
-<div style = "display:none;">
+</details>
+
+<br/>
+
+<!-- style="display:none" -->
+<div>
+
 @AlaSQL.buildTable_patients
+
 </div>
 
 <details>
@@ -790,15 +832,18 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable12a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable12a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_allergies
 
@@ -825,7 +870,7 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable12b")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
@@ -834,9 +879,9 @@ WHERE
 </details>
 
 <br/>
-<br/>
 
-<div style = "display:none;">
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_allergies
 
@@ -889,15 +934,18 @@ WHERE
 ```
 @AlaSQL.eval("#dataTable12c")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable12c" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_allergies
 
@@ -933,15 +981,18 @@ ORDER BY
 ```
 @AlaSQL.eval("#dataTable14a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable14a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
@@ -967,15 +1018,18 @@ LIMIT 3;
 ```
 @AlaSQL.eval("#dataTable15a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable15a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 
 @AlaSQL.buildTable_patients
 
@@ -1039,16 +1093,21 @@ FROM alasql.patients AS p;
 ```
 @AlaSQL.eval("#dataTable16a")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable16a" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
+
 @AlaSQL.buildTable_patients
+
 </div>
 *****
 
@@ -1074,15 +1133,18 @@ Write a query that accomplishes the following:
 ```
 @AlaSQL.eval("#dataTable16b")
 
-<details open>
+<details>
 
 <summary>**Results of Query (click to collapse or expand this section)**</summary>
 
 <table id="dataTable16b" border="1"></table>
 
-</details><br/><br/>
+</details>
 
-<div style = "display:none;">
+<br/>
+
+<!-- style="display:none" -->
+<div>
 @AlaSQL.buildTable_patients
 </div>
 
