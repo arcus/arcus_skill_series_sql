@@ -224,8 +224,7 @@ On the next slide, we're going to get into some recommendations we have for you 
 --{{0}}--
 Style is how we choose to write SQL or other languages, within the confines of syntax. Style can be used to help humans read and write code more easily, closer to how they they read and write their natural languages.
 
-{{1}}
-*****
+
 <!-- data-readOnly="true" -->
 ```sql
 select price, best_by_date, sale_pct, quantity from products where product_type = "FRUIT";
@@ -248,82 +247,81 @@ SELECT
 FROM products
 WHERE product_type = "FRUIT";
 ```
-*****
 
---{{1}}--
+--{{0}}--
 All of the queries are on screen valid and would work perfectly fine. 
 They also all return exactly the same resulting data. 
 What distinguishes them is **style**.
 The third block represents the kind of style we recommend.
 
---{{1}}--
+--{{0}}--
 It might seem silly to start talking about style now with very short queries, but this is all about developing good habits from the start. 
 That way, when you do start writing more complex queries, it's one fewer thing to worry about. 
 We are going to advocate for some style conventions that not everyone will share. 
 If you depart from our suggestions, that's fine -- just be sure to eventually develop your own standards for style! 
 And, of course, if you work within a team that already has an established SQL style guide, then you should stick with that and disregard our recommendations here. 
 
-{{2}}
+{{1}}
 *****
-1) **Put keywords in CAPITAL LETTERS so they stand out.**  
+**Put keywords in CAPITAL LETTERS so they stand out.**  
 *****
 
---{{2}}--
+--{{1}}--
 Examples of keywords are SELECT, LIKE, AS, WHERE, JOIN, DISTINCT, MEAN, ORDER BY, and many more. 
 Making sure keywords consistently stand out helps you figure out where each part of your query is.  
 
-{{3}}
+{{2}}
 *****
-2) **Put members of a list on separate lines.**  
+**Put members of a list on separate lines.**  
 *****
 
---{{3}}--
+--{{2}}--
 This usually means the list of fields or columns you're requesting. 
 Putting each item on its own line is easier on the eyes and allows for much easier cut-and-paste to rearrange things. 
 
-{{4}}
+{{3}}
 *****
-3) **Use indentation to clarify the various sections of your query.**  
+**Use indentation to clarify the various sections of your query.**  
 *****
 
---{{4}}--
+--{{3}}--
 Indenting the list of columns below a SELECT statement is a way of subordinating those lines to the SELECT, indicating to the reader that those lines are a continuation of the SELECT statement. 
 A new line that isn't indented (say, a FROM statement) shows that the SELECT part of the query is over.
 
-{{5}}
+{{4}}
 *****
-4) **Use "dot notation"**
+**Use "dot notation"**
 *****
 
---{{5}}--
+--{{4}}--
 We'll talk more about dot notation in the next section, but for now: 
 Dot notation means adding more information about your data, for example, by including the table name the column comes from. 
 This practice will prepare you for using multiple data sources in your queries. 
 In the example above, we do this by specifying that each column that we're requesting comes from the products table. 
 This one may make more sense as we go along. 
 
-{{6}}
+{{5}}
 *****
-5) **Use a comma-first style.**  
+**Use a comma-first style**  
 *****
 
---{{6}}--
+--{{5}}--
 In a list of length n, when using a comma-first style, you put the comma **before** items 2 through n rather than instead of putting the comma **after** items 1 through n-1. 
 The first time I saw someone doing this, it totally threw me for a loop! 
 However, once I learned the reason, I became a quick convert, as I realized it solves some of my biggest annoyances when working with lists! 
 There are two key reasons I prefer this approach over the more conventional style:
 
---{{6}}--
+--{{5}}--
 (1) the commas all line up -- this makes it much easier to identify at a quick glance if you've forgotten a comma -- a common source of errors when running code that involves lists!
 
---{{6}}--
+--{{5}}--
 (2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. 
 In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the fields we realize we don't need. 
 Usually, the first item in a list of columns is something of central importance, like id_number, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. 
 Because you rarely touch the first item in a list but more frequently change the last item, using a comma-first paradigm means it's less likely that you'll introduce a missing (or extra) commas as compared to the comma-last style. 
 This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error!
 
---{{6}}--
+--{{5}}--
 I want to emphasize that all of these things are **style choices** intended to make your queries easier for you and other humans to read; they generally don't impact the way your queries run at all (with the exception of dot notation, which sometimes is mandatory for your query to work -- we'll come back to that later).
 So your SQL statements will work just fine whether or not you do these things. 
 But I encourage you to prioritize creating queries that are as **readable** as possible, not just functional. 
