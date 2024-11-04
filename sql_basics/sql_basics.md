@@ -78,8 +78,8 @@ So with that, let's get started!
 
 --{{0}}--
 Today, we'll be learning how to do basic SQL queries on single tables. 
-This is a hands-on webinar -- we'll be writing some real SQL code! 
-If that sounds daunting -- don't worry. 
+This is a hands-on webinar -- we'll be writing and running real SQL queries together! 
+If that sounds daunting, don't worry. 
 I'll provide plenty of scaffolding, and we'll work through things together. 
 
 --{{0}}--
@@ -97,7 +97,7 @@ Material for this talk is based closely on the DART module @module_link, written
 
 --{{0}}--
 Many thanks to Peter and Joy for their work developing this excellent content!
-While our webinar today will cover all of the topics in their module, we won't be doing all of the exercises or quiz questions, so if you're interested in getting just a bit more practice, I suggest you check out the module after our session. 
+While our webinar today will cover most of the content in their module, there is some additional detail as well as more exercises and quiz questions in the online module, so if you're interested in getting just a bit more practice, I suggest you check out the module after our session. 
 I'll put the link to that online module in the chat now. 
 
 ## Learn by doing
@@ -105,8 +105,9 @@ I'll put the link to that online module in the chat now.
 @teams_polls
 
 --{{0}}--
-We're firm believers that the best way to learn is to practice! As I mentioned before, we will have opportunities to practice writing our own SQL code today using a fake patient database. 
-There will also be some short quizzes to help solidify your understanding as we go.
+We're firm believers that the best way to learn is to practice! 
+As I mentioned before, we will have opportunities to practice writing our own SQL statements today using a fake patient database. 
+There will be boxes right here within the slides that allow you to write and execute your own SQL statements in the browser, so I encourage you to open up the slides link from the chat if you haven't already, so you can play around with those queries yourself as I talk through the material. 
 
 --{{0}}--
 With that being said, lets hop in!
@@ -335,14 +336,15 @@ Now that we've got you thinking about style, let's move on to the substance of S
 --{{0}}--
 A **SELECT statement:** is used to specify which columns (or fields, we use both terms interchangeably here) you would like to have returned as output from your SQL query.
 
-{{1}}
+
 Keywords `SELECT` and `FROM`
 
 --{{1}}--
 The basic components of a select statement are the `SELECT` and `FROM` keywords. 
 The `FROM` keyword is used to specify the table or tables that hold the data you're interested in, and the `SELECT` keyword is used to provide a list of columns within that table that you would like returned as output.  
 
-
+{{1}}
+******
 ```sql
 SELECT *
 FROM alasql.patients;
@@ -367,7 +369,7 @@ FROM alasql.patients;
 
 </div>
 
-
+******
 
 --{{1}}--
 The asterisk is the "wildcard" character in SQL. When used alone, it indicates that you want to match **everything**. 
@@ -397,8 +399,6 @@ Let's move on now to our first exercise!
 --{{0}}--
 Using the code template we've provided here, complete the code to get all the fields from the table `alasql.allergies`.  It might help to hide the query results from the query above, by clicking beside "Results of Query."  That way you can see the SQL query we used, and model your code on the query above! When you think you have it, try running the query to see if you get it right. 
 
-{{0}}
-*****
 Select all of the fields from the `alasql.allergies` table
 
 ```sql
@@ -424,7 +424,7 @@ FROM  ;
 @AlaSQL.buildTable_allergies
 
 </div>
-*****
+
 
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
@@ -503,12 +503,9 @@ Just as we would hope, this time we haven't received the entire patients table, 
 
 ### DISTINCT
 
-{{0}}
-*****
 `DISTINCT`: limits result set to only unique row values. 
 
   * is placed directly after the `SELECT` keyword
-*****
 
 --{{0}}--
 The `DISTINCT` clause in **SQL** can be placed directly after the `SELECT` key word, and can be used to limit your result set to only the unique row values.  
@@ -566,7 +563,7 @@ In the code block below, write a query that will return the unique combinations 
 How many unique combinations do you get?
 
 ```sql
-SELECT ... 
+SELECT  
 ```
 @AlaSQL.eval("#dataTable9a")
 
@@ -606,9 +603,8 @@ FROM alasql.patients;
 
 **Comments**: helpful bits of text or documentation added to your code for the benefit of future you or other people who look at your code
 
-Can be **single-line**: using `--` as a delimiter
-
-or **multi-line**: using `/*` and `*/`
+- **single-line**: use `--` as a delimiter
+- **multi-line**: use `/*` and `*/`
 
 --{{0}}--
 **Comments** are explanatory or helpful bits of text that you can add to your code as documentation for yourself or other reviewers of your code. 
