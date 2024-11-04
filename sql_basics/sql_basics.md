@@ -1,7 +1,7 @@
 <!--
-author: Rose Franzen
-email: franzenr@chop.edu
-version: 1.0.0
+author: Rose Hartman
+email: hartmanr1@chop.edu
+version: 2.0.0
 current_version_description: Updated for 2024 presentation by Rose Hartman
 module_type: slides
 docs_version: 3.0.0
