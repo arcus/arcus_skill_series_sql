@@ -919,12 +919,15 @@ When this code is run, each row's `stop` value will be assessed against our `WHE
 Let's think through all of the possible categories that these values could fall into. 
 
 {{1}}
+******
 Possible values for `stop`:
 
 1. A date less than (before) March 1, 2020
 2. A date equal to March 1, 2020
 3. A date greater than (after) March 1, 2020
 4. No date at all (null)
+
+******
 
 --{{1}}--
 Given what you've learned so far about WHERE statements, filtering, and `NULL` values, which category or categories do you think the returned data will fall into? 
