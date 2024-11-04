@@ -522,13 +522,19 @@ The `DISTINCT` clause in **SQL** can be placed directly after the `SELECT` key w
 This can be especially useful when exploring a table for the first time and trying to become familiar with the data in each column.  
 
 --{{1}}--
-For example, perhaps you want to see all the possible values for `sex` or `race` in the `patients` table, to understand a bit more about the data collection options. If you were to use `SELECT` by itself to get just the `race` field from the `patients` table, you'd get the race of every patient, with lots of repeats.  Using `SELECT DISTINCT` instead, you get a much shorter list of every possible value for `race`, each listed just once.
+For example, perhaps you want to see all the possible values for `sex` or `race` in the `patients` table, to understand a bit more about the data collection options. 
+If you were to use `SELECT` by itself to get just the `race` field from the `patients` table, you'd get the race of every patient, with lots of repeats. 
+Using `SELECT DISTINCT` instead, you get a much shorter list of every possible value for `race`, each listed just once.
 
 --{{1}}--
-As you can see in this example, `SELECT DISTINCT` can also be used on more than one field.  The code block below provides an example of using this syntax to investigate the unique combinations of values from the `sex` and `ethnicity` columns from the `patient` table. Go ahead and execute this code to see the results.  
+As you can see in this example, `SELECT DISTINCT` can also be used on more than one field. 
+The code block below provides an example of using this syntax to investigate the unique combinations of values from the `sex` and `ethnicity` columns from the `patient` table. 
+Go ahead and execute this code to see the results.  
 
 --{{1}}--
-We can see here that there are four different combinations of sex and ethnicity. Note, though, that `SELECT DISTINCT ` only shows you the combinations that actually exist in the table, rather than all of the combinations that could possibly exist. So, for example, if there were no female nonhispanic patients in this table, our result would have only been three rows long.
+We can see here that there are four different combinations of sex and ethnicity. 
+Note, though, that `SELECT DISTINCT ` only shows you the combinations that actually exist in the table, rather than all of the combinations that could possibly exist. 
+So, for example, if there were no female nonhispanic patients in this table, our result would have only been three rows long.
 
 {{1}}
 *****
@@ -561,7 +567,8 @@ FROM alasql.patients;
 
 ### 💫 **Your Turn 2** 
 
-In the code block below, write a query that will return the unique combinations of `county` and `state` from the `patients` table. How many unique combinations do you get?
+In the code block below, write a query that will return the unique combinations of `county` and `state` from the `patients` table. 
+How many unique combinations do you get?
 
 ```sql
 SELECT ... 
@@ -604,21 +611,25 @@ FROM alasql.patients;
 
 **Comments**: helpful bits of text or documentation added to your code for the benefit of future you or other people who look at your code
 
-__ Can be **single-line**__: using `--` as a delimiter
+Can be **single-line**: using `--` as a delimiter
 
-or **multi-line** : using `/*` and `*/`
+or **multi-line**: using `/*` and `*/`
 
 --{{0}}--
-**Comments** are explanatory or helpful bits of text that you can add to your code as documentation for yourself or other reviewers of your code.  Similarly to style choices, comments don't actually affect the execution of the SQL code in any way and are simply there for humans.
+**Comments** are explanatory or helpful bits of text that you can add to your code as documentation for yourself or other reviewers of your code. 
+Similarly to style choices, comments don't actually affect the execution of the SQL code in any way and are simply there for humans.
 
 --{{0}}-- 
-In **SQL** there are 2 different techniques that can be used for adding comments. First, there's single line comments. 
+In **SQL** there are 2 different techniques that can be used for adding comments. 
+First, there's single line comments. 
 
 --{{0}}--
-Single-line comments are created by typing 2 minus signs in a row. Then, anything that appears to the right that delimiter will be treated as comment text.
+Single-line comments are created by typing 2 dashes in a row. 
+Then, anything that appears to the right of that delimiter will be treated as comment text.
 
 --{{0}}--
-And there's also multi-line comments. These are started by adding the `/*` characters at the beginning of your comment, and `*/` characters at the very end of your comment.
+And there's also multi-line comments. 
+These are started by adding the `/*` characters at the beginning of your comment, and `*/` characters at the very end of your comment.
 
 {{1}}
 *****
@@ -657,7 +668,8 @@ FROM alasql.patients;
 </div>
 *****
 --{{1}}--
-Here's an example that uses both! By having the code commented, it's much easier for Future You to remember exactly what this query does without having to do any extra work, or for someone who _isn't you_ to figure out what's going on!  
+Here's an example that uses both! 
+By having the code commented, it's much easier for Future You to remember exactly what this query does without having to do any extra work, or for someone who _isn't you_ to figure out what's going on!  
 
 ### WHERE
 
@@ -665,10 +677,15 @@ Here's an example that uses both! By having the code commented, it's much easier
 
 --{{0}}--
 
-The **WHERE clause**, using the `WHERE` keyword, is the section of your query used to specify any "filtering logic" that should be applied to your query before returning any output.  It's optional but very useful.
+The **WHERE clause**, using the `WHERE` keyword, is the section of your query used to specify any "filtering logic" that should be applied to your query before returning any output. 
+It's optional but very useful.
 
 --{{0}}-- 
-As an example, here's how you'd filter the output to only include records for a specific county
+As an example, here's how you'd filter the output to only include records for a specific county.
+
+--{{0}}--
+And I also want to draw your attention to the fact that "Suffolk County" is in quotes. 
+When you want to filter for a word or string (vs. something like a number), basically anything with letters, it always has to be in quotes. 
 
 {{1}}
 *****
@@ -698,11 +715,11 @@ WHERE
 </div>
 *****
 
---{{1}}--
-Although this example shows only one constraint, the WHERE clause can contain any number of filtering arguments needed.
+### WHERE with more than one constraint
 
-{{2}}
-*****
+--{{0}}--
+Although the previous example showed only one constraint, the WHERE clause can contain any number of filtering arguments needed.
+
 ```sql
 SELECT *
 FROM alasql.patients
@@ -735,43 +752,55 @@ WHERE
 @AlaSQL.buildTable_patients
 
 </div>
-*****
 
---{{2}}--
-This example includes multiple constraints, and makes use of both **comparison** operators like equals `=` and `<=` less than or equal to, and **logical** operators including `AND` and `OR`.  
+--{{0}}--
+This example includes multiple constraints, and makes use of both **comparison** operators like equals `=` and `<=` less than or equal to, and **logical** operators including `AND` and `OR`. 
+And in each case, we're testing words (rather than numbers), so our test strings are in quotes.  
 
---{{2}}-- 
-Helpfully, this query has some comments added in! Since the queries are getting a bit more complex, it's worth trying to describe this query to yourself in plain English (or another natural language). Take a moment and work through this query in your head, and see if you can figure out what it's saying. 
+--{{0}}-- 
+Helpfully, this query has some comments added in! 
+Since the queries are getting a bit more complex, it's worth trying to describe this query to yourself in plain English (or another natural language). 
+Take a moment and work through this query in your head, and see if you can figure out, in plain language, what it's saying. 
 
---{{2}}--
-So, you may have figured out that this query is limiting the data to only patients in Suffolk or Barnstable counties who are either hispanic or race other than white. Let's run it just to be sure.
+--{{0}}--
+So, you may have figured out that this query is limiting the data to only patients in Suffolk or Barnstable counties who are either hispanic or a race other than white. 
+Let's run it just to be sure.
 
---{{2}}--
+--{{0}}--
 As you can see, we receive just four rows back -- each of which are from either Barnstable or Suffolk county, and are for patients that are either hispanic or non-white.  
 
---{{2}}--
-You may have also noticed that there are some parentheses in this query. There are parentheses surrounding the county-related bits of logic and the race and ethnicity bits of logic. This is because it's easy to make a logical order-of-operations mistake when you mix both `AND` and `OR`. That's why it's crucial to include parentheses to show the scope of your `AND` and `OR` logical operators.
+--{{0}}--
+You may have also noticed that there are some parentheses in this query. 
+There are parentheses surrounding the county-related bits of logic, and also around the race and ethnicity bits of logic. 
+This is because it's easy to make a logical order-of-operations mistake when you mix both `AND` and `OR`. 
+That's why it's crucial to include parentheses to show the scope of your `AND` and `OR` logical operators.
 
---{{2}}--
-To see this in action, let's remove the second set of parentheses, around the `race` and `ethnicity` comparisons, and re-run the query.  What happens?  Why?  
+--{{0}}--
+To see this in action, let's remove the second set of parentheses, around the `race` and `ethnicity` comparisons, and re-run the query.  
+What happens?  Why?
 
---{{2}}--
-Now, our resulting table is much longer, and includes rows where the patient is from a county other than Barnstable or Suffolk, as long as they are not white, which satisfies the final "OR" condition. 
+--{{0}}--
+Now, our resulting table is much longer, and includes rows where the patient is from a county other than Barnstable or Suffolk, as long as they are not white.
+So SQL is treating the first big chunk of the WHERE statement, all the way up until that final OR, as one piece, and then patients.race != "white" as the second part. 
+And it's saying either all of that needs to be true, or just any patients who are not white can be included in the dataset. 
+So that's why it's really important to pay attention to your parentheses when you start building more complex WHERE statements. 
 
---{{2}}--
+--{{0}}--
 Ready to try your luck at a complex WHERE statement? Let's move on to our third exercise!
  
 ### 💫 **Your Turn 3** 
 
---{{0}}--
-Get every field from `patients` for all male patients who were born on or after January 1, 2001. Remember, you can write the query iteratively. So if you're not  sure about the field name that holds sex, or whether male is coded "Male" (with a capital M), "male" (with a lowercase m), "M", or some other way?  Look at the results of other queries to get this information! 
-
 Return every field from `patients` for all male patients who were born on or after January 1, 2001. 
+
+--{{0}}--
+Remember, you can write the query iteratively. 
+So if you're not sure about the field name that holds sex, or whether male is coded "Male" (with a capital M), "male" (with a lowercase m), "M", or some other way?  
+Look at the results of other queries to get this information! 
 
 ```sql
 SELECT
 FROM
-WHERE
+WHERE 
 
 ```
 @AlaSQL.eval("#dataTable11c")
@@ -807,20 +836,18 @@ WHERE
 
 ### Null Values
 
-**Null:** concept used to represent "blank" values
+**NULL:** concept used to represent "blank" values
 
 --{{0}}--
 Like many programming languages, **SQL** deals with "blank" values in a very specific way.
-**SQL** uses the concept of **null** to represent "blank" row values.
+**SQL** uses the concept of **null** to represent "blank" values.
 
 {{1}}
 `IS NULL` and `IS NOT NULL`: operators used to filter based on null values
 
 --{{1}}--
-When you need to filter on null values you'll use the `IS NULL` or `IS NOT NULL` operators.
-
---{{1}}--
-Let's imagine we want to see rows from the `allergies` table where the `stop` value (the date at which the presumed allergy was considered no longer applicable, resolved, a mistake, or not an allergy) isn't missing.  In other words, the allergy has a date at which it was ruled to not exist.
+Let's imagine we want to see rows from the `allergies` table where the `stop` value (the date at which the presumed allergy was considered no longer applicable, resolved, a mistake, or not an allergy) is **not** missing. 
+In other words, the allergy has a date at which it was ruled to not exist.
 
 {{2}}
 *****
@@ -851,12 +878,17 @@ WHERE
 *****
 
 --{{2}}--
-As you can see in our example, you achieve this by using the keywords `IS NOT NULL`. Take careful note that we are _not_ filtering null values by using the inequality operator. 
+As you can see in our example, you achieve this by using the keywords `IS NOT NULL`. 
+Take careful note that we are _not_ filtering null values by using the inequality operator. 
 
 --{{2}}--
-In fact, you _can't_ filter null values using equality or inequality operators. That's why the `IS` and `IS NOT` key words exist. That's because, in a more esoteric sense, null values are inherently unknowable, and therefore we can't assess whether it is equal to anything. Similarly, you can't do math with a null value. 
+In fact, you _can't_ filter null values using equality or inequality operators. 
+That's why the `IS` and `IS NOT` key words exist. 
+That's because, in a more esoteric sense, null values are inherently unknowable, and therefore we can't assess whether it is equal to anything. 
+Similarly, you can't do math with a null value. 
 
 ### NULL and Comparisons
+
 --{{0}}--
 Let's think about this in the context of the `stop` column in the `allergies` table. 
 
@@ -892,34 +924,33 @@ WHERE
 Here, we're asking SQL to give us all of the columns in the allergies table where the stop date is less than March 1, 2020. 
 
 --{{0}}--
-When this code is run, each row's `stop` value will be assessed against our `where` statement. Let's think through all of the possible categories that these values could fall into. 
+When this code is run, each row's `stop` value will be assessed against our `WHERE` statement. 
+Let's think through all of the possible categories that these values could fall into. 
 
 {{1}}
-1. A date less than (before) March 1, 2020,
-2. A date equal to March 1, 2020,
-3. A date greater than (after) March 1, 2020,
-4. No date at all (null)
+Possible values for `stop`:
 
---{{1}}--
-The `stop` value could be a date less than (or earlier to) March 1, 2020. 
-It could be a date that is equal to March 1, 2020. 
-It could be a date greater than (or after) March 1, 2020. 
-Or, the value could be blank, with no date listed at all -- in other words, it could be `null`. 
+1. A date less than (before) March 1, 2020
+2. A date equal to March 1, 2020
+3. A date greater than (after) March 1, 2020
+4. No date at all (null)
 
 --{{1}}--
 Given what you've learned so far about WHERE statements, filtering, and `NULL` values, which category or categories do you think the returned data will fall into? 
 
 --{{1}}--
-Let's run the code now and see what the results are! The only rows returned are those with a date earlier than March 1, 2020. Dates equal to or later than that date are not included, of course, because they are in obvious violation of the WHERE clause filter. Rows that do not have a date (ie, NULL values) are not returned, because they cannot be evaluated with the comparison operator. 
+Let's run the code now and see what the results are! 
+The only rows returned are those with a date earlier than March 1, 2020. 
+Dates equal to or later than that date are not included, of course, because the WHERE clause filter is "less than". 
+Rows that do not have a date (i.e. NULL values) are not returned, because they cannot be evaluated with the comparison operator. 
 
 --{{1}}-- 
-The fact that nulls aren't included in comparisons is a very subtle distinction that can drastically alter the output of your SQL statements.  This can be very important when writing inclusion and exclusion logic and thinking about what cases belong in your data set.  Always keep in mind that you might have missing values, and consider what that might mean for your selection of rows.  
+The fact that nulls aren't included in comparisons is a very subtle distinction that can drastically alter the output of your SQL statements. 
+This can be very important when writing inclusion and exclusion logic and thinking about what cases belong in your data set. 
+Always keep in mind that you might have missing values, and consider what that might mean for your selection of rows.  
 
---{{1}}--
-Now, perhaps we're interested in running an analysis only on allergies that are current, that is, they do not have a `stop` date. And perhaps we're aware that allergies with a date prior to March 1, 2020 have some possible data quality issues, and should be manually checked to see if they are actually current allergies that had a stop date entered by mistake. 
-
---{{1}}--
-In that case, we would want to return a mix of both null and non-null values. In order to achieve this, we'd need to combine what we already know about comparison operators and null values, along with our previously learned lessons about **logical** operators. 
+--{{2}}--
+If you **did** want to include rows with missing data for `stop` as well (i.e. NULL values) then you would have to add that explicitly to your WHERE statement with OR. 
 
 {{2}}
 *****
@@ -952,9 +983,6 @@ WHERE
 </div>
 *****
 
---{{2}}--
-By combining a date comparison along with the `IS NULL` operator using the `OR` keyword, we create a WHERE statement that returns any rows that either have no stop date, or have a stop date prior to March 1, 2020. 
-
 ### ORDER BY Statement
 
 `ORDER BY`: orders the result set by one or more columns. 
@@ -963,10 +991,15 @@ By combining a date comparison along with the `IS NULL` operator using the `OR` 
 Another useful piece of SQL syntax for exploring data is the `ORDER BY` statement, which (as its name suggests) is used to order your result set by a given set of one or more columns.
 
 --{{0}}--
-When listing columns in the `ORDER BY` statement you can specify that they be sorted in either ascending (`ASC`) or descending (`DESC`) order. By default, all items in the `ORDER BY` clause will be sorted in `ASC` (ascending) order if no explicit ordering direction is provided.
+When listing columns in the `ORDER BY` statement you can specify that they be sorted in either ascending (`ASC`) or descending (`DESC`) order. 
+By default, all items in the `ORDER BY` clause will be sorted in `ASC` (ascending) order if no explicit ordering direction is provided.
 
 --{{0}}--
 If you list more than one column in `ORDER BY`, items will be sorted first by the first column you provide, and then, within "ties", by the second, then third, etc., column.  
+
+--{{1}}--
+For instance, this code sorts first by `county`, and then within each possible value of `county` sorts by `ethnicity`. 
+Let's run it and take a look at the output. 
 
 {{1}}
 *****
@@ -1000,9 +1033,6 @@ ORDER BY
 
 *****
 
---{{1}}--
-For instance, this code sorts first by `county`, and then within each possible value of `county` sorts by `ethnicity`. Let's run it and take a look at the output. 
-
 ### LIMIT
 
 `LIMIT`: sets a maximum number of rows to be returned. 
@@ -1010,7 +1040,17 @@ For instance, this code sorts first by `county`, and then within each possible v
 --{{0}}--
 The `LIMIT` clause can be used to limit the result set of your select statement to a maximum number of rows.
 
+--{{1}}--
+This is achieved by adding the word `LIMIT` as the last line of your query, followed by the number of rows you would like your result set truncated at. 
+This really useful when initially exploring tables you are unfamiliar with. 
+Showing just the first three or five or ten rows of a table can give you a quick intuitive grasp of the contents of the whole table and will come back very quickly. 
+Without a `LIMIT`, large tables can take a long time to return all their results.
+
+--{{1}}--
+This example returns all columns from the `patients` table, and limits the result set to only 3 rows.
+
 {{1}}
+******
 ```sql
 SELECT *
 FROM alasql.patients
@@ -1035,11 +1075,7 @@ LIMIT 3;
 
 </div>
 
---{{1}}--
-This is achieved by adding the word `LIMIT` as the last line of your query, followed by the number of rows you would like your result set truncated at. This really useful when initially exploring tables you are unfamiliar with.  Showing just the first three or five or ten rows of a table can give you a quick intuitive grasp of the contents of the whole table and will come back very quickly.  Without a `LIMIT`, large tables can take a long time to return all their results.
-
---{{1}}--
-This example returns all columns from the `patients` table, and limits the result set to only 3 rows.
+******
 
 ### Aliasing with AS
 
@@ -1080,6 +1116,12 @@ Aliasing **columns** can be helpful by assigning clearer, more comprehensible na
 --{{4}}--
 For example, you might want to see the results from the `stop` column in the `allergies` table returned to you not as `stop`, but rather as `ruled_out_date`.
 
+--{{5}}--
+Aliases are assigned by placing the `AS` key word directly after the item (table/column) you would like to alias, followed by the name you would like to assign as its **alias**.
+
+--{{5}}--
+In this example, we can see aliasing being used to rename the `patient` table to `p`, and renaming the `id` column to `unique_patient_id` (because there are other id fields you're working with elsewhere) and the `state` column to `state_name` (because you want to point out that this isn't the state abbreviation).
+
 {{5}}
 *****
 ```sql
@@ -1110,12 +1152,6 @@ FROM alasql.patients AS p;
 
 </div>
 *****
-
---{{5}}--
-Aliases are assigned by placing the `AS` key word directly after the item (table/column) you would like to alias, followed by the name you would like to assign as its **alias**.
-
---{{5}}--
-In this example, we can see aliasing being used to rename the `patient` table to `p`, and renaming the `id` column to `unique_patient_id` (because there are other id fields you're working with elsewhere) and the `state` coluumn to `state_name` (because you want to point out that this isn't the state abbreviation).
 
 ### 💫 **Your Turn 4 ** 
 
@@ -1157,11 +1193,11 @@ If you're feeling unsure of where to start, consider starting with a simple quer
 ```sql
 SELECT 
 	pt.id
-	,pt.sex as sex_assigned_at_birth
+	,pt.sex AS sex_assigned_at_birth
 	,pt.ethnicity
 	,pt.state
-	,pt.zip as postal_code
-FROM alasql.patients as pt
+	,pt.zip AS postal_code
+FROM alasql.patients AS pt
 ORDER BY postal_code;
 ```
 
@@ -1178,8 +1214,6 @@ Finally, we order our results by the (aliased) postal code field!
 ## Recap
 
 --{{0}}--
-Today, you learned about the language "sequel" or S-Q-L, which is an acronym for "Structured Query Language", a powerful tool for retrieving data from relational databases. 
-
 We covered a variety of important functions, represented in SQL by **keywords**. 
 In particular, we covered: 
 
