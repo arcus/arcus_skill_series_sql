@@ -2,7 +2,7 @@
 author: Rose Franzen
 email: franzenr@chop.edu
 version: 1.0.0
-current_version_description: Initial version
+current_version_description: Updated for 2024 presentation by Rose Hartman
 module_type: slides
 docs_version: 3.0.0
 language: en
@@ -52,7 +52,7 @@ No previous versions.
 @end
 
 repo_link: [GitHub repository for these materials](https://github.com/arcus/arcus_skill_series_sql)
-module_link: [SQL Basics](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/sql_basics/sql_basics.md#1)
+module_link: [SQL Basics](https://bit.ly/DART_sql_basics)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros_sql.md
@@ -95,8 +95,8 @@ Material for this talk is based closely on the DART module @module_link, written
 
 --{{0}}--
 Many thanks to Peter and Joy for their work developing this excellent content!
-
 While our webinar today will cover all of the topics in their module, we won't be doing all of the exercises or quiz questions, so if you're interested in getting just a bit more practice, I suggest you check out the module after our session. 
+I'll put the link to that online module in the chat now. 
 
 ## Learn by doing
 
@@ -112,11 +112,11 @@ With that being said, lets hop in!
 
 **SQL** (**S**tructured **Q**uery **L**anguage) is a programming language that for more than four decades has been used to interact with **relational databases**.
 
-A relational database is a data storage solution that stores data tables, which are comprised of columns (also called 'fields') and rows.
+A relational database is a data storage solution that stores data in tables, which are comprised of columns (also called 'fields') and rows.
 
 --{{0}}--
 First, let's quickly review some key concepts from the earlier sessions in this series. 
-"Sequel", or "S-Q-L" (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with Relational Databases. 
+"Sequel", or "S-Q-L" (either pronunciation is fine) stands for Structured Query Language. SQL is a programming language used to interact with **relational databases**. 
 
 --{{0}}--
 Relational databases consist of many different data tables. The model of storing data across multiple tables rather than one MEGA-table is useful because it is more efficient, reduces data duplication, and makes correcting or updating data simpler and less error prone. Today we will only be working with data from **one** table at a time that is stored in such a relational database. To learn more about combining data from more than one table, be sure to catch our final presentation in the series on SQL Joins (dates on the final slide).
@@ -150,13 +150,10 @@ Some popular "flavors" of SQL:
 * [**SQLite**](https://www.sqlite.org) (open source)
 * [**PostgreSQL**](https://www.postgresql.org/) (open source)
 * [**Oracle**](https://www.oracle.com/database/technologies/appdev/sql.html) (proprietary)
-* [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary)
+* [**BigQuery**](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) (proprietary) This is the SQL flavor in Arcus Labs
 
 --{{0}}--
 Although all SQL implementations have a similar structure, and the same basic syntax, each different SQL database product often has its own minor variations in dialect.
-
---{{0}}--
-Colloquially people often refer to the different SQL dialects as different "flavors" of SQL.
 
 --{{0}}--
 Knowing the specific flavor or dialect of SQL your database uses is especially useful when first getting started writing queries and troubleshooting errors. Whenever you search for documentation online or are troubleshooting, you'll want to be sure to include the name of the "flavor" you're working with in your search terms. 
@@ -198,7 +195,10 @@ You put these basic pieces of information together using the syntax show here to
 {{3}}
 *****
 
-For example, here are some sample queries, each of which take place on just a single table.  
+For example, here are three different sample queries, each of which take place on just a single table.  
+
+--{{3}}--
+What do you think the **name of the table** is in the first example query?
 
 <!-- data-readOnly="true" -->
 ```sql
@@ -211,10 +211,13 @@ SELECT * FROM patients WHERE age < 20;
 *****
 
 --{{3}}--
-To be extra clear, we end each query with a semicolon. This tells SQL you're done with a query.  If you're working interactively with SQL, one query at a time, you can sometimes get away with not ending your query with a semicolon.  Still, one of the things we're interested in doing in this webinar is instilling good practices from the start, so we encourage you to always end your queries with proper punctuation.
+To be extra clear, we end each query with a semicolon. This tells SQL you're done with a query.  
+If you're working interactively with SQL, one query at a time, you can sometimes get away with not ending your query with a semicolon.  
+Still, one of the things we're interested in doing in this webinar is instilling good practices from the start, so we encourage you to always end your queries with proper punctuation.
 
 --{{3}}--
-Similarly, while we write these queries all on a single line to show you a few examples in just a little space, that's the last time you'll see that kind of SQL in this webinar. On the next slide, we're going to get into some strong opinions about SQL style.
+Similarly, while we write these queries all on a single line to show you a few examples in just a little space, that's the last time you'll see that kind of SQL in this webinar. 
+On the next slide, we're going to get into some suggestions we have for you about SQL style.
 
 ### An Aside About Style
 --{{0}}--
@@ -247,13 +250,23 @@ WHERE product_type = "FRUIT";
 *****
 
 --{{1}}--
-All of the queries are on screen valid and would work perfectly fine.  What distinguishes them is __style__.  
+All of the queries are on screen valid and would work perfectly fine. 
+They also all return exactly the same resulting data. 
+What distinguishes them is __style__.  
 
 --{{1}}--
-You may be working with a group that has an established SQL style guide, either in written form or as oral tradition.  If so,  ignore the style suggestions we offer and do what they suggest.  Since style is intended to help humans read and write code more easily, it's a good idea to go along with what is already understood within your team.  Everyone agreeing on conventions like when to start a new line and how and where to comment means it's easier for other people to help you with your code or for you to copy / paste from existing examples your peers share with you.
+You may be working with a group that has an established SQL style guide.  
+If so, ignore the style suggestions we offer and do what they suggest.  
+Since style is intended to help humans read and write code more easily, it's a good idea to go along with what is already understood within your team. 
+Everyone agreeing on conventions like when to start a new line and how and where to comment means it's easier for other people to help you with your code or for you to copy / paste from existing examples your peers share with you.
 
 --{{1}}--
-It might seem silly to start talking about style now with very short queries, but this is all about developing good habits from the start. That way, when you do start writing more complex queries, it's one fewer thing to worry about. We are going to advocate for some style conventions that not everyone will share. If you depart from our suggestions, that's fine -- just be sure to eventually develop your own standards for style! We promise, this will help you immensely once your SQL queries get to be 5, 10, or 100 lines long. These suggestions might not all make sense right now, but once you see them in actual queries, we think you'll understand them more intuitively.
+It might seem silly to start talking about style now with very short queries, but this is all about developing good habits from the start. 
+That way, when you do start writing more complex queries, it's one fewer thing to worry about. 
+We are going to advocate for some style conventions that not everyone will share. 
+If you depart from our suggestions, that's fine -- just be sure to eventually develop your own standards for style! 
+We promise, this will help you immensely once your SQL queries get to be 5, 10, or 100 lines long. 
+These suggestions might not all make sense right now, but once you see them in actual queries, we think you'll understand them more intuitively.
 
 {{2}}
 *****
@@ -270,7 +283,9 @@ Making sure keywords consistently stand out helps you figure out where each part
 *****
 
 --{{3}}--
-This usually means the list of fields or columns you're requesting.  Putting each item on its own line is easier on the eyes and allows for much easier cut-and-paste to rearrange things.  It also means you have space after each item of the list to add a comment if necessary. 
+This usually means the list of fields or columns you're requesting. 
+Putting each item on its own line is easier on the eyes and allows for much easier cut-and-paste to rearrange things. 
+It also means you have space after each item of the list to add a comment if necessary. 
 We'll talk more about adding comments a little later.
 
 {{4}}
@@ -279,7 +294,8 @@ We'll talk more about adding comments a little later.
 *****
 
 --{{4}}--
-Indenting the list of columns below a SELECT statement is a way of subordinating those lines to the SELECT, subtly indicating that those lines are a continuation of the SELECT statement.  A new line that isn't indented (say, a FROM statement) shows that the SELECT part of the query is over.
+Indenting the list of columns below a SELECT statement is a way of subordinating those lines to the SELECT, subtly indicating that those lines are a continuation of the SELECT statement. 
+A new line that isn't indented (say, a FROM statement) shows that the SELECT part of the query is over.
 
 {{5}}
 *****
@@ -287,7 +303,11 @@ Indenting the list of columns below a SELECT statement is a way of subordinating
 *****
 
 --{{5}}--
-We'll talk more about dot notation in the next section, but for now --  Dot notation means adding more information about your data, for example, by including the table name the column comes from.  This practice will prepare you for using multiple data sources in your queries. In the example above, we do this by specifying that each column that we're requesting comes from the products table. This one may make more sense as we go along. 
+We'll talk more about dot notation in the next section, but for now: 
+Dot notation means adding more information about your data, for example, by including the table name the column comes from. 
+This practice will prepare you for using multiple data sources in your queries. 
+In the example above, we do this by specifying that each column that we're requesting comes from the products table. 
+This one may make more sense as we go along. 
 
 {{6}}
 *****
@@ -295,13 +315,20 @@ We'll talk more about dot notation in the next section, but for now --  Dot nota
 *****
 
 --{{6}}--
-In a list of length n, when using a comma-first style, you put the comma **before** items 2 through n rather than instead of putting the comma **after** items 1 through n-1. The first time I saw someone doing this, it totally threw me for a loop! However, once I learned the reason, I became a quick convert, as I realized it solves some of my biggest annoyances when working with lists! There are two key reasons I prefer this approach over the more conventional style:
+In a list of length n, when using a comma-first style, you put the comma **before** items 2 through n rather than instead of putting the comma **after** items 1 through n-1. 
+The first time I saw someone doing this, it totally threw me for a loop! 
+However, once I learned the reason, I became a quick convert, as I realized it solves some of my biggest annoyances when working with lists! 
+There are two key reasons I prefer this approach over the more conventional style:
 
 --{{6}}--
 (1) the commas all line up -- this makes it much easier to identify at a quick glance if you've forgotten a comma -- a common source of errors when running code that involves lists!
 
 --{{6}}--
-(2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the columns we don't need.  Usually, the first item in a list of columns is something of central importance, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. Because you rarely touch the first item in a list but more frequently change the last item, using a comma-first paradigm means it's less likely that you'll introduce a missing (or extra) comma as compared to the comma-last style. This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error!
+(2) Relatedly, this it also makes it much easier to re-order a list or remove items entirely. 
+In SQL we often try a short query with just a few fields, then add a few more, then maybe rearrange their order, and finally delete the fields we realize we don't need. 
+Usually, the first item in a list of columns is something of central importance, like id_number, while the others in the list have a higher likelihood to be ones you may decide you don't need, or will change the order of. 
+Because you rarely touch the first item in a list but more frequently change the last item, using a comma-first paradigm means it's less likely that you'll introduce a missing (or extra) commas as compared to the comma-last style. 
+This also prevents you from accidentally winding up with a comma after the final item on your list -- another common issue or error!
 
 --{{6}}--
 Now that we've got you thinking about style, let's move on to the substance of SQL and work with SELECT and FROM.
@@ -314,12 +341,12 @@ Now that we've got you thinking about style, let's move on to the substance of S
 A **SELECT statement:** is used to specify which columns (or fields, we use both terms interchangeably here) you would like to have returned as output from your SQL query.
 
 {{1}}
-`SELECT` and `FROM`
+Keywords `SELECT` and `FROM`
 
 --{{1}}--
-The basic components of a select statement are the `SELECT` and `FROM` keywords. The `FROM` keyword is used to specify the table or tables that hold the data you're interested in, and the `SELECT` keyword is used to provide a list of columns within those table(s) that you would like returned as output.  
+The basic components of a select statement are the `SELECT` and `FROM` keywords. 
+The `FROM` keyword is used to specify the table or tables that hold the data you're interested in, and the `SELECT` keyword is used to provide a list of columns within that table that you would like returned as output.  
 
-{{2}}
 *****
 ```sql
 SELECT *
@@ -344,25 +371,26 @@ FROM alasql.patients;
 
 *****
 
---{{2}}--
+--{{1}}--
 The asterisk is the "wildcard" character in SQL. When used alone, it indicates that you want to match **everything**. So in this case, you're asking SQL to select **all** of the fields from the patients table. 
 
 --{{2}}--
 Taking a look at the `FROM` line of this query, you may notice that the table name is written as two words separated by a period. This is the "dot notation" that we alluded to earlier. Dot notation generally looks something like `dataset_name.table_name.column_name`
 
-{{3}}
+{{2}}
 Dot notation: `dataset_name.table_name.column_name`
 
---{{3}}-- 
-In our sample query here, the first word in dot notation after the FROM keyword is alasql, which is the name of the **schema**, **catalog**, or **dataset** that the data is stored in. (terms vary according to which flavor of SQL you're using). The second word, "patients" is the name of the specific table within that dataset that we're hoping to query. 
+--{{2}}-- 
+In our sample query here, the first word in dot notation after the FROM keyword is alasql, which is the name of the **schema**, **catalog**, or **dataset** that the data is stored in (terms vary according to which flavor of SQL you're using). 
+The second word, "patients" is the name of the specific table within that dataset that we're hoping to query. 
 
---{{3}}--
+--{{2}}--
 Alright, lets run our first SQL query of the day! Hit the execute button, which is the right-facing triangle in the small circle below the SQL code.  
 
---{{3}}--
+--{{2}}--
 In our output, we have a variety of columns, such as id, birth date, death date, first and last name, and more. If we couldn't already tell before from just the name "patients", its clear now that this is a table that contains important demographic information for patients in this fake Electronic Health Record. 
 
---{{3}}--
+--{{2}}--
 Let's move on now to our first exercise!
 
 
