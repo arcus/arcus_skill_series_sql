@@ -114,14 +114,12 @@ With that being said, lets hop in!
 
 ## SQL: A Brief Refresher
 
+--{{0}}--
+First, let's quickly review some key concepts from the earlier sessions in this series.
+
 **SQL** (**S**tructured **Q**uery **L**anguage) is a programming language that for more than four decades has been used to interact with **relational databases**.
 
 A relational database is a data storage solution that stores data in tables, which are comprised of columns (also called 'fields') and rows.
-
---{{0}}--
-First, let's quickly review some key concepts from the earlier sessions in this series. 
-"Sequel", or "S-Q-L" (either pronunciation is fine) stands for Structured Query Language. 
-SQL is a programming language used to interact with **relational databases**. 
 
 --{{0}}--
 Relational databases consist of many different data tables. 
@@ -140,6 +138,7 @@ isolating and combining just the data you're interested in, such as:
 
 --{{1}}--
 SQL is great at working with rectangular data, data that is stored in tables with rows and columns / fields.  Its powerful SELECT - FROM - WHERE syntax makes SQL an ideal tool for isolating just the data you care about, whether that's specifying the columns you're interested in or limiting your data to just those rows that meet certain conditions. 
+Then you would take that extracted data and bring it into another piece of software for the actual analysis, something like R, Python, or Stata. 
 
 ## SQL Implementations
 
@@ -222,9 +221,10 @@ Similarly, while we write these queries all on a single line to show you a few e
 On the next slide, we're going to get into some recommendations we have for you about SQL style.
 
 ### An Aside About Style
---{{0}}--
-Style is how we choose to write SQL or other languages, within the confines of syntax. Style can be used to help humans read and write code more easily, closer to how they they read and write their natural languages.
 
+--{{0}}--
+Style is how we choose to write SQL or other languages, within the confines of syntax. 
+Style can be used to help humans read and write code more easily, closer to how they they read and write their natural languages.
 
 <!-- data-readOnly="true" -->
 ```sql
@@ -333,15 +333,16 @@ Now that we've got you thinking about style, let's move on to the substance of S
 
 **SELECT statement:** specifies which columns to return as output.
 
---{{0}}--
-A **SELECT statement:** is used to specify which columns (or fields, we use both terms interchangeably here) you would like to have returned as output from your SQL query.
-
-
 Keywords `SELECT` and `FROM`
 
 --{{1}}--
 The basic components of a select statement are the `SELECT` and `FROM` keywords. 
 The `FROM` keyword is used to specify the table or tables that hold the data you're interested in, and the `SELECT` keyword is used to provide a list of columns within that table that you would like returned as output.  
+
+--{{1}}--
+The asterisk is the "wildcard" character in SQL. 
+When used alone, it indicates that you want to match **everything**. 
+So in the example here, you're asking SQL to select **all** of the fields from the patients table. 
 
 {{1}}
 ******
@@ -371,12 +372,10 @@ FROM alasql.patients;
 
 ******
 
---{{1}}--
-The asterisk is the "wildcard" character in SQL. When used alone, it indicates that you want to match **everything**. 
-So in this case, you're asking SQL to select **all** of the fields from the patients table. 
-
 --{{2}}--
-Taking a look at the `FROM` line of this query, you may notice that the table name is written as two words separated by a period. This is the "dot notation" that we alluded to earlier. Dot notation generally looks something like `dataset_name.table_name.column_name`
+Taking a look at the `FROM` line of this query, you may notice that the table name is written as two words separated by a period. 
+This is the "dot notation" that we alluded to earlier. 
+Dot notation generally looks something like `dataset_name.table_name.column_name`
 
 {{2}}
 Dot notation: `dataset_name.table_name.column_name`
@@ -389,15 +388,17 @@ The second word, "patients" is the name of the specific table within that datase
 Alright, lets run our first SQL query of the day! Hit the execute button, which is the right-facing triangle in the small circle below the SQL code.  
 
 --{{2}}--
-In our output, we have a variety of columns, such as id, birth date, death date, first and last name, and more. If we couldn't already tell before from just the name "patients", its clear now that this is a table that contains important demographic information for patients in this fake Electronic Health Record. 
+In our output, we have a variety of columns, such as id, birth date, death date, first and last name, and more. 
+If we couldn't already tell before from just the name "patients", its clear now that this is a table that contains important demographic information for patients in this fake Electronic Health Record. 
 
 --{{2}}--
 Let's move on now to our first exercise!
 
-
 ### 💫 **Your Turn 1** 
+
 --{{0}}--
-Using the code template we've provided here, complete the code to get all the fields from the table `alasql.allergies`.  It might help to hide the query results from the query above, by clicking beside "Results of Query."  That way you can see the SQL query we used, and model your code on the query above! When you think you have it, try running the query to see if you get it right. 
+Using the code template we've provided here, complete the code to get all the fields from the table `alasql.allergies`. 
+When you think you have it, try running the query to see if you get it right. 
 
 Select all of the fields from the `alasql.allergies` table
 
@@ -439,7 +440,7 @@ FROM alasql.allergies;
 </details>
 
 --{{0}}--
-To get this data, we're going to want to write out SELECT * FROM alasql.allergies. 
+To get the desired data, we're going to want to write out SELECT * FROM alasql.allergies. 
 When you run the query, you should see a table with five columns: start, stop, patient, encounter, and description.
 Note that while you would also get these same results if you just wrote FROM allergies instead of alasql.allergies, for the reasons we discussed before, we suggest writing the table name out using dot notation, so as to also include the dataset/schema name. 
 
@@ -487,7 +488,7 @@ We do this to be very explicit about which data we mean.
 Now, it might seem a bit redundant in this example to list our columns this way since we're only querying one table. 
 This is another example of forming good habits early, because eventually (though not in today's webinar) you will need to do queries that involve multiple tables. 
 Sometimes, these tables may have identical column names. 
-SQL won't automatically know if you're asking for `date` in `encounters` table, or `date` in `medication_administration` table. 
+SQL won't automatically know if you're asking for the `date` field in `encounters` table, or `date` in `medication_administration` table. 
 In that case, you are **required** to specify which table you're referring to in order to disambiguate. 
 
 --{{0}}--
@@ -508,15 +509,10 @@ Just as we would hope, this time we haven't received the entire patients table, 
   * is placed directly after the `SELECT` keyword
 
 --{{0}}--
-The `DISTINCT` clause in **SQL** can be placed directly after the `SELECT` key word, and can be used to limit your result set to only the unique row values.  
-
---{{0}}--
 This can be especially useful when exploring a table for the first time and trying to become familiar with the data in each column.  
-
---{{1}}--
 For example, perhaps you want to see all the possible values for `sex` or `race` in the `patients` table, to understand a bit more about the data collection options. 
 If you were to use `SELECT` by itself to get just the `race` field from the `patients` table, you'd get the race of every patient, with lots of repeats. 
-Using `SELECT DISTINCT` instead, you get a much shorter list of every possible value for `race`, each listed just once.
+Using `SELECT DISTINCT` instead, you get a much shorter list of every value for `race` that occurs in the data, each listed just once.
 
 --{{1}}--
 As you can see in this example, `SELECT DISTINCT` can also be used on more than one field. 
@@ -584,9 +580,6 @@ SELECT
 
 </div>
 
---{{0}}--
-Use what we've just learned to write a query that returns all of the unique combinations of `county` and `state` from the `patients` table. How many different combinations do you find? 
-
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
 
@@ -607,20 +600,21 @@ FROM alasql.patients;
 - **multi-line**: use `/*` and `*/`
 
 --{{0}}--
-**Comments** are explanatory or helpful bits of text that you can add to your code as documentation for yourself or other reviewers of your code. 
 Similarly to style choices, comments don't actually affect the execution of the SQL code in any way and are simply there for humans.
 
 --{{0}}-- 
 In **SQL** there are 2 different techniques that can be used for adding comments. 
 First, there's single line comments. 
-
---{{0}}--
 Single-line comments are created by typing 2 dashes in a row. 
 Then, anything that appears to the right of that delimiter will be treated as comment text.
 
 --{{0}}--
 And there's also multi-line comments. 
 These are started by adding the `/*` characters at the beginning of your comment, and `*/` characters at the very end of your comment.
+
+--{{1}}--
+Here's an example that uses both! 
+By having the code commented, it's much easier for Future You to remember exactly what this query does without having to do any extra work, or for someone who _isn't you_ to figure out what's going on! 
 
 {{1}}
 *****
@@ -657,26 +651,19 @@ FROM alasql.patients;
 @AlaSQL.buildTable_patients
 
 </div>
+
 *****
---{{1}}--
-Here's an example that uses both! 
-By having the code commented, it's much easier for Future You to remember exactly what this query does without having to do any extra work, or for someone who _isn't you_ to figure out what's going on!  
 
 ### WHERE
 
 `WHERE`: Optional keyword for filtering your output. 
-
---{{0}}--
-
-The **WHERE clause**, using the `WHERE` keyword, is the section of your query used to specify any "filtering logic" that should be applied to your query before returning any output. 
-It's optional but very useful.
 
 --{{0}}-- 
 As an example, here's how you'd filter the output to only include records for a specific county.
 
 --{{0}}--
 And I also want to draw your attention to the fact that "Suffolk County" is in quotes. 
-When you want to filter for a word or string (vs. something like a number), basically anything with letters, it always has to be in quotes. 
+When you want to filter for a word or string (vs. something like a number) it always has to be in quotes. 
 
 {{1}}
 *****
@@ -745,8 +732,10 @@ WHERE
 </div>
 
 --{{0}}--
-This example includes multiple constraints, and makes use of both **comparison** operators like equals `=` and `<=` less than or equal to, and **logical** operators including `AND` and `OR`. 
+This example includes multiple constraints, and makes use of both **comparison** operators like equals `=`, and **logical** operators including `AND` and `OR`. 
 And in each case, we're testing words (rather than numbers), so our test strings are in quotes.  
+It's not shown here, but you can use other comparison operators as well, like `<`and `>`, as well as `<=` and `>=`. 
+To test if something is *not* equal, use `!=`, as in `patients.race != "white"`. 
 
 --{{0}}-- 
 Helpfully, this query has some comments added in! 
@@ -831,7 +820,7 @@ WHERE
 
 --{{0}}--
 Like many programming languages, **SQL** deals with "blank" values in a very specific way.
-**SQL** uses the concept of **null** to represent "blank" values.
+**SQL** uses the concept of **null** to represent "blank" or empty values.
 
 {{1}}
 `IS NULL` and `IS NOT NULL`: operators used to filter based on null values
@@ -846,7 +835,7 @@ In other words, the allergy has a date at which it was ruled to not exist.
 SELECT *
 FROM alasql.allergies
 WHERE
-    allergies.stop IS NOT NULL; -- there is some value here, it's not empty
+    allergies.stop IS NOT NULL; -- the stop field is not empty/missing
 ```
 @AlaSQL.eval("#dataTable12a")
 
@@ -982,9 +971,6 @@ WHERE
 `ORDER BY`: orders the result set by one or more columns. 
 
 --{{0}}--
-Another useful piece of SQL syntax for exploring data is the `ORDER BY` statement, which (as its name suggests) is used to order your result set by a given set of one or more columns.
-
---{{0}}--
 When listing columns in the `ORDER BY` statement you can specify that they be sorted in either ascending (`ASC`) or descending (`DESC`) order. 
 By default, all items in the `ORDER BY` clause will be sorted in `ASC` (ascending) order if no explicit ordering direction is provided.
 
@@ -1031,11 +1017,8 @@ ORDER BY
 
 `LIMIT`: sets a maximum number of rows to be returned. 
 
---{{0}}--
-The `LIMIT` clause can be used to limit the result set of your select statement to a maximum number of rows.
-
 --{{1}}--
-This is achieved by adding the word `LIMIT` as the last line of your query, followed by the number of rows you would like your result set truncated at. 
+You can limit the number of rows returned by adding the keyword `LIMIT` as the last line of your query, followed by the number of rows you would like your result set truncated at. 
 This really useful when initially exploring tables you are unfamiliar with. 
 Showing just the first three or five or ten rows of a table can give you a quick intuitive grasp of the contents of the whole table and will come back very quickly. 
 Without a `LIMIT`, large tables can take a long time to return all their results.
@@ -1157,6 +1140,9 @@ Write a query that accomplishes the following:
 * Aliases `zip` as `postal_code`
 * Orders the result by zip/postal code
 
+--{{0}}--
+If you're feeling unsure of where to start, consider starting with a simple query (something like a `SELECT * ...`) and gradually changing it so that you knock out one bullet point at a time! 
+
 ```sql
 
 
@@ -1178,9 +1164,6 @@ Write a query that accomplishes the following:
 @AlaSQL.buildTable_patients
 </div>
 
---{{0}}--
-If you're feeling unsure of where to start, consider starting with a simple query (something like a `SELECT * ...`) and gradually changing it so that you knock out one bullet point at a time! 
-
 <details>
 <summary style = "margin-bottom: 1rem;">*Going through these slides on your own? Click here to reveal answer once you're done!*</summary>
 
@@ -1195,11 +1178,10 @@ FROM alasql.patients AS pt
 ORDER BY postal_code;
 ```
 
---{{0}}--
-We start off with a SELECT statement, followed by our list of columns, each of which is on a new line. Although the FROM line doesn't come until after this, it's okay to use the table alias when we list our columns, even though it looks like we haven't told SQL about the table name yet! 
+We start off with a SELECT statement, followed by our list of columns, each of which is on a new line. 
+Although the FROM line doesn't come until after this, it's okay to use the table alias when we list our columns, even though it looks like we haven't told SQL about the table name yet! 
 As we go, we alias the sex and zip columns.
 
---{{0}}--
 Then, we have our FROM statement, where we specify the table that we're querying, and the alias that we want to use for it. 
 Finally, we order our results by the (aliased) postal code field!
 
