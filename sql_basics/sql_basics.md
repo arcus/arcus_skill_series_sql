@@ -1065,7 +1065,7 @@ In SQL, it is possible to assign a custom name (usually a kind of shortened name
 * Aliasing **tables** is especially helpful for long or complex queries involving many tables
 
 --{{1}}--
-Aliasing **tables** can be helpful for long or complex queries involving multiple tables because it allows you to avoid typing out the full name of a table each time you refer to it.  
+Aliasing **tables** allows you to avoid typing out the full name of a table each time you refer to it.  
 
 {{2}}
 *****
