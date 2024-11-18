@@ -297,6 +297,10 @@ In the same way we needed quotes around the data we wanted to match exactly, the
 
 ### Page 15: Example
 
+Before we do our example, I'd like to do a quick poll to check our understanding of LIKE.  Rose, can you launch that first poll question?  Thank you!
+
+Great, so a lot of people are correctly answering that LIKE can help us find patterns that are relevant to us, such as pollen allergies that will emerge in the future, or pollen allergies that people might list in different ways, using different phrasing but always with the word "pollen."  And you're right, the capitalization was a bit of a trick to see if you were listening.  LIKE does NOT automatically handle capitalization differences, but I'll show you how to handle that on this slide!
+
 Let's apply this structure to finding the pollen allergies from our `alasql.allergies` table.  I'll run my query that looks for all allergies that contain the lower case word pollen somewhere in the description field.
 
 <h3><strong><u>RUN CODE</u></strong></h3>
