@@ -348,11 +348,11 @@ This aggregation could be a numerical statistic, like the sum or standard deviat
 
 Here are some commonly used aggregate functions:
 
-`COUNT()`- Returns the count of the number of non-null values among the column(s)/rows provided as input.
-`SUM()`- Returns the summation of all values from a column provided as input.
-`MIN()`- Returns the minimum value from a column provided as input.
-`MAX()`- Returns the maximum value from a column provided as input.
-`AVG()`- Returns the numerical mean of all values from a column provided as input.
+* `COUNT()`- Returns the count of the number of non-null values among the column(s)/rows provided as input.
+* `SUM()`- Returns the summation of all values from a column provided as input.
+* `MIN()`- Returns the minimum value from a column provided as input.
+* `MAX()`- Returns the maximum value from a column provided as input.
+* `AVG()`- Returns the numerical mean of all values from a column provided as input.
 
 To count the rows in a table, use `COUNT(*)`.
 
@@ -458,7 +458,7 @@ HAVING count(patients.city)>1
 ORDER BY patients.city;
 ```
 
-## Page 20: Recap
+## Page 21: Recap
 
 Today, you continued learning about the language "sequel" or S-Q-L, which is an acronym for "Structured Query Language." 
 
@@ -501,7 +501,7 @@ We covered several important functions, represented in SQL by **keywords** that 
 
 You also got to practice hands on, which probably meant you got to see some error messages, too, which is helpful experience.
 
-## Page 21: Additional Resources
+## Page 22: Additional Resources
 
 * Khan Academy's [Introduction to SQL](https://www.khanacademy.org/computing/computer-programming/sql) is high quality and easy to learn from.
 
@@ -511,12 +511,12 @@ You also got to practice hands on, which probably meant you got to see some erro
 
 * Select Star SQL is a [free interactive book that teaches SQL](https://selectstarsql.com/) by exploring Texas state execution data. The second and third chapters mostly cover topics we learned about today, while the remaining chapters dig deeper.
 
-## Page 22: Upcoming sessions
+## Page 23: Upcoming sessions
 
 Want to see the materials from an earlier session? 
 Everything is available on the [Arcus SQL Skill Series website](https://arcus.github.io/arcus_skill_series_sql/). There's another session of today's topic, SQL intermediate, on December 3.  And later on in December, we have SQL Joins, which you'll want to take because you'll learn how to gather data from multiple tables into one dataset, which is what we almost always have to do in medicine.
 
-## Page 23: Arcus On-Ramp
+## Page 24: Arcus On-Ramp
 
 We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus.  We offer these on a regular, rotating basis all year.
 
@@ -526,7 +526,7 @@ And secondly, because the On-Ramp workshops use real patient data, unlike today'
 
 If you're feeling like you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
 
-## Page 24: 💫 One last poll!
+## Page 25: 💫 One last poll!
 
 I have one final poll for you.
 

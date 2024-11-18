@@ -57,7 +57,7 @@ Get hands-on practice working with real patient data in an Arcus On-Ramp worksho
 </div>
 </div>
 
-[See available dates and sign up for an Arcus On-Ramp workshop](https://arcus.chop.edu/education/webinar-signup). The next SQL On-Ramp is **Nov 20th** (registration closes 11am Nov 13).
+[See available dates and sign up for an Arcus On-Ramp workshop](https://arcus.chop.edu/education/webinar-signup). The next SQL On-Ramp is **January 22nd** (registration closes 11am January 15th).
 
 @end
 
