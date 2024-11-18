@@ -117,6 +117,8 @@ The best way to learn is to practice!
 When we reach 💫 **Your Turn** sections, you'll have a chance to write or edit some SQL code of your own. There will also be opportunities to ask questions, and there will be some polls and other prompts in the chat to respond to.
 
 @end
+
+link:  https://cdn.jsdelivr.net/gh/arcus/arcus_skill_series_sql@main/assets/styles.css
 -->
 
 
