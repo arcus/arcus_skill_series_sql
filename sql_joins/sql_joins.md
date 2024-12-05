@@ -59,7 +59,7 @@ repo_link: [GitHub repository for these materials](https://github.com/arcus/arcu
 module_link: [SQL Joins](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/sql_joins/sql_joins.md)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
-import: https://raw.githubusercontent.com/arcus/education_modules/alasql_data_type_improvement/_module_templates/macros_sql.md
+import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros_sql.md
 
 
 script: https://cdn.jsdelivr.net/npm/alasql@0.6.5/dist/alasql.min.js

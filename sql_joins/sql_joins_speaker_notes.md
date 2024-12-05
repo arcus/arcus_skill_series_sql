@@ -19,7 +19,7 @@ So with that, let's get started!
 
 Today, we'll be learning how to combine data from two or more interrelated tables into one dataset using the JOIN command. This is a hands-on webinar -- we'll be writing some real SQL code! Don't worry, I'll provide plenty of scaffolding when the time comes, and we'll work through things together. 
 
-In previous webinars in this series my colleagues Rose Franzen and Elizabeth Drellich taught you how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
+In previous webinars in this series we went through how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
