@@ -1,8 +1,8 @@
 <!--
 author: Meredith Lee
 email: leemc@chop.edu
-version: 1.0.0
-current_version_description: Initial version
+version: 1.0.1
+current_version_description: Updates to upcoming sessions
 module_type: slides
 docs_version: 3.0.0
 language: en
@@ -59,7 +59,8 @@ repo_link: [GitHub repository for these materials](https://github.com/arcus/arcu
 module_link: [SQL Joins](https://liascript.github.io/course/?https://raw.githubusercontent.com/arcus/education_modules/main/sql_joins/sql_joins.md)
 
 import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros.md
-import: https://raw.githubusercontent.com/arcus/education_modules/alasql_data_type_improvement/_module_templates/macros_sql.md
+import: https://raw.githubusercontent.com/arcus/education_modules/main/_module_templates/macros_sql.md
+import: https://raw.githubusercontent.com/arcus/arcus_skill_series_sql/main/macros_slides.md
 
 
 script: https://cdn.jsdelivr.net/npm/alasql@0.6.5/dist/alasql.min.js
@@ -1388,15 +1389,36 @@ ON disease.subject_id = smoking.subject_id;
 
 ## Upcoming Sessions
 
-This is the last webinar in our five-part SQL series, but we have other offerings coming up: 
-
-* Summary Statistics in R (April 8, 2024, 12pm-1pm ET)
-* Reshaping Data with tidyr (May 6, 2024 12pm-1pm ET)
-* Data Types and Visualizations (June 3, 2024, 12pm-1pm ET)
-
-The link to sign up for any of these sessions is here: [https://arcus.github.io/r102/](https://arcus.github.io/r102/)
+Want to see the materials from an earlier session? 
+Everything is available on the [Arcus SQL Skill Series website](https://arcus.github.io/arcus_skill_series_sql/). There's another session of today's topic, SQL Joins, on [**December 17, 2024 at 4 pm**](https://events.teams.microsoft.com/event/c4d671df-292b-4562-af1d-bcbc49381081@a6112416-07b0-41a5-9bb1-d146b575c975).
 
 Also, if you would like to learn more about Arcus, we welcome you to [sign up for Arcus 101](https://outlook.office365.com/owa/calendar/BKG-StandardArcusEducationOfficeHours@chop.edu/bookings/s/vQqIuHMozkSLitoltva7bg2), an hour-long orientation to what Arcus has to offer that take place on the second Wednesday and the fourth Thursday of each month. 
+
+## Arcus On-Ramp
+
+@onramp_slide
+
+--{{0}}--
+We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus. 
+We offer these on a regular, rotating basis all year.
+
+--{{0}}--
+The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, although the Arcus On-Ramp workshops use tools like SQL, R, and Python, the focus is on how to work in an Arcus Lab, not learning those languages per se. 
+And secondly, because the On-Ramp workshops use real patient data, unlike today's workshop, you need to have completed CITI training and attested the Arcus terms of use before you can sign up.
+
+--{{0}}--
+If you're feeling like you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
+
+## 💫 One last poll!
+
+--{{0}}--
+I have one final poll for you.
+Note that this poll has two questions, so after you answer the first one you'll need to click the little arrow at the bottom right to go to the second question.
+Your time is a non-renewable resource, and it's very important to us that we use your time wisely. 
+Data we collect like this are really important in shaping what kinds of education we offer, so thank you so much for taking a moment to provide feedback!
+
+--{{0}}--
+I'll also turn off the recording now and answer any questions you may have.
 
 ## About these slides
 

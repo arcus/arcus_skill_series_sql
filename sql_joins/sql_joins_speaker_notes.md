@@ -19,7 +19,7 @@ So with that, let's get started!
 
 Today, we'll be learning how to combine data from two or more interrelated tables into one dataset using the JOIN command. This is a hands-on webinar -- we'll be writing some real SQL code! Don't worry, I'll provide plenty of scaffolding when the time comes, and we'll work through things together. 
 
-In previous webinars in this series my colleagues Rose Franzen and Elizabeth Drellich taught you how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
+In previous webinars in this series we went through how to write basic SQL queries using SELECT, FROM, and WHERE, and then to craft more complicated queries using CASE, LIKE, GROUP BY, and some aggregate functions.  Today, we'll first quickly review some of these commands, and then we'll learn how to combine data from multiple tables using the JOIN command. 
 
 <h3><strong><u>CLICK</u></strong></h3>
 
@@ -432,4 +432,20 @@ ON disease.subject_id = smoking.subject_id;
 
 <h3><strong><u>QUESTIONS?</u></strong></h3>
 <h3><strong><u>CLICK</u></strong></h3>
+
+## Upcoming sessions
+
+Want to see the materials from an earlier session? 
+Everything is available on the [Arcus SQL Skill Series website](https://arcus.github.io/arcus_skill_series_sql/). There's another session of today's topic, SQL intermediate, on December 17. That is the last in our SQL series, but stay tuned for more offerings!
+
+<h3><strong><u>CLICK</u></strong></h3>
+
+## Arcus On-Ramp
+
+We offer three different Arcus On-Ramp workshops, each focused on a different aspect of doing research in Arcus, on a regular, rotating basis all year.
+
+The Arcus On-Ramp workshops are different from these skill series workshops in two big ways: First, although the Arcus On-Ramp workshops use tools like SQL, R, and Python, the focus is on how to work in an Arcus Lab, not learning those languages per se. 
+And secondly, because the On-Ramp workshops use real patient data, unlike today's workshop, you need to have completed CITI training and attested the Arcus terms of use before you can sign up.
+
+If you'd like a realistic, worked example of how SQL might be used in an Arcus Lab to answer a research question, then the Arcus On-Ramp is for you!
 
