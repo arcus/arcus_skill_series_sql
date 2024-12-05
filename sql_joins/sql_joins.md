@@ -1,8 +1,8 @@
 <!--
 author: Meredith Lee
 email: leemc@chop.edu
-version: 1.0.0
-current_version_description: Initial version
+version: 1.0.1
+current_version_description: Updates to upcoming sessions
 module_type: slides
 docs_version: 3.0.0
 language: en
